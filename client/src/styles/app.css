@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+  --salmon: #ff7e6b;
+  --black: #0f0f0f;
+  --white: #f5f5f5;
+  --blue: #1282a2;
+  --green: #58b09c;
+}
+
+h1 {
+  color: salmon;
+}
