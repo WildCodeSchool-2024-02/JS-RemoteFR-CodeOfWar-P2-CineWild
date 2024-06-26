@@ -1,0 +1,19 @@
+:root {
+  --salmon: #ff7e6b;
+  --black: #0f0f0f;
+  --white: #f5f5f5;
+  --blue: #1282a2;
+  --green: #58b09c;
+}
+
+.movidCard h1 {
+  color: var(--white);
+}
+
+h1,
+li,
+ul,
+p,
+h3 {
+  color: var(--blue);
+}
