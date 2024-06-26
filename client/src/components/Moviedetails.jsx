@@ -72,28 +72,30 @@ function MovieDetails() {
           <div className="movieDescription">
             <ul>
               <li>
-                <span>Film de :</span>
+                <span className="blue-Font">Film de :</span>
               </li>
               <li>
-                <span>En salle depuis :</span>
+                <span className="blue-Font">En salle depuis :</span>
                 <span> {movieDetails[0].release_date}</span>
               </li>
 
               <li>
-                <span>Casting principal :</span>
+                <span className="blue-Font">Casting principal :</span>
                 <span> Acteur 1, acteur 2</span>
               </li>
               <li>
-                <span>Pays d'origine :</span>
+                <span className="blue-Font">Pays d'origine :</span>
                 <span> Pays 1, Pays 2</span>
               </li>
             </ul>
           </div>
           <div className="synopsis">
-            <h3>Synopsis</h3>
+            <h3 className="blue-Font">Synopsis</h3>
             <p>{movieDetails[0].overview}</p>
           </div>
-          <button type="button">Lien vers la fiche technique</button>
+          <button className="blue-Font" type="button">
+            Fiche technique
+          </button>
         </>
       ) : null}
 

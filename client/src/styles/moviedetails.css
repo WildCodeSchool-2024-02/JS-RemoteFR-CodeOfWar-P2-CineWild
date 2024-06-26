@@ -15,5 +15,13 @@ li,
 ul,
 p,
 h3 {
+  color: var(--white);
+}
+
+.blue-Font {
   color: var(--blue);
+}
+
+main {
+  background-color: var(--black);
 }

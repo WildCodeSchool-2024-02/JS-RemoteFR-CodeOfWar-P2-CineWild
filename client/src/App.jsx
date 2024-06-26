@@ -3,8 +3,11 @@ import MovieDetails from "./components/Moviedetails";
 function App() {
   return (
     <>
-      <h1>Hello</h1>
-      <MovieDetails />
+      <main>
+        <h1>Hello</h1>
+        <MovieDetails />
+      </main>
+      <footer>Boutons</footer>
     </>
   );
 }
