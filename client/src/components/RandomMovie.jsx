@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { useState, useEffect } from "react";
 
 function RandomMovie() {
@@ -11,7 +10,8 @@ function RandomMovie() {
         "https://api.themoviedb.org/3/movie/popular?api_key=cba7267ad4f2c5f2f8db1fc63dbe4822"
       )
       .then((response) => {
-        const randomIndex = Math.floor(Math.random() * 20);
+        const movies = response.data.results;
+        const randomIndex = Math.floor(Math.random() * movies.length);
         setMovie(response.data.results[randomIndex]);
       })
       .catch((error) => console.error(error));
@@ -20,6 +20,8 @@ function RandomMovie() {
   useEffect(() => {
     axiosData();
   }, []);
+
+  console.info("test test:", movie);
 
   return (
     <>
