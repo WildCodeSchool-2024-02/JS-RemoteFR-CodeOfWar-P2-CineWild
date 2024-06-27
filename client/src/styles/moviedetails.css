@@ -31,4 +31,7 @@ main {
   height: 100%;
   background-size: contain;
   background-position: center;
+  padding: 1rem;
+  margin: 0.75rem;
+  border-radius: 0.5rem;
 }
