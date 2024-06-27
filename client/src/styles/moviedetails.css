@@ -6,9 +6,7 @@
   --green: #58b09c;
 }
 
-.movidCard h1 {
-  color: var(--white);
-}
+/* #region ----- General */
 
 h1,
 li,
@@ -26,6 +24,15 @@ main {
   background-color: var(--black);
 }
 
+button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/*  #endregion */
+
 /* #region ----- Movie Card */
 .movieCard {
   width: auto;
@@ -39,17 +46,23 @@ main {
 .movieCard h1 {
   font-size: 1.25rem;
   padding-bottom: 0.75rem;
+  font-weight: 600;
 }
 
 .frontImg {
   width: 81px;
   height: 94px;
+  border-radius: 6px;
 }
 
 .movieCard ul {
   list-style: none;
   display: flex;
   flex-direction: row;
+}
+
+.movieCard li {
+  line-height: 1.5rem;
 }
 
 .movieCardList {
@@ -59,6 +72,47 @@ main {
 .ratingAndFavorite {
   display: flex;
   flex-direction: row;
+}
+
+.ratingAndFavorite li {
+  padding-right: 2rem;
+}
+
+/*  #endregion */
+
+/* #region ----- Movie Description */
+
+.movieDescription {
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.movieDescription li {
+  list-style: none;
+  line-height: 2rem;
+}
+
+/*  #endregion */
+
+/* #region ----- Synopsis */
+
+.synopsis {
+  padding: 1rem;
+}
+
+.synopsis h3 {
+  padding-bottom: 1rem;
+}
+
+.synopsis p {
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+
+.fullDetails {
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  font-weight: 600;
 }
 
 /*  #endregion */

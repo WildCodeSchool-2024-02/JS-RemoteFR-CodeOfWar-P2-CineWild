@@ -56,15 +56,15 @@ function MovieDetails() {
                 <li>{releaseYear()} | Durée ?</li>
                 <li>
                   <ul>
-                    {movieDetails[0].genre_ids[0]}
-                    {movieDetails[0].genre_ids[1]}
+                    {movieDetails[0].genre_ids[0]},
+                    {movieDetails[0].genre_ids[1]},
                     {movieDetails[0].genre_ids[2]}
                   </ul>
                 </li>
                 <div className="ratingAndFavorite">
-                  <li>{movieDetails[0].vote_average} ⭐</li>
+                  <li>{movieDetails[0].vote_average.toFixed(1)}⭐</li>
                   <button onClick={handleClickFavorite} type="button">
-                    {isFavorite ? "❤️" : "🖤"}
+                    {isFavorite ? "Remove ❤️" : "Add 🖤"}
                   </button>
                 </div>
               </div>
@@ -74,6 +74,7 @@ function MovieDetails() {
             <ul>
               <li>
                 <span className="blue-Font">Film de :</span>
+                <span> Personne (2ème API)</span>
               </li>
               <li>
                 <span className="blue-Font">En salle depuis :</span>
@@ -82,7 +83,7 @@ function MovieDetails() {
 
               <li>
                 <span className="blue-Font">Casting principal :</span>
-                <span> Acteur 1, acteur 2</span>
+                <span> Acteur 1, acteur 2 (2ème API)</span>
               </li>
               <li>
                 <span className="blue-Font">Pays d'origine :</span>
@@ -94,7 +95,7 @@ function MovieDetails() {
             <h3 className="blue-Font">Synopsis</h3>
             <p>{movieDetails[0].overview}</p>
           </div>
-          <button className="blue-Font" type="button">
+          <button className="blue-Font fullDetails" type="button">
             Fiche technique
           </button>
         </>
