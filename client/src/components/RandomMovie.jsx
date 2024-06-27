@@ -1,4 +1,6 @@
+import "../styles/randomMovie.css";
 import axios from "axios";
+
 import { useState, useEffect } from "react";
 
 function RandomMovie() {
@@ -12,7 +14,7 @@ function RandomMovie() {
       .then((response) => {
         const movies = response.data.results;
         const randomIndex = Math.floor(Math.random() * movies.length);
-        setMovie(response.data.results[randomIndex]);
+        setMovie(movies[randomIndex]);
       })
       .catch((error) => console.error(error));
   };
@@ -24,20 +26,36 @@ function RandomMovie() {
   console.info("test test:", movie);
 
   return (
-    <>
-      <h1>Coucou c'est nous</h1>
-      <p>{movie.original_title}</p>
+    <section
+      className="cardRandom"
+      /* style={{
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`,
+      }} */
+    >
       <img
+        className="backgroundPicture"
         src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
         alt="backdrop"
       />
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt="poster"
-      />
-
-      <button type="button"> Voir la fich </button>
-    </>
+      <div className="informationsMovie">
+        <div className="poster">
+          <img
+            className="posterPicture"
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt="poster"
+          />
+        </div>
+        <div className="titleMovie">
+          <h1>{movie.original_title}</h1>
+          <button type="button" className="buttonSalmon">
+            {" "}
+            Voir la fiche{" "}
+          </button>
+        </div>
+      </div>
+    </section>
   );
 }
 
