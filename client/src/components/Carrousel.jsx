@@ -19,7 +19,7 @@ function Carrousel() {
   const fetchData = () => {
     axios
       .get(
-        "https://api.themoviedb.org/3/trending/movie/day?api_key=7d69be1456b1669d67a9f811eab55eec&language=fr-FR"
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
       )
       .then((response) => {
         setMovies(response.data.results);
