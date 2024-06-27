@@ -62,7 +62,7 @@ function MovieDetails() {
                   </ul>
                 </li>
                 <div className="ratingAndFavorite">
-                  <li>{movieDetails[0].vote_average.toFixed(1)}⭐</li>
+                  <li>⭐{movieDetails[0].vote_average.toFixed(1)}</li>
                   <button onClick={handleClickFavorite} type="button">
                     {isFavorite ? "Remove ❤️" : "Add 🖤"}
                   </button>
