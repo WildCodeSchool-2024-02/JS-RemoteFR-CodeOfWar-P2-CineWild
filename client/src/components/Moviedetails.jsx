@@ -44,12 +44,6 @@ function MovieDetails() {
               backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails[0].backdrop_path})`,
             }}
           >
-            {/* <img
-              src={`https://image.tmdb.org/t/p/w500/${movieDetails[0].backdrop_path}`}
-              alt=""
-              className="frontImg"
-            /> */}
-
             <img
               src={`https://image.tmdb.org/t/p/w500/${movieDetails[0].poster_path}`}
               alt=""
