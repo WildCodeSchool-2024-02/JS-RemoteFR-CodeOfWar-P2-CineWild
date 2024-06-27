@@ -23,8 +23,6 @@ function RandomMovie() {
     axiosData();
   }, []);
 
-  console.info("test test:", movie);
-
   return (
     <section
       className="cardRandom"
