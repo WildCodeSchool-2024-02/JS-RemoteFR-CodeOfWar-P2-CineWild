@@ -1,68 +1,48 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../styles/moviedetails.css";
+import PropTypes from "prop-types";
 
-function MovieDetails() {
-  const [movieDetails, setMovieDetails] = useState([]);
-
-  const fetchData = () => {
-    axios
-      .get(
-        "https://api.themoviedb.org/3/trending/movie/day?api_key=7d69be1456b1669d67a9f811eab55eec&language=fr-FR"
-      )
-      .then((response) => {
-        setMovieDetails(response.data.results);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-  console.info(movieDetails);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+function AllTrendingMovies({ allTrendingMovies }) {
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
   };
 
   const releaseYear = () => {
-    const date = new Date(movieDetails[0].release_date);
+    const date = new Date(allTrendingMovies[0].release_date);
     const year = date.getFullYear();
     return year;
   };
 
   return (
     <>
-      {movieDetails.length ? (
+      {allTrendingMovies.length ? (
         <>
           <div
             className="movieCard"
             style={{
-              backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails[0].backdrop_path})`,
+              backgroundImage: `url(https://image.tmdb.org/t/p/w500/${allTrendingMovies[0].backdrop_path})`,
             }}
           >
-            <h1>{movieDetails[0].title}</h1>
+            <h1>{allTrendingMovies[0].title}</h1>
             <ul className="movieCardContent">
               <img
-                src={`https://image.tmdb.org/t/p/w500/${movieDetails[0].poster_path}`}
+                src={`https://image.tmdb.org/t/p/w500/${allTrendingMovies[0].poster_path}`}
                 alt=""
                 className="frontImg"
               />
               <div className="movieCardList">
-                <li>{movieDetails[0].original_title}</li>
+                <li>{allTrendingMovies[0].original_title}</li>
                 <li>{releaseYear()} | Durée ?</li>
                 <li>
                   <ul>
-                    {movieDetails[0].genre_ids[0]},
-                    {movieDetails[0].genre_ids[1]},
-                    {movieDetails[0].genre_ids[2]}
+                    {allTrendingMovies[0].genre_ids[0]},
+                    {allTrendingMovies[0].genre_ids[1]},
+                    {allTrendingMovies[0].genre_ids[2]}
                   </ul>
                 </li>
                 <div className="ratingAndFavorite">
-                  <li>⭐{movieDetails[0].vote_average.toFixed(1)}</li>
+                  <li>⭐{allTrendingMovies[0].vote_average.toFixed(1)}</li>
                   <button onClick={handleClickFavorite} type="button">
                     {isFavorite ? "Remove ❤️" : "Add 🖤"}
                   </button>
@@ -78,7 +58,7 @@ function MovieDetails() {
               </li>
               <li>
                 <span className="blue-Font">En salle depuis :</span>
-                <span> {movieDetails[0].release_date}</span>
+                <span> {allTrendingMovies[0].release_date}</span>
               </li>
 
               <li>
@@ -93,7 +73,7 @@ function MovieDetails() {
           </div>
           <div className="synopsis">
             <h3 className="blue-Font">Synopsis</h3>
-            <p>{movieDetails[0].overview}</p>
+            <p>{allTrendingMovies[0].overview}</p>
           </div>
           <button className="blue-Font fullDetails" type="button">
             Fiche technique
@@ -106,4 +86,8 @@ function MovieDetails() {
   );
 }
 
-export default MovieDetails;
+AllTrendingMovies.propTypes = {
+  allTrendingMovies: PropTypes.arrayOf(PropTypes.shape).isRequired,
+};
+
+export default AllTrendingMovies;
