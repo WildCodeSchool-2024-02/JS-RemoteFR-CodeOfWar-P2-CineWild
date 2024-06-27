@@ -9,7 +9,7 @@ function RandomMovie() {
   const axiosData = () => {
     axios
       .get(
-        "https://api.themoviedb.org/3/movie/popular?api_key=cba7267ad4f2c5f2f8db1fc63dbe4822"
+        `https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_API_KEY}`
       )
       .then((response) => {
         const movies = response.data.results;
