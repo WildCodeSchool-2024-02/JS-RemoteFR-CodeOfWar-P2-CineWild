@@ -28,17 +28,12 @@ function RandomMovie() {
   return (
     <section
       className="cardRandom"
-      /* style={{
+      style={{
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`,
-      }} */
+      }}
     >
-      <img
-        className="backgroundPicture"
-        src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-        alt="backdrop"
-      />
       <div className="informationsMovie">
         <div className="poster">
           <img
