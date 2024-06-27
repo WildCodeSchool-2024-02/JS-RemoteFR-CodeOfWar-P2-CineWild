@@ -44,27 +44,29 @@ function MovieDetails() {
               backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails[0].backdrop_path})`,
             }}
           >
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${movieDetails[0].poster_path}`}
-              alt=""
-              className="frontImg"
-            />
-
             <h1>{movieDetails[0].title}</h1>
-            <ul>
-              <li>{movieDetails[0].original_title}</li>
-              <li>{releaseYear()} | Durée ?</li>
-              <li>
-                <ul>
-                  {movieDetails[0].genre_ids[0]} {movieDetails[0].genre_ids[1]}{" "}
-                  {movieDetails[0].genre_ids[2]}
-                </ul>
-              </li>
-              <div className="ratingAndAddFavorite">
-                <li>{movieDetails[0].vote_average} ⭐</li>
-                <button onClick={handleClickFavorite} type="button">
-                  {isFavorite ? "❤️" : "🖤"}
-                </button>
+            <ul className="movieCardContent">
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${movieDetails[0].poster_path}`}
+                alt=""
+                className="frontImg"
+              />
+              <div className="movieCardList">
+                <li>{movieDetails[0].original_title}</li>
+                <li>{releaseYear()} | Durée ?</li>
+                <li>
+                  <ul>
+                    {movieDetails[0].genre_ids[0]}
+                    {movieDetails[0].genre_ids[1]}
+                    {movieDetails[0].genre_ids[2]}
+                  </ul>
+                </li>
+                <div className="ratingAndFavorite">
+                  <li>{movieDetails[0].vote_average} ⭐</li>
+                  <button onClick={handleClickFavorite} type="button">
+                    {isFavorite ? "❤️" : "🖤"}
+                  </button>
+                </div>
               </div>
             </ul>
           </div>

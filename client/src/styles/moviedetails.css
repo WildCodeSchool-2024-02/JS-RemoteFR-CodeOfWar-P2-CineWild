@@ -26,6 +26,7 @@ main {
   background-color: var(--black);
 }
 
+/* #region ----- Movie Card */
 .movieCard {
   width: auto;
   height: 100%;
@@ -35,3 +36,29 @@ main {
   margin: 0.75rem;
   border-radius: 0.5rem;
 }
+.movieCard h1 {
+  font-size: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+.frontImg {
+  width: 81px;
+  height: 94px;
+}
+
+.movieCard ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.movieCardList {
+  padding-left: 1rem;
+}
+
+.ratingAndFavorite {
+  display: flex;
+  flex-direction: row;
+}
+
+/*  #endregion */
