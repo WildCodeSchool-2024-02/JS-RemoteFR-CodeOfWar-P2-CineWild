@@ -1,30 +1,10 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import MovieDetails from "./components/Moviedetails";
+import TrendingMovies from "./components/TrendingMovies";
 
 function App() {
-  const [allTrendingMovies, setAllTrendingMovies] = useState([]);
-  function FetchTrendingMovies() {
-    axios
-      .get(
-        "https://api.themoviedb.org/3/trending/movie/day?api_key=7d69be1456b1669d67a9f811eab55eec&language=fr-FR"
-      )
-      .then((response) => {
-        setAllTrendingMovies(response.data.results);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-
-  useEffect(() => {
-    FetchTrendingMovies();
-  }, []);
-
   return (
     <>
       <main>
-        <MovieDetails allTrendingMovies={allTrendingMovies} />
+        <TrendingMovies />
       </main>
       <footer>Boutons</footer>
     </>
