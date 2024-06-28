@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import MovieDetails from "./MovieDetails";
 
 function TrendingMovies() {
   const [allTrendingMovies, setAllTrendingMovies] = useState([]);
@@ -21,8 +22,7 @@ function TrendingMovies() {
   }, []);
 
   return allTrendingMovies.length ? (
-    // <MovieDetails allTrendingMovies={allTrendingMovies} />
-    <h1>Debug</h1>
+    <MovieDetails allTrendingMovies={allTrendingMovies} />
   ) : null;
 }
 
