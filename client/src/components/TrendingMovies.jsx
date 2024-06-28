@@ -24,6 +24,10 @@ function TrendingMovies() {
   return allTrendingMovies.length ? (
     <MovieDetails allTrendingMovies={allTrendingMovies} />
   ) : null;
+
+  // return allTrendingMovies.map((movie, index) => (
+  //   <MovieDetails movie={allTrendingMovies[index]} key={movie.id} />
+  // ));
 }
 
 export default TrendingMovies;
