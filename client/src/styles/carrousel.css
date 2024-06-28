@@ -17,6 +17,7 @@ body {
   height: 300px;
   max-height: 100vh;
   background: var(--black);
+  font-weight: bold;
 }
 
 /* .number-slide1,
