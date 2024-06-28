@@ -21,7 +21,9 @@ function TrendingMovies() {
     FetchTrendingMovies();
   }, []);
 
-  return <MovieDetails allTrendingMovies={allTrendingMovies} />;
+  return allTrendingMovies.length ? (
+    <MovieDetails allTrendingMovies={allTrendingMovies} />
+  ) : null;
 }
 
 export default TrendingMovies;
