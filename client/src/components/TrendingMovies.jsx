@@ -11,6 +11,7 @@ function TrendingMovies() {
       )
       .then((response) => {
         setAllTrendingMovies(response.data.results);
+        console.info(response.data.results);
       })
       .catch((error) => {
         console.error(error);
@@ -21,7 +22,8 @@ function TrendingMovies() {
     FetchTrendingMovies();
   }, []);
 
-  return allTrendingMovies.length
+  // > 0 non nécessaire
+  return allTrendingMovies.length > 0
     ? allTrendingMovies.map((movie) => (
         <MovieDetails movie={movie} key={movie.id} />
       ))

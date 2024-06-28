@@ -19,13 +19,13 @@ function MovieDetails({ movie }) {
       <div
         className="movieCard"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path}&language=fr-FR)`,
         }}
       >
         <h1>{movie.title}</h1>
         <ul className="movieCardContent">
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}&language=fr-FR`}
             alt=""
             className="frontImg"
           />
