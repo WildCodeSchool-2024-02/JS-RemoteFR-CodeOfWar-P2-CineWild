@@ -11,14 +11,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 50px;
+  font-size: 25px;
   color: #fff;
   font-weight: 500;
   height: 300px;
   max-height: 100vh;
+  background: var(--black);
 }
 
-.number-slide1,
+/* .number-slide1,
 .number-slide7,
 .number-slide13,
 .number-slide19 {
@@ -92,4 +93,23 @@ body {
     rgba(64, 76, 255, 1) 0%,
     rgba(174, 63, 255, 1) 100%
   );
+} */
+.posterCarrouselPicture {
+  width: 100%;
+  margin-top: -3rem;
+  height: 15rem;
+}
+#film {
+  display: flex;
+  flex-direction: column;
+}
+.keen-slider {
+  background: var(--black);
+}
+h1 {
+  font-size: var(--main-font);
+  font-size: larger;
+  text-decoration: underline;
+  text-decoration-color: var(--salmon);
+  padding: 2rem 0rem 1rem 0rem;
 }

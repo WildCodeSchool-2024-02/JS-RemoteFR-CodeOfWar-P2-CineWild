@@ -36,7 +36,7 @@
 }
 
 h1 {
-  color: #f5f5f5;
+  color: var(#f5f5f5);
 }
 
 .buttonSalmon {
@@ -44,8 +44,8 @@ h1 {
   width: 10rem;
   padding: 1rem;
   border-radius: 0.25rem;
-  background-color: #ff7e6b;
-  color: #f5f5f5;
+  background-color: var(#ff7e6b);
+  color: var(#f5f5f5);
   text-decoration: none;
   cursor: pointer;
   text-align: center;
