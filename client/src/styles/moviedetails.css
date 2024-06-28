@@ -1,0 +1,111 @@
+:root {
+  --salmon: #ff7e6b;
+  --black: #0f0f0f;
+  --white: #f5f5f5;
+  --blue: #1282a2;
+  --green: #58b09c;
+}
+
+/* #region ----- General */
+
+h1,
+li,
+ul,
+p,
+h3 {
+  color: var(--white);
+}
+
+.blue-Font {
+  color: var(--blue);
+}
+
+main {
+  background-color: var(--black);
+  padding: 1.25rem;
+}
+
+button {
+  all: unset;
+}
+
+/*  #endregion */
+
+/* #region ----- Movie Card */
+.movieCard {
+  width: auto;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.movieCard h1 {
+  font-size: 1.25rem;
+  padding-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.frontImg {
+  width: 81px;
+  height: 94px;
+  border-radius: 6px;
+}
+
+.movieCard ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.movieCard li {
+  line-height: 1.5rem;
+}
+
+.movieCardList {
+  padding-left: 1rem;
+}
+
+.ratingAndFavorite {
+  display: flex;
+  flex-direction: row;
+}
+
+.ratingAndFavorite li {
+  padding-right: 2rem;
+}
+
+/*  #endregion */
+
+/* #region ----- Movie Description */
+
+.movieDescription {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.movieDescription li {
+  list-style: none;
+  line-height: 2rem;
+}
+
+/*  #endregion */
+
+/* #region ----- Synopsis */
+
+.synopsis h3 {
+  padding-bottom: 1rem;
+}
+
+.synopsis p {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.fullDetails {
+  padding-bottom: 1rem;
+  font-weight: 600;
+}
+
+/*  #endregion */

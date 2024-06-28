@@ -1,12 +1,16 @@
+import TrendingMovies from "./components/TrendingMovies";
 import Carrousel from "./components/Carrousel";
 import RandomMovie from "./components/RandomMovie";
 
 function App() {
   return (
     <>
-      <h1>Hello</h1>
-      <RandomMovie />
-      <Carrousel />
+      <main>
+        <TrendingMovies />
+        <RandomMovie />
+        <Carrousel />
+      </main>
+      <footer>Boutons</footer>
     </>
   );
 }
