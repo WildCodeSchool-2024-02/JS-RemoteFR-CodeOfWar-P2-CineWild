@@ -7,7 +7,7 @@ function TrendingMovies() {
   function FetchTrendingMovies() {
     axios
       .get(
-        `https://api.themoviedb.org/3/trending/movie/day?api_key=${import.meta.env.VITE_MY_API_KEY}&language=fr-FR`
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
       )
       .then((response) => {
         setAllTrendingMovies(response.data.results);
@@ -21,13 +21,11 @@ function TrendingMovies() {
     FetchTrendingMovies();
   }, []);
 
-  return allTrendingMovies.length ? (
-    <MovieDetails allTrendingMovies={allTrendingMovies} />
-  ) : null;
-
-  // return allTrendingMovies.map((movie, index) => (
-  //   <MovieDetails movie={allTrendingMovies[index]} key={movie.id} />
-  // ));
+  return allTrendingMovies.length
+    ? allTrendingMovies.map((movie) => (
+        <MovieDetails movie={movie} key={movie.id} />
+      ))
+    : null;
 }
 
 export default TrendingMovies;
