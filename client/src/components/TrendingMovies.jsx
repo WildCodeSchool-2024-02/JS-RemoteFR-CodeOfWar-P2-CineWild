@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import MovieDetails from "./Moviedetails";
+import MovieDetails from "./MovieDetails";
 
 function TrendingMovies() {
   const [allTrendingMovies, setAllTrendingMovies] = useState([]);

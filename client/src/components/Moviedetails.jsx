@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../styles/moviedetails.css";
 import PropTypes from "prop-types";
 
-function AllTrendingMovies({ allTrendingMovies }) {
+function MovieDetails({ allTrendingMovies }) {
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
@@ -86,8 +86,8 @@ function AllTrendingMovies({ allTrendingMovies }) {
   );
 }
 
-AllTrendingMovies.propTypes = {
+MovieDetails.propTypes = {
   allTrendingMovies: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };
 
-export default AllTrendingMovies;
+export default MovieDetails;
