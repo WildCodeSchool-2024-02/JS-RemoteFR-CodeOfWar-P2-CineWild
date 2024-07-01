@@ -1,14 +1,12 @@
+import { Outlet } from "react-router-dom";
 import TrendingMovies from "./components/TrendingMovies";
-import Carrousel from "./components/Carrousel";
-import RandomMovie from "./components/RandomMovie";
 
 function App() {
   return (
     <>
       <main>
         <TrendingMovies />
-        <RandomMovie />
-        <Carrousel />
+        <Outlet />
       </main>
       <footer>Boutons</footer>
     </>
