@@ -37,6 +37,7 @@ function Carrousel() {
   return (
     <>
       <h1>Tendances</h1>
+
       <div ref={sliderRef} className="keen-slider">
         {movies.map((movie, index) => (
           <div
