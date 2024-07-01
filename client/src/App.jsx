@@ -6,9 +6,9 @@ function App() {
   return (
     <>
       <main>
-        <TrendingMovies />
         <RandomMovie />
         <Carrousel />
+        <TrendingMovies />
       </main>
       <footer>Boutons</footer>
     </>
