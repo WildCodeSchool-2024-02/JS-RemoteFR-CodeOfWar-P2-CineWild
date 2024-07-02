@@ -1,16 +1,15 @@
-import TrendingMovies from "./components/TrendingMovies";
-import Carrousel from "./components/Carrousel";
-import RandomMovie from "./components/RandomMovie";
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
+      <NavBar />
       <main>
-        <RandomMovie />
-        <Carrousel />
-        <TrendingMovies />
+        <Outlet />
       </main>
-      <footer>Boutons</footer>
+      <Footer />
     </>
   );
 }
