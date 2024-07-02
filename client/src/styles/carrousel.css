@@ -11,10 +11,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 25px;
+  /* font-size: 25px; */
   color: var(--white);
   font-weight: 500;
-  height: 300px;
+  height: auto;
   max-height: 100vh;
   background: var(--black);
   font-weight: bold;
@@ -22,14 +22,18 @@ body {
 
 .posterCarrouselPicture {
   width: 100%;
-  margin-top: -3rem;
-  height: 15rem;
+
+  height: 15.5rem;
   border-radius: 20px;
+  padding-bottom: 0.5rem;
 }
 #film {
   display: flex;
   flex-direction: column;
-  border-radius: 20px;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding-bottom: 1rem;
 }
 .keen-slider {
   background: var(--black);
