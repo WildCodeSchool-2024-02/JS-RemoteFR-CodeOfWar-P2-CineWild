@@ -16,7 +16,6 @@ function TrendingMovies() {
         console.error(error);
       });
   }
-
   useEffect(() => {
     FetchTrendingMovies();
   }, []);
