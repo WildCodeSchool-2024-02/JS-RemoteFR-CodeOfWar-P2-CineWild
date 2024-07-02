@@ -28,7 +28,6 @@ function PopularMovies() {
         console.error(error);
       });
   };
-  console.info(setPopularMovies);
 
   useEffect(() => {
     fetchData();

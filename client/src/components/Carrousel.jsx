@@ -28,7 +28,6 @@ function Carrousel() {
         console.error(error);
       });
   };
-  console.info(setMovies);
 
   useEffect(() => {
     fetchData();
