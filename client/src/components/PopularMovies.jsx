@@ -1,11 +1,12 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "../styles/carrousel.css";
-import axios from "axios";
-import { useState, useEffect } from "react";
+// import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 function PopularMovies() {
-  const [popularmovies, setPopularMovies] = useState([]);
+  const popularmovies = useLoaderData();
+  // const [popularmovies, setPopularMovies] = useState([]);
 
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
@@ -16,22 +17,9 @@ function PopularMovies() {
     },
   });
 
-  const fetchData = () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
-      )
-      .then((response) => {
-        setPopularMovies(response.data.results);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  // fetchData();
+  // }, []);
 
   return (
     <>
