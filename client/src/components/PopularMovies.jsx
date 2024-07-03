@@ -3,7 +3,7 @@ import "keen-slider/keen-slider.min.css";
 import "../styles/carrousel.css";
 import PropTypes from "prop-types";
 
-function Carrousel({ movies }) {
+function PopularMovies({ movies }) {
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
     slides: {
@@ -12,10 +12,9 @@ function Carrousel({ movies }) {
       spacing: 15,
     },
   });
-
   return (
     <>
-      <h1>Tendances</h1>
+      <h1>Populaires</h1>
 
       <div ref={sliderRef} className="keen-slider">
         {movies.map((movie, index) => (
@@ -38,7 +37,7 @@ function Carrousel({ movies }) {
   );
 }
 
-Carrousel.propTypes = {
+PopularMovies.propTypes = {
   movies: PropTypes.arrayOf({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
@@ -47,4 +46,4 @@ Carrousel.propTypes = {
   }).isRequired,
 };
 
-export default Carrousel;
+export default PopularMovies;

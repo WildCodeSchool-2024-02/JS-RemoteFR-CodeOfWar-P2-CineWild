@@ -16,14 +16,15 @@ function TrendingMovies() {
         console.error(error);
       });
   }
-
   useEffect(() => {
     FetchTrendingMovies();
   }, []);
 
-  return allTrendingMovies.length ? (
-    <MovieDetails allTrendingMovies={allTrendingMovies} />
-  ) : null;
+  return allTrendingMovies.length
+    ? allTrendingMovies.map((movie) => (
+        <MovieDetails movie={movie} key={movie.id} />
+      ))
+    : null;
 }
 
 export default TrendingMovies;

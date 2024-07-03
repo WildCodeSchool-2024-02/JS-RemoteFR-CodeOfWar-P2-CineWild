@@ -29,7 +29,7 @@ function RandomMovie() {
       style={{
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`,
+        backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path}&language=fr-FR)`,
       }}
     >
       <div className="informationsMovie">
