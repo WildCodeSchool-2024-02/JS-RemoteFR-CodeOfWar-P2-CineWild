@@ -6,6 +6,7 @@ function NavBar() {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/movie">Movie</Link>
+        <Link to="/actor">Acteur</Link>
       </nav>
     </div>
   );
