@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { getCarrousel, getPopularMovies } from "./services/request";
 
 import App from "./App";
 import Home from "./pages/Home";
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: async () => ({
+          trending: await getCarrousel(),
+          popular: await getPopularMovies(),
+        }),
       },
       {
         path: "/movie",
