@@ -30,7 +30,7 @@ function Carrousel({ movies }) {
               alt={movie.title}
             />
             {movie.title} <br />
-            {movie.vote_average}
+            {movie.vote_average.toFixed(1)}
           </div>
         ))}
       </div>
