@@ -4,12 +4,12 @@ import Carrousel from "../components/Carrousel";
 import PopularMovies from "../components/PopularMovies";
 
 function Home() {
-  const { trending, popular } = useLoaderData();
+  const { trendingMovies, popularMovies, randomMovie } = useLoaderData();
   return (
     <>
-      <RandomMovie />
-      <Carrousel movies={trending} />
-      <PopularMovies movies={popular} />
+      <RandomMovie randomMovie={randomMovie} />
+      <Carrousel trendingMovies={trendingMovies} />
+      <PopularMovies popularMovies={popularMovies} />
     </>
   );
 }

@@ -1,12 +1,27 @@
 import axios from "axios";
 
+// API random movie
+export function getRandomMovies() {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
+    )
+    .then((response) => {
+      const movies = response.data.results;
+      const randomIndex = Math.floor(Math.random() * movies.length);
+      return movies[randomIndex];
+    })
+    .catch((error) => console.error(error));
+}
+
 // API de la page film
 export function getDetailsMovies(id) {
   return axios
     .get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
     )
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch((error) => console.error(error));
 }
 
 // Carrousel avec les trending movies

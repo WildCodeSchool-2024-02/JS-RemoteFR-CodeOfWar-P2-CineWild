@@ -4,7 +4,7 @@ import "../styles/carrousel.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function Carrousel({ movies }) {
+function Carrousel({ trendingMovies }) {
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
     slides: {
@@ -19,7 +19,7 @@ function Carrousel({ movies }) {
       <h1>Tendances</h1>
 
       <div ref={sliderRef} className="keen-slider">
-        {movies.map((movie, index) => (
+        {trendingMovies.map((movie, index) => (
           <div
             key={movie.id}
             className={`keen-slider__slide number-slide${index}`}
@@ -42,7 +42,7 @@ function Carrousel({ movies }) {
 }
 
 Carrousel.propTypes = {
-  movies: PropTypes.arrayOf({
+  trendingMovies: PropTypes.arrayOf({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,
