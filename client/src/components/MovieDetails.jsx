@@ -17,6 +17,16 @@ function MovieDetails() {
     return year;
   };
 
+  const releaseDate = () => {
+    const event = new Date(movieInfo.release_date);
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    return event.toLocaleDateString("fr-FR", options);
+  };
+
   return (
     <>
       <div
@@ -58,7 +68,7 @@ function MovieDetails() {
           </li>
           <li>
             <span className="blue-Font">En salle depuis :</span>
-            <span> {movieInfo.release_date}</span>
+            <span> {releaseDate()}</span>
           </li>
 
           <li>
