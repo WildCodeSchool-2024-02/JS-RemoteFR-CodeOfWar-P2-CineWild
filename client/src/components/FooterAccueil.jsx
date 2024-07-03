@@ -29,5 +29,6 @@ function FooterAccueil() {
       </div>
     </div>
   );
+  
 }
 export default FooterAccueil;
