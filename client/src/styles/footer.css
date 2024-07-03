@@ -2,6 +2,11 @@
   background-color: #0f0f0f;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem;
-  color: aliceblue;
+}
+img {
+  width: 40px;
+  height: 40px;
+}
+.footer > .image {
+  padding: 1.5rem;
 }

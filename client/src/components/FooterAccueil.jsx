@@ -5,38 +5,32 @@ import "../styles/footer.css";
 function FooterAccueil() {
   return (
     <div className="footer">
-      <div className="home">
+      <div className="image">
         <Link to="/">
-            <img
-            src="../src/assets/images/home.svg"
-            alt="home"
-            width={50}
-            height={50}
-            />
+          <img src="../src/assets/images/home.svg" alt="home" />
         </Link>
       </div>
-      <div className="favoris">
-       <Link to="/favoris">
-        <img
+      <div className="image">
+        <Link to="/favoris">
+          <img
             src="../src/assets/images/favorite.svg"
             alt="favoris"
             width={50}
             height={50}
-            />
-       </Link>
+          />
+        </Link>
       </div>
-      <div className="profil">
+      <div className="image">
         <Link to="user">
-            <img
+          <img
             src="../src/assets/images/user.svg"
             alt="profil"
             width={50}
             height={50}
-            />
+          />
         </Link>
       </div>
     </div>
   );
-  
 }
 export default FooterAccueil;
