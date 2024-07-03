@@ -3,7 +3,7 @@ import "keen-slider/keen-slider.min.css";
 import "../styles/carrousel.css";
 import PropTypes from "prop-types";
 
-function PopularMovies({ movies }) {
+function PopularMovies({ popularMovies }) {
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
     slides: {
@@ -17,7 +17,7 @@ function PopularMovies({ movies }) {
       <h1>Populaires</h1>
 
       <div ref={sliderRef} className="keen-slider">
-        {movies.map((movie, index) => (
+        {popularMovies.map((movie, index) => (
           <div
             key={movie.id}
             className={`keen-slider__slide number-slide${index}`}
@@ -38,7 +38,7 @@ function PopularMovies({ movies }) {
 }
 
 PopularMovies.propTypes = {
-  movies: PropTypes.arrayOf({
+  popularMovies: PropTypes.arrayOf({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,

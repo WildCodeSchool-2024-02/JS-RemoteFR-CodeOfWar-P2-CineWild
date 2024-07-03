@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
+  getRandomMovies,
   getCarrousel,
   getPopularMovies,
   getDetailsMovies,
@@ -11,6 +12,11 @@ import {
 
 import App from "./App";
 import Home from "./pages/Home";
+
+// import Movie from "./pages/Movie";
+import Favoris from "./pages/Favoris";
+import User from "./pages/User";
+
 import MovieDetails from "./components/MovieDetails";
 
 const router = createBrowserRouter([
@@ -21,14 +27,23 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: async () => ({
-          trending: await getCarrousel(),
-          popular: await getPopularMovies(),
+          randomMovie: await getRandomMovies(),
+          trendingMovies: await getCarrousel(),
+          popularMovies: await getPopularMovies(),
         }),
       },
       {
         path: "/movies/:id",
         element: <MovieDetails />,
         loader: ({ params }) => getDetailsMovies(params.id),
+      },
+      {
+        path: "/favoris",
+        element: <Favoris />,
+      },
+      {
+        path: "/user",
+        element: <User />,
       },
     ],
   },

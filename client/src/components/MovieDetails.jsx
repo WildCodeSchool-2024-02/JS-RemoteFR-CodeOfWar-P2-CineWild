@@ -27,6 +27,12 @@ function MovieDetails() {
     return event.toLocaleDateString("fr-FR", options);
   };
 
+  const runTime = () => {
+    const hours = Math.floor(movieInfo.runtime / 60);
+    const minutes = movieInfo.runtime % 60;
+    return `${hours}h ${minutes}min`;
+  };
+
   return (
     <>
       <div
@@ -44,11 +50,14 @@ function MovieDetails() {
           />
           <div className="movieCardList">
             <li>{movieInfo.original_title}</li>
-            <li>{releaseYear()} | Durée ?</li>
+            <li>
+              {releaseYear()} | {runTime()}
+            </li>
             <li>
               <ul>
-                {/* {movieInfo.genre_ids},{movieInfo.genre_ids[1]},
-                {movieInfo.genre_ids[2]} */}
+                {movieInfo.genres.map((genre) => (
+                  <li key={genre.id}>{genre.name}</li>
+                ))}
               </ul>
             </li>
             <div className="ratingAndFavorite">
