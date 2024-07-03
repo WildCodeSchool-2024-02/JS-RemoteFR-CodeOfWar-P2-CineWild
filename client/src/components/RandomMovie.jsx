@@ -1,55 +1,47 @@
 import "../styles/randomMovie.css";
-import axios from "axios";
 
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-function RandomMovie() {
-  const [movie, setMovie] = useState([]);
+import PropTypes from "prop-types";
 
-  const axiosData = () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
-      )
-      .then((response) => {
-        const movies = response.data.results;
-        const randomIndex = Math.floor(Math.random() * movies.length);
-        setMovie(movies[randomIndex]);
-      })
-      .catch((error) => console.error(error));
-  };
-
-  useEffect(() => {
-    axiosData();
-  }, []);
-
+function RandomMovie({ randomMovie }) {
   return (
     <section
       className="cardRandom"
       style={{
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path}&language=fr-FR)`,
+        backgroundImage: `url(https://image.tmdb.org/t/p/w500${randomMovie.backdrop_path}&language=fr-FR)`,
       }}
     >
       <div className="informationsMovie">
         <div className="poster">
           <img
             className="posterPicture"
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w500${randomMovie.poster_path}`}
             alt="poster"
           />
         </div>
         <div className="titleMovie">
-          <h1>{movie.original_title}</h1>
-          <button type="button" className="buttonSalmon">
-            {" "}
-            Voir la fiche{" "}
-          </button>
+          <h1>{randomMovie.title}</h1>
+          <Link to={`/movies/${randomMovie.id}`}>
+            <button type="button" className="buttonSalmon">
+              Voir la fiche
+            </button>
+          </Link>
         </div>
       </div>
     </section>
   );
 }
+
+RandomMovie.propTypes = {
+  randomMovie: PropTypes.arrayOf({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    backdrop_path: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default RandomMovie;
