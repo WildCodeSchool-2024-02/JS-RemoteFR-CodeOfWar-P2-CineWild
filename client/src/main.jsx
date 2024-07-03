@@ -3,13 +3,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { getCarrousel, getPopularMovies } from "./services/request";
+import {
+  getCarrousel,
+  getPopularMovies,
+  getDetailsMovies,
+} from "./services/request";
 
 import App from "./App";
 import Home from "./pages/Home";
+
 import Movie from "./pages/Movie";
 import Favoris from "./pages/Favoris";
 import User from "./pages/User";
+
+import MovieDetails from "./components/MovieDetails";
+
 
 const router = createBrowserRouter([
   {
@@ -24,8 +32,9 @@ const router = createBrowserRouter([
         }),
       },
       {
-        path: "/movie",
-        element: <Movie />,
+        path: "/movies/:id",
+        element: <MovieDetails />,
+        loader: ({ params }) => getDetailsMovies(params.id),
       },
       {
         path: "/favoris",

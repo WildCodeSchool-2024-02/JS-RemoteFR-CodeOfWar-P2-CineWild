@@ -1,5 +1,14 @@
 import axios from "axios";
 
+// API de la page film
+export function getDetailsMovies(id) {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
+    )
+    .then((response) => response.data);
+}
+
 // Carrousel avec les trending movies
 export function getCarrousel() {
   return axios
