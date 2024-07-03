@@ -1,7 +1,7 @@
-import TrendingMovies from "../components/TrendingMovies";
+import MovieDetails from "../components/MovieDetails";
 
 function Movie() {
-  return <TrendingMovies />;
+  return <MovieDetails />;
 }
 
 export default Movie;

@@ -1,15 +1,18 @@
 import { useState } from "react";
 import "../styles/moviedetails.css";
-import PropTypes from "prop-types";
+import { useLoaderData } from "react-router-dom";
 
-function MovieDetails({ movie }) {
+function MovieDetails() {
+  const movieInfo = useLoaderData();
+  console.info(movieInfo);
+
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
   };
 
   const releaseYear = () => {
-    const date = new Date(movie.release_date);
+    const date = new Date(movieInfo.release_date);
     const year = date.getFullYear();
     return year;
   };
@@ -19,26 +22,27 @@ function MovieDetails({ movie }) {
       <div
         className="movieCard"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path}&language=fr-FR)`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}&language=fr-FR)`,
         }}
       >
-        <h1>{movie.title}</h1>
+        <h1>{movieInfo.title}</h1>
         <ul className="movieCardContent">
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}&language=fr-FR`}
+            src={`https://image.tmdb.org/t/p/w500/${movieInfo.poster_path}&language=fr-FR`}
             alt=""
             className="frontImg"
           />
           <div className="movieCardList">
-            <li>{movie.original_title}</li>
+            <li>{movieInfo.original_title}</li>
             <li>{releaseYear()} | Durée ?</li>
             <li>
               <ul>
-                {movie.genre_ids},{movie.genre_ids[1]},{movie.genre_ids[2]}
+                {/* {movieInfo.genre_ids},{movieInfo.genre_ids[1]},
+                {movieInfo.genre_ids[2]} */}
               </ul>
             </li>
             <div className="ratingAndFavorite">
-              <li>⭐{movie.vote_average.toFixed(1)}</li>
+              <li>⭐{movieInfo.vote_average.toFixed(1)}</li>
               <button onClick={handleClickFavorite} type="button">
                 {isFavorite ? "Remove ❤️" : "Add 🖤"}
               </button>
@@ -54,7 +58,7 @@ function MovieDetails({ movie }) {
           </li>
           <li>
             <span className="blue-Font">En salle depuis :</span>
-            <span> {movie.release_date}</span>
+            <span> {movieInfo.release_date}</span>
           </li>
 
           <li>
@@ -69,7 +73,7 @@ function MovieDetails({ movie }) {
       </div>
       <div className="synopsis">
         <h3 className="blue-Font">Synopsis</h3>
-        <p>{movie.overview}</p>
+        <p>{movieInfo.overview}</p>
       </div>
       <button className="blue-Font fullDetails" type="button">
         Fiche technique
@@ -77,9 +81,5 @@ function MovieDetails({ movie }) {
     </>
   );
 }
-
-MovieDetails.propTypes = {
-  movie: PropTypes.arrayOf(PropTypes.shape).isRequired,
-};
 
 export default MovieDetails;
