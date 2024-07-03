@@ -6,7 +6,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import Home from "./pages/Home";
-import Movie from "./pages/Movie";
+import MovieDetails from "./components/MovieDetails";
+
+import getDetailsMovies from "./services/request";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +19,9 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/movie",
-        element: <Movie />,
+        path: "/movies/:id",
+        element: <MovieDetails />,
+        loader: ({ params }) => getDetailsMovies(params.id),
       },
     ],
   },
