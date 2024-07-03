@@ -1,12 +1,9 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "../styles/carrousel.css";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-function PopularMovies() {
-  const [popularmovies, setPopularMovies] = useState([]);
-
+function PopularMovies({ movies }) {
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
     slides: {
@@ -15,47 +12,38 @@ function PopularMovies() {
       spacing: 15,
     },
   });
-
-  const fetchData = () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
-      )
-      .then((response) => {
-        setPopularMovies(response.data.results);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   return (
     <>
       <h1>Populaires</h1>
 
       <div ref={sliderRef} className="keen-slider">
-        {popularmovies.map((popularmovie, index) => (
+        {movies.map((movie, index) => (
           <div
-            key={popularmovie.id}
+            key={movie.id}
             className={`keen-slider__slide number-slide${index}`}
             id="film"
           >
             <img
               className="posterCarrouselPicture"
-              src={`https://image.tmdb.org/t/p/w500${popularmovie.poster_path}`}
-              alt={popularmovie.title}
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title}
             />
-            {popularmovie.title} <br />
-            {popularmovie.vote_average}
+            {movie.title} <br />
+            {movie.vote_average.toFixed(1)}
           </div>
         ))}
       </div>
     </>
   );
 }
+
+PopularMovies.propTypes = {
+  movies: PropTypes.arrayOf({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default PopularMovies;

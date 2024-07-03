@@ -1,13 +1,10 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "../styles/carrousel.css";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function Carrousel() {
-  const [movies, setMovies] = useState([]);
-
+function Carrousel({ movies }) {
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
     slides: {
@@ -16,23 +13,6 @@ function Carrousel() {
       spacing: 15,
     },
   });
-
-  const fetchData = () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/trending/movie/day?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
-      )
-      .then((response) => {
-        setMovies(response.data.results);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <>
@@ -53,12 +33,21 @@ function Carrousel() {
               />
             </Link>
             {movie.title} <br />
-            {movie.vote_average}
+            {movie.vote_average.toFixed(1)}
           </div>
         ))}
       </div>
     </>
   );
 }
+
+Carrousel.propTypes = {
+  movies: PropTypes.arrayOf({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default Carrousel;
