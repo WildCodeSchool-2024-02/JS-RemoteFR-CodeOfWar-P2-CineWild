@@ -8,6 +8,8 @@ import { getCarrousel, getPopularMovies } from "./services/request";
 import App from "./App";
 import Home from "./pages/Home";
 import Movie from "./pages/Movie";
+import Favoris from "./pages/Favoris"
+import User from "./pages/User";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: "/movie",
         element: <Movie />,
+      },
+      {
+        path: "/favoris",
+        element: <Favoris />,
+      },
+      {
+        path: "/user",
+        element: <User />,
       },
     ],
   },
