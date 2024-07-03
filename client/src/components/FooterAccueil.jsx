@@ -4,7 +4,7 @@ import "../styles/footer.css";
 
 function FooterAccueil() {
   return (
-    <div className="footer">
+    <footer>
       <div className="image">
         <Link to="/">
           <img src="../src/assets/images/home.svg" alt="home" />
@@ -30,7 +30,7 @@ function FooterAccueil() {
           />
         </Link>
       </div>
-    </div>
+    </footer>
   );
 }
 export default FooterAccueil;
