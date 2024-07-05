@@ -24,6 +24,16 @@ export function getDetailsMovies(id) {
     .catch((error) => console.error(error));
 }
 
+// API casting d'un film par son ID
+export function getCastingById(id) {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
+    )
+    .then((response) => response.data)
+    .catch((error) => console.error(error));
+}
+
 // Carrousel avec les trending movies
 export function getCarrousel() {
   return axios

@@ -3,8 +3,13 @@ import "../styles/moviedetails.css";
 import { useLoaderData } from "react-router-dom";
 
 function MovieDetails() {
-  const movieInfo = useLoaderData();
-  console.info(movieInfo);
+  const { moviePeople, paramId } = useLoaderData();
+  const movieInfo = paramId;
+  const movieCasting = moviePeople.cast.slice(0, 4);
+
+  const movieCrew = moviePeople.crew;
+
+  console.info(movieCrew);
 
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
@@ -54,11 +59,7 @@ function MovieDetails() {
               {releaseYear()} | {runTime()}
             </li>
             <li>
-              <ul>
-                {movieInfo.genres.map((genre) => (
-                  <li key={genre.id}>{genre.name}</li>
-                ))}
-              </ul>
+              <p>{movieInfo.genres.map((genre) => `${genre.name}, `)}</p>
             </li>
             <div className="ratingAndFavorite">
               <li>⭐{movieInfo.vote_average.toFixed(1)}</li>
@@ -82,7 +83,11 @@ function MovieDetails() {
 
           <li>
             <span className="blue-Font">Casting principal :</span>
-            <span> Acteur 1, acteur 2 (2ème API)</span>
+            <span>
+              <p className="casting">
+                {movieCasting.map((cast) => `${cast.name}, `)}
+              </p>
+            </span>
           </li>
           <li>
             <span className="blue-Font">Pays d'origine :</span>

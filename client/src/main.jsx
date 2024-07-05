@@ -8,6 +8,7 @@ import {
   getCarrousel,
   getPopularMovies,
   getDetailsMovies,
+  getCastingById,
 } from "./services/request";
 
 import App from "./App";
@@ -32,10 +33,19 @@ const router = createBrowserRouter([
           popularMovies: await getPopularMovies(),
         }),
       },
+      // {
+      //   path: "/movies/:id",
+      //   element: <MovieDetails />,
+      //   loader: ({ params }) => getDetailsMovies(params.id),
+
+      // },
       {
         path: "/movies/:id",
         element: <MovieDetails />,
-        loader: ({ params }) => getDetailsMovies(params.id),
+        loader: async ({ params }) => ({
+          moviePeople: await getCastingById(params.id),
+          paramId: await getDetailsMovies(params.id),
+        }),
       },
       {
         path: "/favoris",
