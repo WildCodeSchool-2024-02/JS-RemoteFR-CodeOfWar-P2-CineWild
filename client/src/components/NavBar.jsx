@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-
 import "../styles/navbar.css";
 
 function NavBar() {
   return (
-    <div>
-      <nav>
+    <nav>
+      <div className="navbar">
         <ul className="navbuttons">
           <li>
             <img
@@ -31,8 +30,8 @@ function NavBar() {
             />
           </li>
         </ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 export default NavBar;
