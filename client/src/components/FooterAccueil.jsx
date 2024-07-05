@@ -7,12 +7,17 @@ function FooterAccueil() {
     <footer>
       <div className="image">
         <Link to="/">
-          <img src="../src/assets/images/home.svg" alt="home" />
+          <img
+            className="imgFooter"
+            src="../src/assets/images/home.svg"
+            alt="home"
+          />
         </Link>
       </div>
       <div className="image">
         <Link to="/favoris">
           <img
+            className="imgFooter"
             src="../src/assets/images/favorite.svg"
             alt="favoris"
             width={50}
@@ -23,6 +28,7 @@ function FooterAccueil() {
       <div className="image">
         <Link to="user">
           <img
+            className="imgFooter"
             src="../src/assets/images/user.svg"
             alt="profil"
             width={50}
