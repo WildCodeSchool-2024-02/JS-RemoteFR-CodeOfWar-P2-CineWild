@@ -1,8 +1,11 @@
 h1 {
-  text-decoration: none;
   font-size: large;
 }
-
+.actorCard > h2 {
+  font-size: var(--main-font);
+  color: var(--white);
+  padding-top: 1rem;
+}
 .actorList {
   display: flex;
   flex-wrap: wrap;
