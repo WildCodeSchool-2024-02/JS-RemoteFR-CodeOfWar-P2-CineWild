@@ -1,7 +1,7 @@
-import ActorDetails from "../components/ActorDetails";
+import ActorList from "../components/ActorList";
 
 function Actor() {
-  return <ActorDetails />;
+  return <ActorList />;
 }
 
 export default Actor;

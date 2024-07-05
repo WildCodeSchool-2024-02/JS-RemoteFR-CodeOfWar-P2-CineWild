@@ -45,11 +45,11 @@ export function getPopularMovies() {
 }
 
 // API page acteur
-export function getActorDetails() {
+export function getActorList() {
   return axios
     .get(
       `https://api.themoviedb.org/3/person/popular?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
     )
-    .then((response) => response.data.results[0])
+    .then((response) => response.data.results)
     .catch((error) => console.error(error));
 }

@@ -8,7 +8,7 @@ import {
   getCarrousel,
   getPopularMovies,
   getDetailsMovies,
-  getActorDetails,
+  getActorList,
 } from "./services/request";
 
 import App from "./App";
@@ -19,7 +19,7 @@ import Favoris from "./pages/Favoris";
 import User from "./pages/User";
 
 import MovieDetails from "./components/MovieDetails";
-import ActorDetails from "./components/ActorDetails";
+import ActorList from "./components/ActorList";
 
 const router = createBrowserRouter([
   {
@@ -41,8 +41,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/actor",
-        element: <ActorDetails />,
-        loader: () => getActorDetails(),
+        element: <ActorList />,
+        loader: () => getActorList(),
       },
       {
         path: "/favoris",
