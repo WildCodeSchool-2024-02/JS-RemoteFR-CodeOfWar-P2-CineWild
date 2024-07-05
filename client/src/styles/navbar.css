@@ -1,0 +1,26 @@
+.navbar {
+  background-color: var(--black);
+}
+
+.menuburger {
+  width: 25px;
+  height: 24px;
+}
+
+.logocw {
+  height: 67px;
+  width: 144px;
+}
+
+.searchbaricon {
+  width: 1.75rem;
+  height: 26px;
+}
+
+.navbuttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  list-style: none;
+}
