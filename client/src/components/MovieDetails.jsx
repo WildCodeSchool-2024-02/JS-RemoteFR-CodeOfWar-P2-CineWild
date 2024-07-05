@@ -8,8 +8,9 @@ function MovieDetails() {
   const movieCasting = moviePeople.cast.slice(0, 4);
 
   const movieCrew = moviePeople.crew;
-
-  console.info(movieCrew);
+  const filteredCrew = movieCrew
+    .filter((person) => person.department === "Directing")
+    .slice(0, 3);
 
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
@@ -73,8 +74,8 @@ function MovieDetails() {
       <div className="movieDescription">
         <ul>
           <li>
-            <span className="blue-Font">Film de :</span>
-            <span> Personne (2ème API)</span>
+            <span className="blue-Font">Dirigés par : </span>
+            <span>{filteredCrew.map((director) => `${director.name},  `)}</span>
           </li>
           <li>
             <span className="blue-Font">En salle depuis :</span>
