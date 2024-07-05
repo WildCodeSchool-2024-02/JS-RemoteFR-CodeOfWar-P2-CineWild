@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         loader: ({ params }) => getDetailsMovies(params.id),
       },
       {
-        path: "/actor",
+        path: "/actors",
         element: <ActorList />,
         loader: () => getActorList(),
       },

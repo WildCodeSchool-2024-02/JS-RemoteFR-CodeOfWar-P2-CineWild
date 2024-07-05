@@ -1,6 +1,7 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "../styles/carrousel.css";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function PopularMovies({ popularMovies }) {
@@ -23,11 +24,13 @@ function PopularMovies({ popularMovies }) {
             className={`keen-slider__slide number-slide${index}`}
             id="film"
           >
-            <img
-              className="posterCarrouselPicture"
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-            />
+            <Link to={`/movies/${movie.id}`}>
+              <img
+                className="posterCarrouselPicture"
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+              />
+            </Link>
             {movie.title} <br />
             {movie.vote_average.toFixed(1)}
           </div>
