@@ -27,6 +27,8 @@ main {
 
 button {
   all: unset;
+  text-decoration: none;
+  color: var(--blue);
 }
 
 /*  #endregion */

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/moviedetails.css";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 
 function MovieDetails() {
   const movieInfo = useLoaderData();
@@ -95,7 +95,7 @@ function MovieDetails() {
         <p>{movieInfo.overview}</p>
       </div>
       <button className="blue-Font fullDetails" type="button">
-        Fiche technique
+        <Link to="/"> Fiche technique</Link>
       </button>
     </>
   );

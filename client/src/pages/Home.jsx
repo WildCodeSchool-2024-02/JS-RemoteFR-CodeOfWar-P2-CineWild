@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import RandomMovie from "../components/RandomMovie";
 import Carrousel from "../components/Carrousel";
 import PopularMovies from "../components/PopularMovies";
+import Sheet from "../components/Sheet";
 
 function Home() {
   const { trendingMovies, popularMovies, randomMovie } = useLoaderData();
@@ -10,6 +11,7 @@ function Home() {
       <RandomMovie randomMovie={randomMovie} />
       <Carrousel trendingMovies={trendingMovies} />
       <PopularMovies popularMovies={popularMovies} />
+      <Sheet />
     </>
   );
 }
