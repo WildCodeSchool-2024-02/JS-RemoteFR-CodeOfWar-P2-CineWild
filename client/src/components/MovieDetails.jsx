@@ -4,20 +4,18 @@ import { useLoaderData } from "react-router-dom";
 
 function MovieDetails() {
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
-  const movieInfo = movieDetails;
   const movieCasting = moviePeople.cast.slice(0, 4);
 
-  const nativeName = () => {
-    const movieIsos = movieDetails.origin_country[0];
+  function nativeName() {
+    return movieDetails.origin_country.map((iso) => {
+      const foundIndex = movieCountries.findIndex(
+        (country) => country.iso_3166_1 === iso
+      );
+      return movieCountries[foundIndex].native_name;
+    });
+  }
 
-    const countryIndex = movieCountries.findIndex(
-      (country) => country.iso_3166_1 === movieIsos
-    );
-    return movieCountries[countryIndex].native_name;
-  };
-
-  const movieCrew = moviePeople.crew;
-  const filteredCrew = movieCrew
+  const filteredCrew = moviePeople.crew
     .filter((person) => person.department === "Directing")
     .slice(0, 3);
 
@@ -27,13 +25,13 @@ function MovieDetails() {
   };
 
   const releaseYear = () => {
-    const date = new Date(movieInfo.release_date);
+    const date = new Date(movieDetails.release_date);
     const year = date.getFullYear();
     return year;
   };
 
   const releaseDate = () => {
-    const event = new Date(movieInfo.release_date);
+    const event = new Date(movieDetails.release_date);
     const options = {
       year: "numeric",
       month: "long",
@@ -43,8 +41,8 @@ function MovieDetails() {
   };
 
   const runTime = () => {
-    const hours = Math.floor(movieInfo.runtime / 60);
-    const minutes = movieInfo.runtime % 60;
+    const hours = Math.floor(movieDetails.runtime / 60);
+    const minutes = movieDetails.runtime % 60;
     return `${hours}h ${minutes}min`;
   };
 
@@ -53,26 +51,26 @@ function MovieDetails() {
       <div
         className="movieCard"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}&language=fr-FR)`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}&language=fr-FR)`,
         }}
       >
-        <h1>{movieInfo.title}</h1>
+        <h1>{movieDetails.title}</h1>
         <ul className="movieCardContent">
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movieInfo.poster_path}&language=fr-FR`}
+            src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}&language=fr-FR`}
             alt=""
             className="frontImg"
           />
           <div className="movieCardList">
-            <li>{movieInfo.original_title}</li>
+            <li>{movieDetails.original_title}</li>
             <li>
               {releaseYear()} | {runTime()}
             </li>
             <li>
-              <p>{movieInfo.genres.map((genre) => `${genre.name}, `)}</p>
+              <p>{movieDetails.genres.map((genre) => `${genre.name}, `)}</p>
             </li>
             <div className="ratingAndFavorite">
-              <li>⭐{movieInfo.vote_average.toFixed(1)}</li>
+              <li>⭐{movieDetails.vote_average.toFixed(1)}</li>
               <button onClick={handleClickFavorite} type="button">
                 {isFavorite ? "Remove ❤️" : "Add 🖤"}
               </button>
@@ -98,14 +96,14 @@ function MovieDetails() {
             </span>
           </li>
           <li>
-            <span className="blue-Font">Pays d'origine :</span>
-            <span> {nativeName()} Pays 2</span>
+            <span className="blue-Font">Pays d'origine : </span>
+            <span>{nativeName()}</span>
           </li>
         </ul>
       </div>
       <div className="synopsis">
         <h3 className="blue-Font">Synopsis</h3>
-        <p>{movieInfo.overview}</p>
+        <p>{movieDetails.overview}</p>
       </div>
       <button className="blue-Font fullDetails" type="button">
         Fiche technique
