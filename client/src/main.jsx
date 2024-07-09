@@ -8,6 +8,7 @@ import {
   getCarrousel,
   getPopularMovies,
   getDetailsMovies,
+  getActorList,
 } from "./services/request";
 
 import App from "./App";
@@ -18,6 +19,7 @@ import Favoris from "./pages/Favoris";
 import User from "./pages/User";
 
 import MovieDetails from "./components/MovieDetails";
+import ActorList from "./components/ActorList";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,11 @@ const router = createBrowserRouter([
         path: "/movies/:id",
         element: <MovieDetails />,
         loader: ({ params }) => getDetailsMovies(params.id),
+      },
+      {
+        path: "/actors",
+        element: <ActorList />,
+        loader: () => getActorList(),
       },
       {
         path: "/favoris",
