@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         element: <MovieDetails />,
         loader: async ({ params }) => ({
           moviePeople: await getCastingById(params.id),
-          paramId: await getDetailsMovies(params.id),
+          movieDetails: await getDetailsMovies(params.id),
         }),
       },
       {

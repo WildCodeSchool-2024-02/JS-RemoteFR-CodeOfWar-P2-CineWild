@@ -3,14 +3,16 @@ import "../styles/moviedetails.css";
 import { useLoaderData } from "react-router-dom";
 
 function MovieDetails() {
-  const { moviePeople, paramId } = useLoaderData();
-  const movieInfo = paramId;
+  const { moviePeople, movieDetails } = useLoaderData();
+  const movieInfo = movieDetails;
   const movieCasting = moviePeople.cast.slice(0, 4);
 
   const movieCrew = moviePeople.crew;
   const filteredCrew = movieCrew
     .filter((person) => person.department === "Directing")
     .slice(0, 3);
+
+  console.info();
 
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
