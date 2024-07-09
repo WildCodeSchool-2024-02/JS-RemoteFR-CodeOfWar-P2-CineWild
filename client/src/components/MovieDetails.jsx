@@ -12,7 +12,7 @@ function MovieDetails() {
     .filter((person) => person.department === "Directing")
     .slice(0, 3);
 
-  console.info();
+  console.info(movieDetails);
 
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
@@ -85,11 +85,9 @@ function MovieDetails() {
           </li>
 
           <li>
-            <span className="blue-Font">Casting principal :</span>
-            <span>
-              <p className="casting">
-                {movieCasting.map((cast) => `${cast.name}, `)}
-              </p>
+            <span className="blue-Font">Casting principal : </span>
+            <span className="casting">
+              {movieCasting.map((cast) => `${cast.name}, `)}
             </span>
           </li>
           <li>
