@@ -34,6 +34,16 @@ export function getCastingById(id) {
     .catch((error) => console.error(error));
 }
 
+// API list of countries ISO 3166-1
+export function getCountriesList() {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/configuration/countries?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
+    )
+    .then((response) => response.data)
+    .catch((error) => console.error(error));
+}
+
 // Carrousel avec les trending movies
 export function getCarrousel() {
   return axios

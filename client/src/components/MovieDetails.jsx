@@ -3,16 +3,23 @@ import "../styles/moviedetails.css";
 import { useLoaderData } from "react-router-dom";
 
 function MovieDetails() {
-  const { moviePeople, movieDetails } = useLoaderData();
+  const { moviePeople, movieDetails, movieCountries } = useLoaderData();
   const movieInfo = movieDetails;
   const movieCasting = moviePeople.cast.slice(0, 4);
+
+  const nativeName = () => {
+    const movieIsos = movieDetails.origin_country[0];
+
+    const countryIndex = movieCountries.findIndex(
+      (country) => country.iso_3166_1 === movieIsos
+    );
+    return movieCountries[countryIndex].native_name;
+  };
 
   const movieCrew = moviePeople.crew;
   const filteredCrew = movieCrew
     .filter((person) => person.department === "Directing")
     .slice(0, 3);
-
-  console.info(movieDetails);
 
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
@@ -92,7 +99,7 @@ function MovieDetails() {
           </li>
           <li>
             <span className="blue-Font">Pays d'origine :</span>
-            <span> Pays 1, Pays 2</span>
+            <span> {nativeName()} Pays 2</span>
           </li>
         </ul>
       </div>
