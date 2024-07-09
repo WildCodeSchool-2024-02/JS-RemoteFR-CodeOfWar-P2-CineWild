@@ -109,5 +109,8 @@ button {
   padding-bottom: 1rem;
   font-weight: 600;
 }
-
+a {
+  text-decoration: none;
+  color: var(--blue);
+}
 /*  #endregion */

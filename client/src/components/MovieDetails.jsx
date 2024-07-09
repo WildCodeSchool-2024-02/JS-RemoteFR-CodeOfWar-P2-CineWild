@@ -95,7 +95,7 @@ function MovieDetails() {
         <p>{movieInfo.overview}</p>
       </div>
       <button className="blue-Font fullDetails" type="button">
-        <Link to="/"> Fiche technique</Link>
+        <Link to="/sheet"> Fiche technique</Link>
       </button>
     </>
   );

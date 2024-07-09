@@ -1,14 +1,15 @@
-// import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import "../styles/dataSheet.css";
 
-// const dataInfo = useLoaderData();
-
-// console.info(dataInfo);
 function Sheet() {
+  const dataInfo = useLoaderData();
+  console.info(dataInfo);
+
   return (
     <>
-      <h1>Fiches technique</h1>
-      <p>blablabla</p>
-      <h2 className="blue-Font">titre du film </h2>
+      <h1>Fiche technique</h1>
+
+      <h2 className="blue-Font">{dataInfo.title}title</h2>
 
       <div className="dataSheet">
         {/* <img
@@ -19,7 +20,7 @@ function Sheet() {
         <ul>
           <li>
             <span className="blue-Font">Titre Original :</span>
-            <span>original_title </span>
+            <span>{dataInfo.title}</span>
           </li>
           <li>
             <span className="blue-Font">Langue d'origine :</span>
