@@ -1,0 +1,50 @@
+.headerUser {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.backgroundUser {
+  position: absolute;
+  margin-bottom: 6rem;
+}
+
+.backgroundUserImg {
+  position: relative;
+  width: 100%;
+}
+
+.avatarUser {
+  position: relative;
+}
+
+.avatarUserImg {
+  width: 15rem;
+  border-radius: 50%;
+  border: 8px solid #0f0f0f;
+  background-color: #0f0f0f;
+}
+
+.informationsUser {
+  position: relative;
+}
+
+.titleInformationsUser {
+  color: #f0f0f0;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.userInformations {
+  font-weight: bolder;
+  width: 100%;
+  margin-bottom: 1.25em;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 0.8em;
+}
+
+.titleInformations {
+  margin-top: 1rem;
+}
