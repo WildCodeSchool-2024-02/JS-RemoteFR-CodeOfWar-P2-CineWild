@@ -1,0 +1,28 @@
+h1 {
+  font-size: large;
+}
+.actorCard > h2 {
+  font-size: var(--main-font);
+  color: var(--white);
+  padding-top: 1rem;
+}
+.actorList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.actorCard {
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+  width: 150px;
+  justify-content: space-between;
+}
+
+.movieCardContent {
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+}

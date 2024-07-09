@@ -23,8 +23,10 @@
 
 .informationsMovie {
   display: flex;
+  align-items: flex-end;
   margin: 0.25rem;
   margin-bottom: 0.25rem;
+  align-items: flex-end;
 }
 
 .titleMovie {
