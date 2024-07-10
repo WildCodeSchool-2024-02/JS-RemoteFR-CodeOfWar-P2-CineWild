@@ -46,16 +46,16 @@ function ActorDetails() {
             {actorInfo.gender === 1 ? "Femme" : "Homme"}{" "}
           </li>
           <li>
-            <span className="blue-Font">Lieu de Naissanse</span>{" "}
+            <span className="blue-Font">Lieu de Naissance:</span>{" "}
             {actorInfo.place_of_birth}{" "}
           </li>
           <li>
-            <span className="blue-Font">Date de Naissanse:</span>{" "}
+            <span className="blue-Font">Date de Naissance:</span>{" "}
             {releaseDate(actorInfo.birthday)}{" "}
           </li>
           <li>
             <span className="blue-Font">Age:</span>{" "}
-            {calculateAge(actorInfo.birthday)}{" "}
+            {calculateAge(actorInfo.birthday)} ans{" "}
           </li>
         </ul>
       </div>
