@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/moviedetails.css";
 import { useLoaderData, Link } from "react-router-dom";
 import ExpandableText from "./ExpandableText";
+import { yearDate, frenchDate, hourMin, cleanString } from "../utils/functions";
 
 function MovieDetails() {
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
@@ -25,36 +26,6 @@ function MovieDetails() {
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
-  };
-
-  const releaseYear = () => {
-    const date = new Date(movieDetails.release_date);
-    const year = date.getFullYear();
-    return year;
-  };
-
-  const releaseDate = () => {
-    const event = new Date(movieDetails.release_date);
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-    return event.toLocaleDateString("fr-FR", options);
-  };
-
-  const runTime = () => {
-    const hours = Math.floor(movieDetails.runtime / 60);
-    const minutes = movieDetails.runtime % 60;
-    return `${hours}h ${minutes}min`;
-  };
-
-  const cleanString = (arrayOfString) => {
-    let string = arrayOfString.join("");
-    if (string.endsWith(", ")) {
-      string = string.slice(0, -2);
-    }
-    return string;
   };
 
   const renderCrew = filteredCrew.map((director) => `${director.name}, `);
@@ -82,7 +53,8 @@ function MovieDetails() {
           <div className="movieCardList">
             <li className="title-movie">{movieDetails.original_title}</li>
             <li className="date-movie">
-              {releaseYear()} | {runTime()}
+              {yearDate(movieDetails.release_date)} |{" "}
+              {hourMin(movieDetails.runtime)}
             </li>
             <li className="genre-movie">
               <p>{cleanString(renderGenres)}</p>
@@ -104,7 +76,7 @@ function MovieDetails() {
           </li>
           <li>
             <span className="blue-Font">En salle depuis :</span>
-            <span> {releaseDate()}</span>
+            <span> {frenchDate(movieDetails.release_date)}</span>
           </li>
 
           <li>
