@@ -1,0 +1,31 @@
+:root {
+  --salmon: #ff7e6b;
+  --black: #0f0f0f;
+  --white: #f5f5f5;
+  --blue: #1282a2;
+  --green: #58b09c;
+}
+
+h2 {
+  color: var(--blue);
+}
+
+.actordetails {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.actordetails li {
+  list-style: none;
+  line-height: 2rem;
+}
+
+.biographie h2 {
+  padding-bottom: 1rem;
+}
+
+.biographie p {
+  font-weight: 600;
+  line-height: 1.5rem;
+  margin-bottom: 1rem;
+}
