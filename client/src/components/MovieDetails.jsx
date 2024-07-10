@@ -34,12 +34,15 @@ function MovieDetails() {
 
   return (
     <>
-      <div
-        className="movieCard"
-        style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}&language=fr-FR)`,
-        }}
-      >
+      <div className="movieCard">
+        <div
+          className="film-background"
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}&language=fr-FR)`,
+          }}
+        >
+          <title>empty</title>
+        </div>
         <h1>{movieDetails.title}</h1>
         <ul className="movieCardContent">
           <img
@@ -48,12 +51,12 @@ function MovieDetails() {
             className="frontImg"
           />
           <div className="movieCardList">
-            <li>{movieDetails.original_title}</li>
-            <li>
+            <li className="title-movie">{movieDetails.original_title}</li>
+            <li className="date-movie">
               {releaseYear()} | {runTime()}
             </li>
             <li>
-              <ul>
+              <ul className="genre-movie">
                 {movieDetails.genres.map((genre) => (
                   <li key={genre.id}>{genre.name}</li>
                 ))}

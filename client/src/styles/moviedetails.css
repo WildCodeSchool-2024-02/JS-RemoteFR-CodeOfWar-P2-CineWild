@@ -47,11 +47,14 @@ button {
   font-size: 1.25rem;
   padding-bottom: 0.75rem;
   font-weight: 600;
+  position: relative;
+  text-decoration: none;
+  padding-left: 1.5rem;
 }
 
 .frontImg {
   width: 81px;
-  height: 94px;
+  /* height: 94px; */
   border-radius: 6px;
 }
 
@@ -85,6 +88,7 @@ button {
 .movieDescription {
   font-weight: 600;
   margin-bottom: 1rem;
+  padding-top: 9rem;
 }
 
 .movieDescription li {
@@ -114,3 +118,17 @@ a {
   color: var(--blue);
 }
 /*  #endregion */
+.film-background {
+  height: 15rem;
+  width: auto;
+  background-size: cover;
+  background-position: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: -14rem;
+  opacity: 0.3;
+}
+.movieCardContent {
+  position: absolute;
+  padding-left: 1.5rem;
+}
