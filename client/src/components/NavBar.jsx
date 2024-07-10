@@ -78,6 +78,9 @@ function NavBar() {
                 placeholder="Rechercher un film, un acteur,..."
               />
             </div>
+            <div className="test">
+              <h1>futur résultat qui doit s'afficher ici</h1>
+            </div>
           </div>
         )}
       </div>
