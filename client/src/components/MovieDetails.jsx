@@ -94,7 +94,7 @@ function MovieDetails() {
         <p>{movieDetails.overview}</p>
       </div>
       <button className="blue-Font fullDetails" type="button">
-        <Link to={`/movies/sheet/${movieDetails.id}`}> Fiche technique</Link>
+        <Link to={`/movies/${movieDetails.id}/sheet`}> Fiche technique</Link>
       </button>
     </>
   );
