@@ -24,6 +24,17 @@ export function getDetailsMovies(id) {
     .catch((error) => console.error(error));
 }
 
+// API des acteurs par récupérer par id
+
+export function getActorsById(id) {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/person/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
+    )
+    .then((response) => response.data)
+    .catch((error) => console.error(error));
+}
+
 // Carrousel avec les trending movies
 export function getCarrousel() {
   return axios

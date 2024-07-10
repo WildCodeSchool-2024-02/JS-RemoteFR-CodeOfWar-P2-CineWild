@@ -9,6 +9,7 @@ import {
   getPopularMovies,
   getDetailsMovies,
   getActorList,
+  getActorsById,
 } from "./services/request";
 
 import App from "./App";
@@ -20,6 +21,7 @@ import User from "./pages/User";
 
 import MovieDetails from "./components/MovieDetails";
 import ActorList from "./components/ActorList";
+import ActorDetails from "./components/ActorDetails";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,11 @@ const router = createBrowserRouter([
         path: "/actors",
         element: <ActorList />,
         loader: () => getActorList(),
+      },
+      {
+        path: "/actors/:id",
+        element: <ActorDetails />,
+        loader: ({ params }) => getActorsById(params.id),
       },
       {
         path: "/favoris",
