@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/moviedetails.css";
 import { useLoaderData } from "react-router-dom";
+import ExpandableText from "./ExpandableText";
 
 function MovieDetails() {
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
@@ -115,7 +116,7 @@ function MovieDetails() {
       </div>
       <div className="synopsis">
         <h3 className="blue-Font">Synopsis</h3>
-        <p>{movieDetails.overview}</p>
+        <ExpandableText text={movieDetails.overview} />
       </div>
       <button className="blue-Font fullDetails" type="button">
         Fiche technique
