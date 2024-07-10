@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0");
+
 .navbar {
   background-color: var(--black);
   position: relative;
@@ -54,7 +56,6 @@
   margin-right: 1rem;
   position: relative;
   display: flex;
-  align-items: center;
 }
 
 .search-content > input {
@@ -64,9 +65,9 @@
   padding: 0 1rem;
   padding-left: 2.5rem;
   border: 2px solid transparent;
-  border-radius: 8px;
+  border-radius: 0 8px 8px 0;
   outline: none;
-  background-color: #f3f3f4;
+  background-color: var(--white);
   color: #0d0c22;
   transition: 0.3s ease;
   font-size: larger;
@@ -79,7 +80,23 @@
 .icon {
   position: absolute;
   left: 1rem;
-  fill: #9e9ea7;
+  fill: #f3f3f4;
   width: 1rem;
   height: 1rem;
+}
+
+.search-content > button {
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--salmon);
+  padding: 8px 16px 8px 16px;
+  border-radius: 8px 0 0 8px;
+}
+
+.test {
+  position: relative;
+  text-align: center;
 }
