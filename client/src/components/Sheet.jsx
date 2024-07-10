@@ -21,7 +21,7 @@ function Sheet() {
           <ul>
             <li>
               <span className="blue-Font">Titre Original : </span>
-              <span>{movieDetails.title}</span>
+              <span>{movieDetails.original_title}</span>
             </li>
             <li>
               <span className="blue-Font">Langue d'origine : </span>

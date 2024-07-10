@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         loader: ({ params }) => getDetailsMovies(params.id),
       },
       {
-        path: "/sheet/:id",
+        path: "/movies/sheet/:id",
         element: <Sheet />,
         loader: ({ params }) => getDetailsMovies(params.id),
       },
