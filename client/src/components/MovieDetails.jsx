@@ -46,6 +46,17 @@ function MovieDetails() {
     return `${hours}h ${minutes}min`;
   };
 
+  const cleanString = (arrayOfString) => {
+    let string = arrayOfString.join("");
+    if (string.endsWith(", ")) {
+      string = string.slice(0, -2);
+    }
+    return string;
+  };
+
+  const renderCrew = filteredCrew.map((director) => `${director.name}, `);
+  const renderCasting = movieCasting.map((cast) => `${cast.name}, `);
+
   return (
     <>
       <div
@@ -67,7 +78,7 @@ function MovieDetails() {
               {releaseYear()} | {runTime()}
             </li>
             <li>
-              <p>{movieDetails.genres.map((genre) => `${genre.name}, `)}</p>
+              <p>{movieDetails.genres.map((genre) => genre.name)}</p>
             </li>
             <div className="ratingAndFavorite">
               <li>⭐{movieDetails.vote_average.toFixed(1)}</li>
@@ -82,7 +93,7 @@ function MovieDetails() {
         <ul>
           <li>
             <span className="blue-Font">Dirigés par : </span>
-            <span>{filteredCrew.map((director) => `${director.name},  `)}</span>
+            <span>{cleanString(renderCrew)}</span>
           </li>
           <li>
             <span className="blue-Font">En salle depuis :</span>
@@ -91,9 +102,7 @@ function MovieDetails() {
 
           <li>
             <span className="blue-Font">Casting principal : </span>
-            <span className="casting">
-              {movieCasting.map((cast) => `${cast.name}, `)}
-            </span>
+            <span className="casting">{cleanString(renderCasting)}</span>
           </li>
           <li>
             <span className="blue-Font">Pays d'origine : </span>
