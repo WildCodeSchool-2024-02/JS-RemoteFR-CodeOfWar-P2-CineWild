@@ -58,6 +58,7 @@ function MovieDetails() {
 
   const renderCrew = filteredCrew.map((director) => `${director.name}, `);
   const renderCasting = movieCasting.map((cast) => `${cast.name}, `);
+  const renderGenres = movieDetails.genres.map((genre) => `${genre.name}, `);
 
   return (
     <>
@@ -80,7 +81,7 @@ function MovieDetails() {
               {releaseYear()} | {runTime()}
             </li>
             <li>
-              <p>{movieDetails.genres.map((genre) => genre.name)}</p>
+              <p>{cleanString(renderGenres)}</p>
             </li>
             <div className="ratingAndFavorite">
               <li>⭐{movieDetails.vote_average.toFixed(1)}</li>
