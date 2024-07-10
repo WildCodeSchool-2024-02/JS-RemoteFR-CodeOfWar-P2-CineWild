@@ -7,7 +7,7 @@ import {
   getRandomMovies,
   getCarrousel,
   getPopularMovies,
-  getDetailsMovies,
+  getDetailsMoviesById,
   getCastingById,
   getActorList,
   getCountriesList,
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         element: <MovieDetails />,
         loader: async ({ params }) => ({
           moviePeople: await getCastingById(params.id),
-          movieDetails: await getDetailsMovies(params.id),
+          movieDetails: await getDetailsMoviesById(params.id),
           movieCountries: await getCountriesList(),
         }),
       },

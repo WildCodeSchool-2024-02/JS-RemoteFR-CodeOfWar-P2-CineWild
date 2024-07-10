@@ -17,8 +17,6 @@ function MovieDetails() {
       .join(", ");
   }
 
-  // `${director.name}, `
-
   const filteredCrew = moviePeople.crew
     .filter((person) => person.department === "Directing")
     .slice(0, 3);

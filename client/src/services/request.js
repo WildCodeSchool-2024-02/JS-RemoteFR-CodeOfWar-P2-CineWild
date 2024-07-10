@@ -15,7 +15,7 @@ export function getRandomMovies() {
 }
 
 // API de la page film
-export function getDetailsMovies(id) {
+export function getDetailsMoviesById(id) {
   return axios
     .get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
