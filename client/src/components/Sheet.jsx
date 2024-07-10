@@ -56,6 +56,10 @@ function Sheet() {
               <span className="blue-Font">Synopsis : </span>
               <span>{movieDetails.overview} </span>
             </li>
+            <li>
+              <span className="blue-Font">Casting : </span>
+              <span> </span>
+            </li>
           </ul>
         </div>
       </section>
