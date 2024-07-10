@@ -3,8 +3,9 @@ import "../styles/moviedetails.css";
 import { useLoaderData, Link } from "react-router-dom";
 
 function MovieDetails() {
-  const movieInfo = useLoaderData();
-  console.info(movieInfo);
+  const movieDetails = useLoaderData();
+
+  console.info(movieDetails.genres[0]);
 
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
@@ -12,13 +13,13 @@ function MovieDetails() {
   };
 
   const releaseYear = () => {
-    const date = new Date(movieInfo.release_date);
+    const date = new Date(movieDetails.release_date);
     const year = date.getFullYear();
     return year;
   };
 
   const releaseDate = () => {
-    const event = new Date(movieInfo.release_date);
+    const event = new Date(movieDetails.release_date);
     const options = {
       year: "numeric",
       month: "long",
@@ -28,8 +29,8 @@ function MovieDetails() {
   };
 
   const runTime = () => {
-    const hours = Math.floor(movieInfo.runtime / 60);
-    const minutes = movieInfo.runtime % 60;
+    const hours = Math.floor(movieDetails.runtime / 60);
+    const minutes = movieDetails.runtime % 60;
     return `${hours}h ${minutes}min`;
   };
 
@@ -38,30 +39,30 @@ function MovieDetails() {
       <div
         className="movieCard"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}&language=fr-FR)`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}&language=fr-FR)`,
         }}
       >
-        <h1>{movieInfo.title}</h1>
+        <h1>{movieDetails.title}</h1>
         <ul className="movieCardContent">
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movieInfo.poster_path}&language=fr-FR`}
+            src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}&language=fr-FR`}
             alt=""
             className="frontImg"
           />
           <div className="movieCardList">
-            <li>{movieInfo.original_title}</li>
+            <li>{movieDetails.original_title}</li>
             <li>
               {releaseYear()} | {runTime()}
             </li>
             <li>
               <ul>
-                {movieInfo.genres.map((genre) => (
+                {movieDetails.genres.map((genre) => (
                   <li key={genre.id}>{genre.name}</li>
                 ))}
               </ul>
             </li>
             <div className="ratingAndFavorite">
-              <li>⭐{movieInfo.vote_average.toFixed(1)}</li>
+              <li>⭐{movieDetails.vote_average.toFixed(1)}</li>
               <button onClick={handleClickFavorite} type="button">
                 {isFavorite ? "Remove ❤️" : "Add 🖤"}
               </button>
@@ -92,10 +93,10 @@ function MovieDetails() {
       </div>
       <div className="synopsis">
         <h3 className="blue-Font">Synopsis</h3>
-        <p>{movieInfo.overview}</p>
+        <p>{movieDetails.overview}</p>
       </div>
       <button className="blue-Font fullDetails" type="button">
-        <Link to="/sheet"> Fiche technique</Link>
+        <Link to={`/sheet/${movieDetails.id}`}> Fiche technique</Link>
       </button>
     </>
   );

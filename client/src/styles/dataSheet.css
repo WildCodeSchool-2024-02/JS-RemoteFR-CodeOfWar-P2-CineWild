@@ -1,3 +1,21 @@
 .dataSheet ul {
   list-style: none;
+  color: var(--white);
+}
+h1 {
+  font-size: 1.25rem;
+  padding-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+h2 {
+  text-align: center;
+}
+.sheet {
+  display: flex;
+  flex-direction: row;
+}
+
+.dataSheet li {
+  line-height: 1.5rem;
 }
