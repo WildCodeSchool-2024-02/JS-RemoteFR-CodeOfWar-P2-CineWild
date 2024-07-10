@@ -5,8 +5,6 @@ import { useLoaderData, Link } from "react-router-dom";
 function MovieDetails() {
   const movieDetails = useLoaderData();
 
-  console.info(movieDetails.genres[0]);
-
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);

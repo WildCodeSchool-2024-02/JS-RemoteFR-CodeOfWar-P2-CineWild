@@ -3,7 +3,6 @@ import "../styles/dataSheet.css";
 
 function Sheet() {
   const movieDetails = useLoaderData();
-  console.info(movieDetails);
 
   return (
     <>
