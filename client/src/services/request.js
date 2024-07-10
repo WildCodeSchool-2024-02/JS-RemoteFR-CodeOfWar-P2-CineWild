@@ -53,3 +53,13 @@ export function getActorList() {
     .then((response) => response.data.results)
     .catch((error) => console.error(error));
 }
+
+// API barre de recherche
+export function getSearchBar() {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/search/multi?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
+    )
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+}
