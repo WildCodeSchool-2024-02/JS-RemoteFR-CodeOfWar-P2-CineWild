@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/moviedetails.css";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 import ExpandableText from "./ExpandableText";
 
 function MovieDetails() {
@@ -63,12 +63,15 @@ function MovieDetails() {
 
   return (
     <>
-      <div
-        className="movieCard"
-        style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}&language=fr-FR)`,
-        }}
-      >
+      <div className="movieCard">
+        <div
+          className="film-background"
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}&language=fr-FR)`,
+          }}
+        >
+          <title>empty</title>
+        </div>
         <h1>{movieDetails.title}</h1>
         <ul className="movieCardContent">
           <img
@@ -77,11 +80,11 @@ function MovieDetails() {
             className="frontImg"
           />
           <div className="movieCardList">
-            <li>{movieDetails.original_title}</li>
-            <li>
+            <li className="title-movie">{movieDetails.original_title}</li>
+            <li className="date-movie">
               {releaseYear()} | {runTime()}
             </li>
-            <li>
+            <li className="genre-movie">
               <p>{cleanString(renderGenres)}</p>
             </li>
             <div className="ratingAndFavorite">
@@ -119,7 +122,7 @@ function MovieDetails() {
         <ExpandableText text={movieDetails.overview} />
       </div>
       <button className="blue-Font fullDetails" type="button">
-        Fiche technique
+        <Link to={`/movies/${movieDetails.id}/sheet`}> Fiche technique</Link>
       </button>
     </>
   );
