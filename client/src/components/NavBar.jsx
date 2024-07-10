@@ -32,11 +32,19 @@ function NavBar() {
       <div className="navbar">
         <ul className="navbuttons">
           <li>
-            <img
-              src="../src/assets/images/menuburger.svg"
-              className="menuburger"
-              alt="Bouton menu"
-            />
+            <label className="burger" htmlFor="burger">
+              <title>empty</title>
+              <input type="checkbox" id="burger" />
+              <span>
+                <title>empty</title>
+              </span>
+              <span>
+                <title>empty</title>
+              </span>
+              <span>
+                <title>empty</title>
+              </span>
+            </label>
           </li>
           <li>
             <Link to="/">
@@ -79,7 +87,7 @@ function NavBar() {
               />
             </div>
             <div className="test">
-              <h1>futur résultat qui doit s'afficher ici</h1>
+              <h1>Futur résultat qui doit s'afficher ici</h1>
             </div>
           </div>
         )}
