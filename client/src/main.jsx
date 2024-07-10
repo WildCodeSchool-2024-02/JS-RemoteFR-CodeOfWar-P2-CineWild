@@ -22,6 +22,7 @@ import User from "./pages/User";
 
 import MovieDetails from "./components/MovieDetails";
 import ActorList from "./components/ActorList";
+import Sheet from "./components/Sheet";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
           movieDetails: await getDetailsMoviesById(params.id),
           movieCountries: await getCountriesList(),
         }),
+      },
+      {
+        path: "/movies/:id/sheet",
+        element: <Sheet />,
+        loader: ({ params }) => getDetailsMoviesById(params.id),
       },
       {
         path: "/actors",
