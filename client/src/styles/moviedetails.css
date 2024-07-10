@@ -96,6 +96,11 @@ button {
   line-height: 2rem;
 }
 
+.casting li {
+  display: flex;
+  flex-direction: row;
+}
+
 /*  #endregion */
 
 /* #region ----- Synopsis */

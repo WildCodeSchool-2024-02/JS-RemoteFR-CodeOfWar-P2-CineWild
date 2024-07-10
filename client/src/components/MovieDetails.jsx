@@ -1,9 +1,26 @@
 import { useState } from "react";
 import "../styles/moviedetails.css";
 import { useLoaderData, Link } from "react-router-dom";
+import ExpandableText from "./ExpandableText";
 
 function MovieDetails() {
-  const movieDetails = useLoaderData();
+  const { moviePeople, movieDetails, movieCountries } = useLoaderData();
+  const movieCasting = moviePeople.cast.slice(0, 4);
+
+  function nativeName() {
+    return movieDetails.origin_country
+      .map((iso) => {
+        const foundIndex = movieCountries.findIndex(
+          (country) => country.iso_3166_1 === iso
+        );
+        return movieCountries[foundIndex].native_name;
+      })
+      .join(", ");
+  }
+
+  const filteredCrew = moviePeople.crew
+    .filter((person) => person.department === "Directing")
+    .slice(0, 3);
 
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
@@ -32,6 +49,18 @@ function MovieDetails() {
     return `${hours}h ${minutes}min`;
   };
 
+  const cleanString = (arrayOfString) => {
+    let string = arrayOfString.join("");
+    if (string.endsWith(", ")) {
+      string = string.slice(0, -2);
+    }
+    return string;
+  };
+
+  const renderCrew = filteredCrew.map((director) => `${director.name}, `);
+  const renderCasting = movieCasting.map((cast) => `${cast.name}, `);
+  const renderGenres = movieDetails.genres.map((genre) => `${genre.name}, `);
+
   return (
     <>
       <div className="movieCard">
@@ -55,12 +84,8 @@ function MovieDetails() {
             <li className="date-movie">
               {releaseYear()} | {runTime()}
             </li>
-            <li>
-              <ul className="genre-movie">
-                {movieDetails.genres.map((genre) => (
-                  <li key={genre.id}>{genre.name}</li>
-                ))}
-              </ul>
+            <li className="genre-movie">
+              <p>{cleanString(renderGenres)}</p>
             </li>
             <div className="ratingAndFavorite">
               <li>⭐{movieDetails.vote_average.toFixed(1)}</li>
@@ -74,8 +99,8 @@ function MovieDetails() {
       <div className="movieDescription">
         <ul>
           <li>
-            <span className="blue-Font">Film de :</span>
-            <span> Personne (2ème API)</span>
+            <span className="blue-Font">Dirigés par : </span>
+            <span>{cleanString(renderCrew)}</span>
           </li>
           <li>
             <span className="blue-Font">En salle depuis :</span>
@@ -83,18 +108,18 @@ function MovieDetails() {
           </li>
 
           <li>
-            <span className="blue-Font">Casting principal :</span>
-            <span> Acteur 1, acteur 2 (2ème API)</span>
+            <span className="blue-Font">Casting principal : </span>
+            <span className="casting">{cleanString(renderCasting)}</span>
           </li>
           <li>
-            <span className="blue-Font">Pays d'origine :</span>
-            <span> Pays 1, Pays 2</span>
+            <span className="blue-Font">Pays d'origine : </span>
+            <span>{nativeName()}</span>
           </li>
         </ul>
       </div>
       <div className="synopsis">
         <h3 className="blue-Font">Synopsis</h3>
-        <p>{movieDetails.overview}</p>
+        <ExpandableText text={movieDetails.overview} />
       </div>
       <button className="blue-Font fullDetails" type="button">
         <Link to={`/movies/${movieDetails.id}/sheet`}> Fiche technique</Link>
