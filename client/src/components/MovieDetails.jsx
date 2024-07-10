@@ -7,13 +7,17 @@ function MovieDetails() {
   const movieCasting = moviePeople.cast.slice(0, 4);
 
   function nativeName() {
-    return movieDetails.origin_country.map((iso) => {
-      const foundIndex = movieCountries.findIndex(
-        (country) => country.iso_3166_1 === iso
-      );
-      return movieCountries[foundIndex].native_name;
-    });
+    return movieDetails.origin_country
+      .map((iso) => {
+        const foundIndex = movieCountries.findIndex(
+          (country) => country.iso_3166_1 === iso
+        );
+        return movieCountries[foundIndex].native_name;
+      })
+      .join(", ");
   }
+
+  // `${director.name}, `
 
   const filteredCrew = moviePeople.crew
     .filter((person) => person.department === "Directing")
