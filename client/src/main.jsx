@@ -11,6 +11,7 @@ import {
   getCastingById,
   getActorList,
   getCountriesList,
+  getLanguageList,
 } from "./services/request";
 
 import App from "./App";
@@ -53,6 +54,7 @@ const router = createBrowserRouter([
           moviePeople: await getCastingById(params.id),
           movieDetails: await getDetailsMoviesById(params.id),
           movieCountries: await getCountriesList(),
+          movieLanguage: await getLanguageList(),
         }),
       },
 

@@ -1,14 +1,13 @@
-/* eslint-disable import/no-duplicates */
 import { useLoaderData, Link } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
-import { frenchDate } from "../utils/functions";
-import { hourMin } from "../utils/functions";
+import { frenchDate, hourMin, cleanString } from "../utils/functions";
 import "../styles/carrousel.css";
 import "keen-slider/keen-slider.min.css";
 import "../styles/dataSheet.css";
 
 function Sheet() {
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
+  // movieLanguage a ajouter dans le const au dessus
   const creditFilm = moviePeople.cast;
   const productCrew = moviePeople.crew.filter(
     (person) => person.department === "Production"
@@ -21,7 +20,7 @@ function Sheet() {
     (person) => person.department === "Editing"
   );
 
-  console.info(moviePeople);
+  // console.info(movieDetails, movieLanguage);
 
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
@@ -42,9 +41,18 @@ function Sheet() {
       })
       .join(", ");
   }
-  // const movieCasting = moviePeople.cast;
 
-  // const renderCasting = movieCasting.map((cast) => `${cast.name} `);
+  // function filmLanguage() {
+  // return movieDetails
+  // .original_language((iso) => {
+  // const foundIndex = movieLanguage.findIndex(
+  // (language) => language.iso_3166_1 === iso
+  // );
+  // return movieLanguage[foundIndex].film_language;
+  // })
+  // .join(", ");
+  // }
+
   return (
     <>
       <h1>Fiche technique</h1>
@@ -66,7 +74,7 @@ function Sheet() {
             </li>
             <li>
               <span className="blue-Font">Langue d'origine : </span>
-              <span>{movieDetails.original_language} </span>
+              {/* <span>{filmLanguage()} </span> */}
             </li>
             <li>
               <span className="blue-Font">Pays d'origine : </span>
@@ -74,7 +82,11 @@ function Sheet() {
             </li>
             <li>
               <span className="blue-Font">Genre : </span>
-              <span>{movieDetails.genres.map((genre) => genre.name)}</span>
+              <span>
+                {cleanString(
+                  movieDetails.genres.map((genre) => `${genre.name}, `)
+                )}
+              </span>
             </li>
             <li>
               <span className="blue-Font">Date de sortie : </span>
@@ -86,15 +98,28 @@ function Sheet() {
             </li>
             <li>
               <span className="blue-Font">Directeurs : </span>
-              <span> {directingCrew.map((production) => production.name)}</span>
+              <span>
+                {" "}
+                {cleanString(
+                  directingCrew.map((directeur) => `${directeur.name}, `)
+                )}
+              </span>
             </li>
             <li>
               <span className="blue-Font">Editeurs : </span>
-              <span> {editeurCrew.map((production) => production.name)}</span>
+              <span>
+                {" "}
+                {cleanString(editeurCrew.map((editeur) => `${editeur.name}, `))}
+              </span>
             </li>
             <li>
               <span className="blue-Font">Producteurs : </span>
-              <span> {productCrew.map((production) => production.name)}</span>
+              <span>
+                {" "}
+                {cleanString(
+                  productCrew.map((production) => `${production.name}, `)
+                )}
+              </span>
             </li>
             <li>
               <span className="blue-Font">Synopsis : </span>
@@ -103,7 +128,7 @@ function Sheet() {
           </ul>
         </div>
         <div className="separator">{}</div>
-        <h2 className="blue-Font">Casting : </h2>
+        <h2 className="casting">Casting : </h2>
 
         <div ref={sliderRef} className="keen-slider">
           {creditFilm.map((actor, index) => (
