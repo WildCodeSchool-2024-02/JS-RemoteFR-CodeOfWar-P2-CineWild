@@ -24,7 +24,7 @@ export function getDetailsMovies(id) {
     .catch((error) => console.error(error));
 }
 
-// API des acteurs par récupérer par id
+// API des acteurs pour récupérer par id
 
 export function getActorsById(id) {
   return axios
@@ -32,6 +32,17 @@ export function getActorsById(id) {
       `https://api.themoviedb.org/3/person/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
     )
     .then((response) => response.data)
+    .catch((error) => console.error(error));
+}
+
+// API des films dans lesquels les acteurs ont joué, par ID
+
+export function getMovieActorsById(id) {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
+    )
+    .then((response) => response.data.cast)
     .catch((error) => console.error(error));
 }
 
