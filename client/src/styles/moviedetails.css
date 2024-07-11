@@ -90,16 +90,16 @@ li.date-movie {
   font-size: 18px;
 }
 
-.ratingAndFavorite {
+.scoreandbuttons {
   display: flex;
   flex-direction: row;
 }
 
-.ratingAndFavorite li {
+.scoreandbuttons li {
   padding-right: 2rem;
 }
 
-.ratingAndFavorite button {
+.scoreandbuttons button {
   padding: 0;
 }
 
