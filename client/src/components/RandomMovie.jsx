@@ -6,14 +6,24 @@ import PropTypes from "prop-types";
 
 function RandomMovie({ randomMovie }) {
   return (
-    <section
-      className="cardRandom"
-      style={{
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundImage: `url(https://image.tmdb.org/t/p/w500${randomMovie.backdrop_path}&language=fr-FR)`,
-      }}
-    >
+    <section className="cardRandom">
+      <div
+        className="background-random"
+        style={{
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundImage: `url(https://image.tmdb.org/t/p/w500${randomMovie.backdrop_path}&language=fr-FR)`,
+        }}
+      >
+        <title>empty</title>
+      </div>
+      {/* <div
+          className="film-background"
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}&language=fr-FR)`,
+          }}
+        >
+          <title>empty</title> */}
       <div className="informationsMovie">
         <div className="poster">
           <img

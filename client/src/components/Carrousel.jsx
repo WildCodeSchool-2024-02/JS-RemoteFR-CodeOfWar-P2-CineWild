@@ -15,7 +15,7 @@ function Carrousel({ trendingMovies }) {
   });
 
   return (
-    <>
+    <section className="carrousel-home">
       <h1>Tendances</h1>
 
       <div ref={sliderRef} className="keen-slider">
@@ -37,7 +37,7 @@ function Carrousel({ trendingMovies }) {
           </div>
         ))}
       </div>
-    </>
+    </section>
   );
 }
 
