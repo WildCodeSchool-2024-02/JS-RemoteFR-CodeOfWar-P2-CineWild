@@ -58,11 +58,13 @@ function Sheet() {
       <h1>Fiche technique</h1>
       <section className="sheet">
         <div className="head-sheet">
-          <img
-            className="film-img"
-            src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
-            alt="titre du film"
-          />
+          <Link to={`/movies/${movieDetails.id}`}>
+            <img
+              className="film-img"
+              src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}&language=fr-FR`}
+              alt="titre du film"
+            />
+          </Link>
           <h2>{movieDetails.title}</h2>
         </div>
 
