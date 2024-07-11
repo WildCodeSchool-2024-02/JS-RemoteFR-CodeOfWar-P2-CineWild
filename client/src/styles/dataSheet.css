@@ -1,0 +1,31 @@
+.dataSheet ul {
+  list-style: none;
+  color: var(--white);
+}
+.film-img {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 10px;
+  margin-right: 3rem;
+}
+h1 {
+  font-size: 2rem;
+  padding-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+h2 {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.sheet {
+  display: flex;
+  flex-direction: row;
+}
+.dataSheet {
+  font-weight: 600;
+}
+
+.dataSheet li {
+  line-height: 2rem;
+}

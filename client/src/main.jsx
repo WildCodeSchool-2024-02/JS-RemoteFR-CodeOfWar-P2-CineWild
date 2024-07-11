@@ -7,8 +7,10 @@ import {
   getRandomMovies,
   getCarrousel,
   getPopularMovies,
-  getDetailsMovies,
+  getDetailsMoviesById,
+  getCastingById,
   getActorList,
+  getCountriesList,
   getActorsById,
   getMovieActorsById,
 } from "./services/request";
@@ -22,6 +24,7 @@ import User from "./pages/User";
 
 import MovieDetails from "./components/MovieDetails";
 import ActorList from "./components/ActorList";
+import Sheet from "./components/Sheet";
 import ActorDetails from "./components/ActorDetails";
 
 const router = createBrowserRouter([
@@ -40,7 +43,16 @@ const router = createBrowserRouter([
       {
         path: "/movies/:id",
         element: <MovieDetails />,
-        loader: ({ params }) => getDetailsMovies(params.id),
+        loader: async ({ params }) => ({
+          moviePeople: await getCastingById(params.id),
+          movieDetails: await getDetailsMoviesById(params.id),
+          movieCountries: await getCountriesList(),
+        }),
+      },
+      {
+        path: "/movies/:id/sheet",
+        element: <Sheet />,
+        loader: ({ params }) => getDetailsMoviesById(params.id),
       },
       {
         path: "/actors",
