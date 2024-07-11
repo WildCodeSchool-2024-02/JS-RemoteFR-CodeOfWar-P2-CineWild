@@ -28,6 +28,11 @@ function MovieDetails() {
     setIsFavorite(!isFavorite);
   };
 
+  const [isWatchListed, setIsWatchListed] = useState("");
+  const handleClickWatchlist = () => {
+    setIsWatchListed(!isWatchListed);
+  };
+
   const renderCrew = filteredCrew.map((director) => `${director.name}, `);
   const renderCasting = movieCasting.map((cast) => `${cast.name}, `);
   const renderGenres = movieDetails.genres.map((genre) => `${genre.name}, `);
@@ -59,12 +64,23 @@ function MovieDetails() {
             <li className="genre-movie">
               <p>{cleanString(renderGenres)}</p>
             </li>
-            <div className="ratingAndFavorite">
+            <ul className="ratingAndFavorite">
               <li>⭐{movieDetails.vote_average.toFixed(1)}</li>
-              <button onClick={handleClickFavorite} type="button">
-                {isFavorite ? "Remove ❤️" : "Add 🖤"}
-              </button>
-            </div>
+              <li>
+                <button onClick={handleClickFavorite} type="button">
+                  {isFavorite ? "❤️" : "🖤"}
+                </button>
+              </li>
+              <li>
+                <button
+                  className="watchlistbutton"
+                  onClick={handleClickWatchlist}
+                  type="button"
+                >
+                  {isWatchListed ? "Watchlist ✔️ " : "Watchlist 📌"}
+                </button>
+              </li>
+            </ul>
           </div>
         </ul>
       </div>
