@@ -91,7 +91,9 @@ function MovieDetails() {
       </div>
       <div className="synopsis">
         <h3 className="blue-Font">Synopsis</h3>
-        <ExpandableText text={movieDetails.overview} />
+        <p>
+          <ExpandableText text={movieDetails.overview} />
+        </p>
       </div>
       <button className="blue-Font fullDetails" type="button">
         <Link to={`/movies/${movieDetails.id}/sheet`}> Fiche technique</Link>

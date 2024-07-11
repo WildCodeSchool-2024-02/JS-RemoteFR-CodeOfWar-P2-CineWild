@@ -112,6 +112,7 @@ button {
 .synopsis p {
   font-weight: 600;
   margin-bottom: 1rem;
+  line-height: 26px;
 }
 
 .fullDetails {
@@ -123,6 +124,7 @@ a {
   color: var(--blue);
 }
 /*  #endregion */
+
 .film-background {
   height: 15rem;
   width: auto;
