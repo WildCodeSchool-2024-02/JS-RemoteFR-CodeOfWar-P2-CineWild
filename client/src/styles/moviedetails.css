@@ -137,3 +137,6 @@ a {
   position: absolute;
   padding-left: 0.5rem;
 }
+a {
+  color: var(--salmon);
+}

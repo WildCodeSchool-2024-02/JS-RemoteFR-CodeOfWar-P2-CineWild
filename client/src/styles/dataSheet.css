@@ -4,7 +4,7 @@
 }
 .film-img {
   height: 15rem;
-  width: 15rem;
+  width: auto;
   border-radius: 10px;
   margin-right: 3rem;
 }

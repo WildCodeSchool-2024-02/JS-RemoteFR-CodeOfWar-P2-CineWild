@@ -6,8 +6,10 @@ import "keen-slider/keen-slider.min.css";
 import "../styles/dataSheet.css";
 
 function Sheet() {
-  const { moviePeople, movieDetails, movieCountries } = useLoaderData();
+  const { moviePeople, movieDetails, movieCountries, movieLanguage } =
+    useLoaderData();
   // movieLanguage a ajouter dans le const au dessus
+  console.info(movieLanguage, movieCountries);
   const creditFilm = moviePeople.cast;
   const productCrew = moviePeople.crew.filter(
     (person) => person.department === "Production"
@@ -41,14 +43,13 @@ function Sheet() {
       })
       .join(", ");
   }
-
   // function filmLanguage() {
-  // return movieDetails
-  // .original_language((iso) => {
+  // return movieDetails.spoken_languages
+  // .map((iso) => {
   // const foundIndex = movieLanguage.findIndex(
-  // (language) => language.iso_3166_1 === iso
+  // (langue) => langue.iso_639_1 === iso
   // );
-  // return movieLanguage[foundIndex].film_language;
+  // return movieLanguage[foundIndex].english_name;
   // })
   // .join(", ");
   // }
@@ -76,7 +77,7 @@ function Sheet() {
             </li>
             <li>
               <span className="blue-Font">Langue d'origine : </span>
-              {/* <span>{filmLanguage()} </span> */}
+              <span>{} </span>
             </li>
             <li>
               <span className="blue-Font">Pays d'origine : </span>
