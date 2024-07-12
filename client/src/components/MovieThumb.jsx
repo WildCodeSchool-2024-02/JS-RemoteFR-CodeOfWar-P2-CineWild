@@ -18,7 +18,7 @@ function MovieThumb({ tools }) {
         />
       </Link>
       {movie.title} <br />
-      {movie.vote_average.toFixed(1)}
+      {movie.vote_average === 0.0 ? "Non noté" : movie.vote_average.toFixed(1)}
     </div>
   );
 }
