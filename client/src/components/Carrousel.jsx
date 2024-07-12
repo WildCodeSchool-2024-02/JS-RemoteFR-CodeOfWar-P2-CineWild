@@ -13,7 +13,7 @@ function Carrousel({ trendingMovies }) {
       spacing: 15,
     },
   });
-  console.info(trendingMovies);
+
   return (
     <section className="carrousel-home">
       <h1>Tendances</h1>

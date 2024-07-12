@@ -17,13 +17,6 @@ function RandomMovie({ randomMovie }) {
       >
         <title>empty</title>
       </div>
-      {/* <div
-          className="film-background"
-          style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}&language=fr-FR)`,
-          }}
-        >
-          <title>empty</title> */}
       <div className="informationsMovie">
         <div className="poster">
           <img
