@@ -140,7 +140,7 @@ function Sheet() {
               className={`keen-slider__slide number-slide${index}`}
               id="film"
             >
-              <Link to={`/movies/${actor.id}`}>
+              <Link to={`/actors/${actor.id}`}>
                 <img
                   className="posterCarrouselPicture"
                   src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}

@@ -14,7 +14,7 @@ h1 {
   font-weight: 600;
 }
 
-h2 {
+.sheet h2 {
   color: var(--white);
   margin-left: -3rem;
 }
