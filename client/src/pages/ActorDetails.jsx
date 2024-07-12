@@ -1,9 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
-import ExpandableText from "./ExpandableText";
+import ExpandableText from "../components/ExpandableText";
 import "keen-slider/keen-slider.min.css";
 import "../styles/actorDetails.css";
-import MovieThumb from "./MovieThumb";
+import MovieThumb from "../components/MovieThumb";
 
 function ActorDetails() {
   const { actorDetails, actorMovies } = useLoaderData();

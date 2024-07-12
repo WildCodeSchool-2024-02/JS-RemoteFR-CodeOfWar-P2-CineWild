@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/moviedetails.css";
 import { useLoaderData, Link } from "react-router-dom";
-import ExpandableText from "./ExpandableText";
+import ExpandableText from "../components/ExpandableText";
 import { yearDate, frenchDate, hourMin, cleanString } from "../utils/functions";
 
 function MovieDetails() {

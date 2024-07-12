@@ -1,5 +1,5 @@
 import "../styles/actorList.css";
-import ActorCard from "./ActorCard";
+import ActorCard from "../components/ActorCard";
 
 function ActorList() {
   return (
