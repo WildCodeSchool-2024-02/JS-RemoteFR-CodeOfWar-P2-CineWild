@@ -8,6 +8,7 @@
 
 h2 {
   color: var(--blue);
+  padding-bottom: 2rem;
 }
 .actor_img {
   width: 50%;
