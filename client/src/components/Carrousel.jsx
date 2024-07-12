@@ -3,6 +3,7 @@ import "keen-slider/keen-slider.min.css";
 import "../styles/carrousel.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Carrousel({ trendingMovies }) {
   const [sliderRef] = useKeenSlider({
@@ -13,6 +14,11 @@ function Carrousel({ trendingMovies }) {
       spacing: 15,
     },
   });
+
+  const [isFavorite, setIsFavorite] = useState();
+  const favoris = () => {
+    setIsFavorite(!isFavorite)
+  }
 
   return (
     <>
@@ -34,6 +40,7 @@ function Carrousel({ trendingMovies }) {
             </Link>
             {movie.title} <br />
             {movie.vote_average.toFixed(1)}
+            <button type="button" onClick={favoris}>{isFavorite ? '❤️': '🤍'}</button>
           </div>
         ))}
       </div>
