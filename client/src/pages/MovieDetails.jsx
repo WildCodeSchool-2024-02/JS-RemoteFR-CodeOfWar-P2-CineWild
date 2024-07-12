@@ -62,7 +62,7 @@ function MovieDetails() {
               {hourMin(movieDetails.runtime)}
             </li>
             <li className="genre-movie">
-              <p>{cleanString(renderGenres)}</p>
+              <p>{cleanString(renderGenres.slice(0, 3))}</p>
             </li>
             <ul className="scoreandbuttons">
               <li>⭐{movieDetails.vote_average.toFixed(1)}</li>
