@@ -9,12 +9,11 @@ function NavBar() {
     setSearchbar(!searchbar);
   };
   const handleKeyUp = (event) => {
-    if (event.key === "enter" || event.key === " ") {
+    if (event.key === " ") {
       toggleSearch(!searchbar);
     }
   };
 
-  // Recherche dynamique :
   const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
