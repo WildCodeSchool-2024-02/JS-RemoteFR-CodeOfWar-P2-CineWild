@@ -1,8 +1,9 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
 import ExpandableText from "./ExpandableText";
 import "keen-slider/keen-slider.min.css";
 import "../styles/actorDetails.css";
+import MovieThumb from "./MovieThumb";
 
 function ActorDetails() {
   const { actorDetails, actorMovies } = useLoaderData();
@@ -91,21 +92,7 @@ function ActorDetails() {
         <h2> Filmographie :</h2>
         <div ref={sliderRef} className="keen-slider">
           {actorMovies.map((movie, index) => (
-            <div
-              key={movie.id}
-              className={`keen-slider__slide number-slide${index}`}
-              id="film"
-            >
-              <Link to={`/movies/${movie.id}`}>
-                <img
-                  className="posterCarrouselPicture"
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                />
-              </Link>
-              {movie.title} <br />
-              {movie.vote_average.toFixed(1)}
-            </div>
+            <MovieThumb tools={{ movie, index }} key={movie.id} />
           ))}
         </div>
       </div>
