@@ -145,6 +145,10 @@
   height: 1rem;
 }
 
+.material-symbols-outlined {
+  color: var(--white);
+}
+
 .search-content > button {
   border: none;
   cursor: pointer;

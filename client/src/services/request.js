@@ -74,11 +74,11 @@ export function getActorList() {
     .catch((error) => console.error(error));
 }
 
-// API barre de recherche
-export function getSearchBar() {
+// APIs barre de recherche
+export function getMoviesSearch(value) {
   return axios
     .get(
-      `https://api.themoviedb.org/3/search/multi?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
+      `https://api.themoviedb.org/3/search/movie?query=${value}&api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
     )
     .then((response) => response.data.results)
     .catch((error) => console.error(error));

@@ -20,7 +20,8 @@ function NavBar() {
   const navigate = useNavigate();
 
   const redirect = () => {
-    navigate(`/movies/${search}`);
+    navigate(`/result/movies/${search}`);
+    toggleSearch();
   };
 
   const handleChangeSearch = (event) => {
@@ -35,15 +36,9 @@ function NavBar() {
             <label className="burger" htmlFor="burger">
               <title>empty</title>
               <input type="checkbox" id="burger" />
-              <span>
-                <title>empty</title>
-              </span>
-              <span>
-                <title>empty</title>
-              </span>
-              <span>
-                <title>empty</title>
-              </span>
+              <span />
+              <span />
+              <span />
             </label>
           </li>
           <li>
@@ -85,9 +80,6 @@ function NavBar() {
                 type="search"
                 placeholder="Rechercher un film, un acteur,..."
               />
-            </div>
-            <div className="test">
-              <h1>Futur résultat qui doit s'afficher ici</h1>
             </div>
           </div>
         )}
