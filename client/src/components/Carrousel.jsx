@@ -15,7 +15,7 @@ function Carrousel({ trendingMovies }) {
   });
 
   return (
-    <>
+    <section className="carrousel-home">
       <h1>Tendances</h1>
 
       <div ref={sliderRef} className="keen-slider">
@@ -33,11 +33,13 @@ function Carrousel({ trendingMovies }) {
               />
             </Link>
             {movie.title} <br />
-            {movie.vote_average.toFixed(1)}
+            {movie.vote_average === 0.0
+              ? "Non noté"
+              : movie.vote_average.toFixed(1)}
           </div>
         ))}
       </div>
-    </>
+    </section>
   );
 }
 

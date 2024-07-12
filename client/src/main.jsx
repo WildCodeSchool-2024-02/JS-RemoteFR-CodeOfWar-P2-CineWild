@@ -52,8 +52,13 @@ const router = createBrowserRouter([
       {
         path: "/movies/:id/sheet",
         element: <Sheet />,
-        loader: ({ params }) => getDetailsMoviesById(params.id),
+        loader: async ({ params }) => ({
+          moviePeople: await getCastingById(params.id),
+          movieDetails: await getDetailsMoviesById(params.id),
+          movieCountries: await getCountriesList(),
+        }),
       },
+
       {
         path: "/actors",
         element: <ActorList />,

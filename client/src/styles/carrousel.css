@@ -5,6 +5,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.carrousel-home {
+  padding-top: 14rem;
+}
+
 [class^="number-slide"],
 [class*=" number-slide"] {
   background: grey;

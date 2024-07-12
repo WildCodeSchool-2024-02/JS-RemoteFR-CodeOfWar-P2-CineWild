@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
+import ExpandableText from "./ExpandableText";
 import "keen-slider/keen-slider.min.css";
 import "../styles/actorDetails.css";
 
@@ -76,9 +77,13 @@ function ActorDetails() {
       <div className="biographie">
         <h2> Biographie :</h2>
         <p>
-          {actorDetails.biography !== ""
-            ? actorDetails.biography
-            : "Pas de Biographie"}
+          <ExpandableText
+            text={
+              actorDetails.biography !== ""
+                ? actorDetails.biography
+                : "Pas de Biographie"
+            }
+          />
         </p>
       </div>
       <div className="separator">{}</div>
