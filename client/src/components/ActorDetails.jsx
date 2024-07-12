@@ -3,6 +3,7 @@ import { useKeenSlider } from "keen-slider/react";
 import ExpandableText from "./ExpandableText";
 import "keen-slider/keen-slider.min.css";
 import "../styles/actorDetails.css";
+import "../styles/carrousel.css";
 import MovieThumb from "./MovieThumb";
 
 function ActorDetails() {
