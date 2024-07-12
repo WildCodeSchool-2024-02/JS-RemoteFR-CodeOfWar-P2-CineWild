@@ -13,10 +13,8 @@ h1 {
   padding-bottom: 0.75rem;
   font-weight: 600;
 }
-
-.sheet h2 {
-  color: var(--white);
-  margin-left: -3rem;
+h1:hover {
+  text-decoration-color: var(--blue);
 }
 .sheet {
   display: flex;
@@ -41,7 +39,6 @@ h1 {
   margin: 1rem;
 }
 .casting {
-  text-align: center;
-  color: var(--white);
   margin-bottom: 1rem;
+  color: var(--blue);
 }

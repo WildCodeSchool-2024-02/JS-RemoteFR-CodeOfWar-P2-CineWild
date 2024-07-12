@@ -1,6 +1,7 @@
 import { useLoaderData, Link } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
 import { frenchDate, hourMin, cleanString } from "../utils/functions";
+import ExpandableText from "../components/ExpandableText";
 import "../styles/carrousel.css";
 import "keen-slider/keen-slider.min.css";
 import "../styles/dataSheet.css";
@@ -93,7 +94,6 @@ function Sheet() {
             <li>
               <span className="blue-Font">Directeurs : </span>
               <span>
-                {" "}
                 {cleanString(
                   directingCrew.map((directeur) => `${directeur.name}, `)
                 )}
@@ -102,17 +102,17 @@ function Sheet() {
             <li>
               <span className="blue-Font">Editeurs : </span>
               <span>
-                {" "}
                 {cleanString(editeurCrew.map((editeur) => `${editeur.name}, `))}
               </span>
             </li>
             <li>
               <span className="blue-Font">Producteurs : </span>
               <span>
-                {" "}
-                {cleanString(
-                  productCrew.map((production) => `${production.name}, `)
-                )}
+                <ExpandableText
+                  text={cleanString(
+                    productCrew.map((production) => `${production.name}, `)
+                  )}
+                />
               </span>
             </li>
             <li>

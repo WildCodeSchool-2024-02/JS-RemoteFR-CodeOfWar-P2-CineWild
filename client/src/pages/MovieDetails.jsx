@@ -65,7 +65,12 @@ function MovieDetails() {
               <p>{cleanString(renderGenres.slice(0, 3))}</p>
             </li>
             <ul className="scoreandbuttons">
-              <li>⭐{movieDetails.vote_average.toFixed(1)}</li>
+              <li>
+                ⭐
+                {movieDetails.vote_average === 0.0
+                  ? " Non noté"
+                  : movieDetails.vote_average.toFixed(1)}
+              </li>
               <li>
                 <button onClick={handleClickFavorite} type="button">
                   {isFavorite ? "❤️" : "🖤"}
