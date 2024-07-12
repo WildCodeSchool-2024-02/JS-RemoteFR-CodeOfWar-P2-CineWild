@@ -1,5 +1,5 @@
 h1 {
-  font-size: 2rem;
+  font-size: large;
 }
 .actorCard > h2 {
   font-size: var(--main-font);

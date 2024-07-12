@@ -13,7 +13,6 @@ export function getRandomMovies() {
     })
     .catch((error) => console.error(error));
 }
-
 // API de la page film
 export function getDetailsMoviesById(id) {
   return axios
