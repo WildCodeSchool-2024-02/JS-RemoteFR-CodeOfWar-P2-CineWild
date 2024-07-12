@@ -89,6 +89,7 @@ function MovieDetails() {
           </li>
         </ul>
       </div>
+      <div className="separator">{}</div>
       <div className="synopsis">
         <h3 className="blue-Font">Synopsis</h3>
         <ExpandableText text={movieDetails.overview} />
