@@ -22,10 +22,10 @@ import Home from "./pages/Home";
 import Favoris from "./pages/Favoris";
 import User from "./pages/User";
 
-import MovieDetails from "./components/MovieDetails";
-import ActorList from "./components/ActorList";
-import Sheet from "./components/Sheet";
-import ActorDetails from "./components/ActorDetails";
+import MovieDetails from "./pages/MovieDetails";
+import ActorList from "./pages/ActorList";
+import Sheet from "./pages/Sheet";
+import ActorDetails from "./pages/ActorDetails";
 
 const router = createBrowserRouter([
   {
