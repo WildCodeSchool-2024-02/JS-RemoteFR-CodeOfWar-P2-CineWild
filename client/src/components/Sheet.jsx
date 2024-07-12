@@ -50,7 +50,7 @@ function Sheet() {
             <img
               className="film-img"
               src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}&language=fr-FR`}
-              alt="titre du film"
+              alt={`Back to${movieDetails.title}`}
             />
           </Link>
           <h2>{movieDetails.title}</h2>
@@ -135,7 +135,7 @@ function Sheet() {
                 <img
                   className="posterCarrouselPicture"
                   src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
-                  alt={actor.name}
+                  alt={`Go to ${actor.name} page`}
                 />
               </Link>
               {actor.name} <br />
