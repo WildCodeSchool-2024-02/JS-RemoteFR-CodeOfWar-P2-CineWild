@@ -41,6 +41,7 @@
 .titleMovie h1 {
   color: var(--white);
   text-decoration: none;
+  font-size: 1.5rem;
 }
 
 .buttonSalmon {

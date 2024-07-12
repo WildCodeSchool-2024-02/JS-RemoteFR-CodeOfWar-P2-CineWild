@@ -1,43 +1,53 @@
-.dataSheet ul {
-  list-style: none;
-  color: var(--white);
+.sheet {
+  display: flex;
+  flex-direction: column;
 }
-.film-img {
-  height: 15rem;
-  width: auto;
-  border-radius: 10px;
-  margin-right: 3rem;
+
+/* Région header*/
+.head-sheet {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
+
 h1 {
   font-size: 2rem;
   padding-bottom: 0.75rem;
   font-weight: 600;
 }
+
 h1:hover {
   text-decoration-color: var(--blue);
 }
-.sheet {
-  display: flex;
-  flex-direction: column;
+
+.film-img {
+  height: 15rem;
+  width: auto;
+  border-radius: 10px;
+  margin-right: 1rem;
 }
+
+/* Information sur le film*/
 .dataSheet {
   font-weight: 600;
+}
+
+.dataSheet ul {
+  list-style: none;
+  color: var(--white);
 }
 
 .dataSheet li {
   line-height: 2rem;
 }
-.head-sheet {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2rem;
-}
+
+/* Casting */
 .separator {
   height: 2px;
   background-color: var(--salmon);
   margin: 1rem;
 }
+
 .casting {
   margin-bottom: 1rem;
   color: var(--blue);

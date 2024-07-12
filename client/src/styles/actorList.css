@@ -1,6 +1,8 @@
 h1 {
   font-size: large;
 }
+
+/*Zone liste acteur */
 .actorCard > h2 {
   font-size: var(--main-font);
   color: var(--white);
