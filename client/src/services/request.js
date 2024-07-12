@@ -62,15 +62,6 @@ export function getCountriesList() {
     .then((response) => response.data)
     .catch((error) => console.error(error));
 }
-// API list of languages
-export function getLanguageList() {
-  return axios
-    .get(
-      `https://api.themoviedb.org/3/configuration/languages?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
-    )
-    .then((response) => response.data)
-    .catch((error) => console.error(error));
-}
 
 // Carrousel avec les trending movies
 export function getCarrousel() {

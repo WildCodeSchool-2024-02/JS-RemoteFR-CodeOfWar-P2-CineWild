@@ -8,5 +8,6 @@
 }
 
 .seemorebutton {
-  color: var(--blue);
+  color: var(--salmon);
+  cursor: pointer;
 }

@@ -6,10 +6,9 @@ import "keen-slider/keen-slider.min.css";
 import "../styles/dataSheet.css";
 
 function Sheet() {
-  const { moviePeople, movieDetails, movieCountries, movieLanguage } =
-    useLoaderData();
-  // movieLanguage a ajouter dans le const au dessus
-  console.info(movieLanguage, movieCountries);
+  const { moviePeople, movieDetails, movieCountries } = useLoaderData();
+
+  console.info(movieDetails);
   const creditFilm = moviePeople.cast;
   const productCrew = moviePeople.crew.filter(
     (person) => person.department === "Production"
@@ -76,10 +75,6 @@ function Sheet() {
               <span>{movieDetails.original_title}</span>
             </li>
             <li>
-              <span className="blue-Font">Langue d'origine : </span>
-              <span>{} </span>
-            </li>
-            <li>
               <span className="blue-Font">Pays d'origine : </span>
               <span>{nativeName()} </span>
             </li>
@@ -89,6 +84,14 @@ function Sheet() {
                 {cleanString(
                   movieDetails.genres.map((genre) => `${genre.name}, `)
                 )}
+              </span>
+            </li>
+            <li>
+              <span className="blue-Font">Etat : </span>
+              <span>
+                {movieDetails.status === "Post Production"
+                  ? "En production"
+                  : "Sortie"}{" "}
               </span>
             </li>
             <li>
