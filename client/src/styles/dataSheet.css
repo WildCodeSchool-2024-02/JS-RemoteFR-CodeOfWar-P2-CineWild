@@ -4,7 +4,7 @@
 }
 .film-img {
   height: 15rem;
-  width: 15rem;
+  width: auto;
   border-radius: 10px;
   margin-right: 3rem;
 }
@@ -14,13 +14,13 @@ h1 {
   font-weight: 600;
 }
 
-h2 {
-  text-align: center;
-  padding-bottom: 1rem;
+.sheet h2 {
+  color: var(--white);
+  margin-left: -3rem;
 }
 .sheet {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .dataSheet {
   font-weight: 600;
@@ -28,4 +28,20 @@ h2 {
 
 .dataSheet li {
   line-height: 2rem;
+}
+.head-sheet {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+.separator {
+  height: 2px;
+  background-color: var(--salmon);
+  margin: 1rem;
+}
+.casting {
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 1rem;
 }
