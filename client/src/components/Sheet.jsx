@@ -21,8 +21,6 @@ function Sheet() {
     (person) => person.department === "Editing"
   );
 
-  // console.info(movieDetails, movieLanguage);
-
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
     slides: {
@@ -42,16 +40,6 @@ function Sheet() {
       })
       .join(", ");
   }
-  // function filmLanguage() {
-  // return movieDetails.spoken_languages
-  // .map((iso) => {
-  // const foundIndex = movieLanguage.findIndex(
-  // (langue) => langue.iso_639_1 === iso
-  // );
-  // return movieLanguage[foundIndex].english_name;
-  // })
-  // .join(", ");
-  // }
 
   return (
     <>
