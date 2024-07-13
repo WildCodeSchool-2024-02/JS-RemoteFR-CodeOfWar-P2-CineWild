@@ -139,6 +139,11 @@ li.date-movie {
   flex-direction: row;
 }
 
+.separator-movieCard {
+  height: 2px;
+  background-color: var(--salmon);
+  margin: 1rem;
+}
 /*  #endregion */
 
 /* #region ----- Synopsis */

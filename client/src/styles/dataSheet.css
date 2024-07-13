@@ -3,6 +3,32 @@
   flex-direction: column;
 }
 
+@media screen and (min-width: 700px) {
+  .sheet {
+    padding-left: 2rem;
+    margin-right: 6rem;
+  }
+
+  .dataSheet {
+    padding-top: 0rem;
+    margin-left: 11.3rem;
+  }
+  .sheet .casting {
+    margin-left: 11.3rem;
+  }
+
+  .sheet .separator-dataHead,
+  .sheet .separator-dataCast-mobile {
+    height: 2px;
+    background-color: var(--salmon);
+    margin-top: 1rem;
+    margin-left: 11.3rem;
+    margin-bottom: 1rem;
+  }
+  .sheet .separator-dataCast {
+    display: none;
+  }
+}
 /* Région header*/
 .head-sheet {
   display: flex;
@@ -10,17 +36,17 @@
   align-items: center;
 }
 
-h1 {
+.sheet h1 {
   font-size: 2rem;
   padding-bottom: 0.75rem;
   font-weight: 600;
 }
 
-h1:hover {
+.sheet h1:hover {
   text-decoration-color: var(--blue);
 }
 
-.film-img {
+.sheet .film-img {
   height: 15rem;
   width: auto;
   border-radius: 10px;
@@ -29,6 +55,7 @@ h1:hover {
 
 /* Information sur le film*/
 .dataSheet {
+  padding-top: 1rem;
   font-weight: 600;
 }
 
@@ -42,13 +69,14 @@ h1:hover {
 }
 
 /* Casting */
-.separator {
+
+.sheet .separator-dataCast {
   height: 2px;
   background-color: var(--salmon);
   margin: 1rem;
 }
 
-.casting {
+.sheet .casting {
   margin-bottom: 1rem;
   color: var(--blue);
 }

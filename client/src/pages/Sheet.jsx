@@ -56,7 +56,7 @@ function Sheet() {
           </Link>
           <h2>{movieDetails.title}</h2>
         </div>
-
+        <div className="separator-dataHead">{}</div>
         <div className="dataSheet">
           <ul>
             <li>
@@ -121,9 +121,9 @@ function Sheet() {
             </li>
           </ul>
         </div>
-        <div className="separator">{}</div>
+        <div className="separator-dataCast">{}</div>
+        <div className="separator-dataCast-mobile">{}</div>
         <h2 className="casting">Casting : </h2>
-
         <div ref={sliderRef} className="keen-slider">
           {creditFilm.map((actor, index) => (
             <div
