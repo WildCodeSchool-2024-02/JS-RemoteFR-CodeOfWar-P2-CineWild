@@ -17,6 +17,9 @@
 }
 
 /*En-tete avec les informations de l'acteur*/
+.actorName {
+  font-size: 2rem;
+}
 .actorContainer {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,5 @@
 .actorPopularList h1 {
-  font-size: large;
+  font-size: 2rem;
   text-decoration: underline;
   text-decoration-color: var(--salmon);
 }

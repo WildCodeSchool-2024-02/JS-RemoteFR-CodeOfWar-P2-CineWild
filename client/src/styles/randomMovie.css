@@ -56,6 +56,9 @@
   text-align: center;
   font-weight: bold;
 }
+.buttonSalmon:hover {
+  color: var(--blue);
+}
 .background-random {
   height: 25rem;
   width: auto;
