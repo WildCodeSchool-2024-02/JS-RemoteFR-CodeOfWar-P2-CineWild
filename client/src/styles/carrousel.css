@@ -43,10 +43,6 @@ body {
   padding-bottom: 0.5rem;
 }
 
-.keen-slider {
-  background: var(--black);
-}
-
 /*Parti film + vote favoris*/
 #film {
   display: flex;
