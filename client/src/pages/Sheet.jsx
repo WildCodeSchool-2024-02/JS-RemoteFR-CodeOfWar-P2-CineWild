@@ -44,7 +44,7 @@ function Sheet() {
 
   return (
     <>
-      <h1>Fiche technique</h1>
+      <h1 className="sheet-title">Fiche technique</h1>
       <section className="sheet">
         <div className="head-sheet">
           <Link to={`/movies/${movieDetails.id}`}>

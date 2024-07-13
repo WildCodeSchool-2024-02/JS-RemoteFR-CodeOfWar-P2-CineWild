@@ -1,7 +1,11 @@
-h1 {
+.actorPopularList h1 {
   font-size: large;
+  text-decoration: underline;
+  text-decoration-color: var(--salmon);
 }
-
+.actorPopularList h1:hover {
+  text-decoration-color: var(--blue);
+}
 /*Zone liste acteur */
 .actorCard > h2 {
   font-size: var(--main-font);

@@ -17,10 +17,7 @@
 }
 
 /*En-tete avec les informations de l'acteur*/
-.actorContainer h1:hover {
-  text-decoration-color: var(--blue);
-}
-.actorContainer .actorContainer {
+.actorContainer {
   display: flex;
   flex-direction: column;
 }
