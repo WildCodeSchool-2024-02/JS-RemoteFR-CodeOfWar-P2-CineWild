@@ -103,7 +103,7 @@ export function getMoviesSearch(value) {
     .catch((error) => console.error(error));
 }
 
-export function getPersonSearch(value) {
+export function getPersonsSearch(value) {
   return axios
     .get(
       `https://api.themoviedb.org/3/search/person?query=${value}&api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`

@@ -1,17 +1,19 @@
 import { useLoaderData } from "react-router-dom";
 
 import MovieResult from "../components/MovieResult";
+import PersonResult from "../components/PersonResult";
 
 export default function Result() {
-  const { searchMovies } = useLoaderData();
-  console.info(searchMovies);
+  const { searchMovies, searchPersons } = useLoaderData();
 
   const pluralSingularResults = () =>
-    searchMovies.length < 2 ? "RÉSULTAT :" : "RÉSULTATS :";
+    searchMovies.length + searchPersons.length < 2
+      ? "RÉSULTAT :"
+      : "RÉSULTATS :";
 
   return (
     <section>
-      {searchMovies.length === 0 ? (
+      {searchMovies.length + searchPersons.length === 0 ? (
         <p>Oops ! Aucun résultat</p>
       ) : (
         <p className="sentenceResult">{pluralSingularResults()}</p>
@@ -20,6 +22,11 @@ export default function Result() {
         ? null
         : searchMovies.map((movie) => (
             <MovieResult key={movie.id} movie={movie} />
+          ))}
+      {!searchPersons
+        ? null
+        : searchPersons.map((person) => (
+            <PersonResult key={person.id} person={person} />
           ))}
     </section>
   );

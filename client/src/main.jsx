@@ -14,6 +14,7 @@ import {
   getMoviesSearch,
   getActorsById,
   getMovieActorsById,
+  getPersonsSearch,
 } from "./services/request";
 
 import App from "./App";
@@ -87,6 +88,7 @@ const router = createBrowserRouter([
         element: <Result />,
         loader: async ({ params }) => ({
           searchMovies: await getMoviesSearch(params.query),
+          searchPersons: await getPersonsSearch(params.query),
         }),
       },
     ],
