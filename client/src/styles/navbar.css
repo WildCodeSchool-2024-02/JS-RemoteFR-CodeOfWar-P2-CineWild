@@ -160,14 +160,7 @@
   border-radius: 8px 0 0 8px;
 }
 
-@media screen and (min-width: 1024px) {
-  .navbuttons {
-    display: flex;
-    justify-content: space-evenly;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 536px) {
   .navbuttons {
     display: flex;
     justify-content: space-evenly;
