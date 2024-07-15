@@ -22,5 +22,10 @@
 }
 
 .sentenceResult {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: var(--main-font);
+  font-size: x-large;
+  text-decoration: underline;
+  text-decoration-color: var(--salmon);
 }

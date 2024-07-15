@@ -12,7 +12,7 @@ export default function Result() {
   return (
     <section>
       {searchMovies.length === 0 ? (
-        <p className="sentenceResult">Oops ! Aucun résultat</p>
+        <p>Oops ! Aucun résultat</p>
       ) : (
         <p className="sentenceResult">{pluralSingularResults()}</p>
       )}
