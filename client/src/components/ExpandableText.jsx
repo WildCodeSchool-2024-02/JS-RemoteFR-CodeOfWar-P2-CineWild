@@ -21,9 +21,9 @@ function ExpandableText({ text, maxLength = 100 }) {
   );
 }
 
-export default ExpandableText;
-
 ExpandableText.propTypes = {
   text: PropTypes.string.isRequired,
   maxLength: PropTypes.number.isRequired,
 };
+
+export default ExpandableText;

@@ -77,15 +77,13 @@ function ActorDetails() {
       <div className="separator">{}</div>
       <div className="biographie">
         <h2> Biographie :</h2>
-        <p>
-          <ExpandableText
-            text={
-              actorDetails.biography !== ""
-                ? actorDetails.biography
-                : "Pas de Biographie"
-            }
-          />
-        </p>
+        <ExpandableText
+          text={
+            actorDetails.biography !== ""
+              ? actorDetails.biography
+              : "Pas de Biographie"
+          }
+        />
       </div>
       <div className="separator">{}</div>
       <div className="filmography">
