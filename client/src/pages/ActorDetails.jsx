@@ -1,10 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
-import ExpandableText from "./ExpandableText";
+import ExpandableText from "../components/ExpandableText";
 import "keen-slider/keen-slider.min.css";
 import "../styles/actorDetails.css";
-import "../styles/carrousel.css";
-import MovieThumb from "./MovieThumb";
+import MovieThumb from "../components/MovieThumb";
 
 function ActorDetails() {
   const { actorDetails, actorMovies } = useLoaderData();
@@ -57,19 +56,19 @@ function ActorDetails() {
           <h1 className="actorName">{actorDetails.name}</h1>
           <ul>
             <li>
-              <span className="blue-Font">Genre:</span>{" "}
+              <span className="blue-Font">Genre :</span>{" "}
               {actorDetails.gender === 1 ? "Femme" : "Homme"}{" "}
             </li>
             <li>
-              <span className="blue-Font">Lieu de Naissance:</span>{" "}
+              <span className="blue-Font">Lieu de Naissance :</span>{" "}
               {actorDetails.place_of_birth}{" "}
             </li>
             <li>
-              <span className="blue-Font">Date de Naissance:</span>{" "}
+              <span className="blue-Font">Date de Naissance : </span>
               {releaseDate(actorDetails.birthday)}{" "}
             </li>
             <li>
-              <span className="blue-Font">Age:</span>{" "}
+              <span className="blue-Font">Age :</span>{" "}
               {calculateAge(actorDetails.birthday)} ans{" "}
             </li>
           </ul>

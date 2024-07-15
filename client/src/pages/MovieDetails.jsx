@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import "../styles/moviedetails.css";
 import { useLoaderData, Link } from "react-router-dom";
-import ExpandableText from "./ExpandableText";
+import ExpandableText from "../components/ExpandableText";
 import { yearDate, frenchDate, hourMin, cleanString } from "../utils/functions";
 
 function MovieDetails() {
@@ -27,6 +27,11 @@ function MovieDetails() {
   const [isFavorite, setIsFavorite] = useState("");
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
+  };
+
+  const [isWatchListed, setIsWatchListed] = useState("");
+  const handleClickWatchlist = () => {
+    setIsWatchListed(!isWatchListed);
   };
 
   const renderCrew = filteredCrew.map((director) => `${director.name}, `);
@@ -58,14 +63,25 @@ function MovieDetails() {
               {hourMin(movieDetails.runtime)}
             </li>
             <li className="genre-movie">
-              <p>{cleanString(renderGenres)}</p>
+              <p>{cleanString(renderGenres.slice(0, 3))}</p>
             </li>
-            <div className="ratingAndFavorite">
+            <ul className="scoreandbuttons">
               <li>⭐{movieDetails.vote_average.toFixed(1)}</li>
-              <button onClick={handleClickFavorite} type="button">
-                {isFavorite ? "Remove ❤️" : "Add 🖤"}
-              </button>
-            </div>
+              <li>
+                <button onClick={handleClickFavorite} type="button">
+                  {isFavorite ? "❤️" : "🖤"}
+                </button>
+              </li>
+              <li>
+                <button
+                  className="watchlistbutton"
+                  onClick={handleClickWatchlist}
+                  type="button"
+                >
+                  {isWatchListed ? "Watchlist ✔️ " : "Watchlist 📌"}
+                </button>
+              </li>
+            </ul>
           </div>
         </ul>
       </div>
@@ -90,9 +106,12 @@ function MovieDetails() {
           </li>
         </ul>
       </div>
+      <div className="separator">{}</div>
       <div className="synopsis">
         <h3 className="blue-Font">Synopsis</h3>
-        <ExpandableText text={movieDetails.overview} />
+        <p>
+          <ExpandableText text={movieDetails.overview} />
+        </p>
       </div>
       <button className="blue-Font fullDetails" type="button">
         <Link to={`/movies/${movieDetails.id}/sheet`}> Fiche technique</Link>

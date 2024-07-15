@@ -16,6 +16,10 @@ h3 {
   color: var(--white);
 }
 
+a {
+  color: var(--salmon);
+}
+
 .blue-Font {
   color: var(--blue);
 }
@@ -53,7 +57,7 @@ button {
 
 .frontImg {
   width: 5rem;
-  height: 7.5rem;
+  height: 8rem;
   border-radius: 6px;
 }
 
@@ -68,17 +72,55 @@ button {
   font-weight: 400;
 }
 
-.movieCardList {
-  padding-left: 1rem;
+.watchlistbutton {
+  color: var(--white);
 }
 
-.ratingAndFavorite {
+.movieCardList {
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 20px;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+li.title-movie {
+  font-size: 18px;
+  opacity: 90%;
+}
+
+li.date-movie {
+  font-size: 16px;
+  opacity: 85%;
+}
+
+.genre-movie p {
+  font-size: 17px;
+}
+
+.scoreandbuttons {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
-.ratingAndFavorite li {
-  padding-right: 2rem;
+.scoreandbuttons button {
+  padding: 0;
+}
+
+.film-background {
+  height: 15rem;
+  width: auto;
+  background-size: cover;
+  background-position: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: -15.5rem;
+  opacity: 0.3;
+}
+.movieCardContent {
+  position: absolute;
+  padding-left: 0.5rem;
 }
 
 /*  #endregion */
@@ -88,7 +130,7 @@ button {
 .movieDescription {
   font-weight: 600;
   margin-bottom: 1rem;
-  padding-top: 10rem;
+  padding-top: 11rem;
 }
 
 .movieDescription li {
@@ -112,6 +154,7 @@ button {
 .synopsis p {
   font-weight: 600;
   margin-bottom: 1rem;
+  line-height: 26px;
 }
 
 .fullDetails {
@@ -123,20 +166,3 @@ a {
   color: var(--blue);
 }
 /*  #endregion */
-.film-background {
-  height: 15rem;
-  width: auto;
-  background-size: cover;
-  background-position: center;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  margin-bottom: -14rem;
-  opacity: 0.3;
-}
-.movieCardContent {
-  position: absolute;
-  padding-left: 0.5rem;
-}
-a {
-  color: var(--salmon);
-}

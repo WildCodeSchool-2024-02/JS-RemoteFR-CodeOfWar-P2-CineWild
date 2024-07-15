@@ -10,16 +10,14 @@ function ExpandableText({ text, maxLength = 100 }) {
   };
 
   return (
-    <div>
-      <p>
-        {isExpanded ? text : `${text.substring(0, maxLength)}...`}
-        {text.length > maxLength && (
-          <button type="button" onClick={toggleText} className="seemorebutton">
-            {isExpanded ? `\u00A0Afficher moins` : `\u00A0Afficher plus`}
-          </button>
-        )}
-      </p>
-    </div>
+    <>
+      {isExpanded ? text : `${text.substring(0, maxLength)}...`}
+      {text.length > maxLength && (
+        <button type="button" onClick={toggleText} className="seemorebutton">
+          {isExpanded ? `\u00A0Afficher moins` : `\u00A0Afficher plus`}
+        </button>
+      )}
+    </>
   );
 }
 
