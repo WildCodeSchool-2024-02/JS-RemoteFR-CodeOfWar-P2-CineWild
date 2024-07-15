@@ -92,3 +92,13 @@ export function getActorList() {
     .then((response) => response.data.results)
     .catch((error) => console.error(error));
 }
+
+// APIs barre de recherche
+export function getMoviesSearch(value) {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/search/movie?query=${value}&api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
+    )
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+}

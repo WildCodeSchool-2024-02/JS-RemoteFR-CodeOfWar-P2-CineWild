@@ -11,6 +11,7 @@ import {
   getCastingById,
   getActorList,
   getCountriesList,
+  getMoviesSearch,
   getActorsById,
   getMovieActorsById,
 } from "./services/request";
@@ -21,6 +22,7 @@ import Home from "./pages/Home";
 // import Movie from "./pages/Movie";
 import Favoris from "./pages/Favoris";
 import User from "./pages/User";
+import Result from "./pages/Result";
 
 import MovieDetails from "./pages/MovieDetails";
 import ActorList from "./pages/ActorList";
@@ -79,6 +81,13 @@ const router = createBrowserRouter([
       {
         path: "/user",
         element: <User />,
+      },
+      {
+        path: "/result/movies/:query",
+        element: <Result />,
+        loader: async ({ params }) => ({
+          searchMovies: await getMoviesSearch(params.query),
+        }),
       },
     ],
   },

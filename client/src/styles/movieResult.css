@@ -1,0 +1,22 @@
+.resultContent {
+  display: flex;
+}
+
+.resultContent > a > img {
+  width: 12rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.resultContent > ul {
+  margin-top: 1rem;
+}
+
+.resultContent > ul > li {
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  font-size: x-large;
+}
