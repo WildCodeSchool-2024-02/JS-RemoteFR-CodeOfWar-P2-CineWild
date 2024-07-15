@@ -6,7 +6,6 @@ import MovieThumb from "../components/MovieThumb";
 
 function ActorDetails() {
   const { actorDetails, actorMovies } = useLoaderData();
-  console.info(actorDetails, actorMovies);
 
   const releaseDate = () => {
     const event = new Date(actorDetails.birthday);
