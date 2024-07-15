@@ -45,7 +45,7 @@ function NavBar() {
               <img
                 src="../src/assets/images/logocw.svg"
                 className="logocw"
-                alt="Logo"
+                alt="Logo - Back to home page"
               />
             </Link>
           </li>

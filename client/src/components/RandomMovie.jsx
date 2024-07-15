@@ -6,14 +6,17 @@ import PropTypes from "prop-types";
 
 function RandomMovie({ randomMovie }) {
   return (
-    <section
-      className="cardRandom"
-      style={{
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundImage: `url(https://image.tmdb.org/t/p/w500${randomMovie.backdrop_path}&language=fr-FR)`,
-      }}
-    >
+    <section className="cardRandom">
+      <div
+        className="background-random"
+        style={{
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundImage: `url(https://image.tmdb.org/t/p/w500${randomMovie.backdrop_path}&language=fr-FR)`,
+        }}
+      >
+        <title>empty</title>
+      </div>
       <div className="informationsMovie">
         <div className="poster">
           <img
@@ -36,7 +39,7 @@ function RandomMovie({ randomMovie }) {
 }
 
 RandomMovie.propTypes = {
-  randomMovie: PropTypes.arrayOf({
+  randomMovie: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,
