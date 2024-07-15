@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1024px) {
   .sheet {
     padding-left: 2rem;
     margin-right: 6rem;

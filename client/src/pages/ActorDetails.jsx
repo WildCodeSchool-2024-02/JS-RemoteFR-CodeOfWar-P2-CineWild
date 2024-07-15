@@ -6,7 +6,6 @@ import MovieThumb from "../components/MovieThumb";
 
 function ActorDetails() {
   const { actorDetails, actorMovies } = useLoaderData();
-  console.info(actorDetails, actorMovies);
 
   const releaseDate = () => {
     const event = new Date(actorDetails.birthday);
@@ -40,15 +39,15 @@ function ActorDetails() {
       origin: "center",
     },
     breakpoints: {
-      "(min-width: 1024px)": {
+      "(min-width: 1400px)": {
         slides: {
           perView: 5,
           spacing: 25,
         },
       },
-      "(min-width: 768px) and (max-width: 1023px": {
+      "(min-width: 768px) and (max-width: 1399px": {
         slides: {
-          perView: 4,
+          perView: 3,
           spacing: 25,
         },
       },
