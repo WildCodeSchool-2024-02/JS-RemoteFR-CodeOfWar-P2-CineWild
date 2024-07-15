@@ -156,11 +156,15 @@ function MovieDetails() {
           <ExpandableText text={movieDetails.overview} maxLength={90} />
         </p>
       </div>
-      <div ref={sliderRef} className="keen-slider">
-        {movieCasting.map((actor, index) => (
-          <ActorThumb tools={{ actor, index }} key={actor.id} />
-        ))}
-      </div>
+      <div className="separator-movieCard">{}</div>
+      <section className="casting">
+        <h3 className="blue-Font">Casting</h3>
+        <div ref={sliderRef} className="keen-slider">
+          {movieCasting.map((actor, index) => (
+            <ActorThumb tools={{ actor, index }} key={actor.id} />
+          ))}
+        </div>
+      </section>
     </>
   );
 }

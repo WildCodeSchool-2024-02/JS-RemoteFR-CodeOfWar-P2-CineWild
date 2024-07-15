@@ -151,6 +151,8 @@ li.date-movie {
 
 .synopsis h3 {
   padding-bottom: 1rem;
+  padding-top: 1rem;
+  font-size: 1.5rem;
 }
 
 .synopsis p {
@@ -170,6 +172,13 @@ a {
 a:hover {
   color: var(--blue);
 }
+
+.casting h3 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+}
+
 /*  #endregion */
 
 /* #region ----- Version Desktop */
@@ -209,6 +218,11 @@ a:hover {
     margin-top: 0;
   }
 
+  .fullDetails {
+    padding-bottom: 0;
+    font-weight: 600;
+  }
+
   .synopsis h3 {
     font-size: 2rem;
     padding-top: 2rem;
@@ -243,6 +257,10 @@ a:hover {
 
   ul.scoreandbuttons {
     font-size: 22px;
+  }
+
+  .casting h3 {
+    font-size: 2rem;
   }
 }
 
