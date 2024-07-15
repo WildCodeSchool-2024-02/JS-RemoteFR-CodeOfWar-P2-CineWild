@@ -2,12 +2,41 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import "../styles/moviedetails.css";
 import { useLoaderData, Link } from "react-router-dom";
+import { useKeenSlider } from "keen-slider/react";
 import ExpandableText from "../components/ExpandableText";
 import { yearDate, frenchDate, hourMin, cleanString } from "../utils/functions";
+import ActorThumb from "../components/ActorThumb";
 
 function MovieDetails() {
+  const [sliderRef] = useKeenSlider({
+    mode: "free-snap",
+    slides: {
+      origin: "center",
+    },
+    breakpoints: {
+      "(min-width: 1400px)": {
+        slides: {
+          perView: 5,
+          spacing: 25,
+        },
+      },
+      "(min-width: 768px) and (max-width: 1399px": {
+        slides: {
+          perView: 3,
+          spacing: 25,
+        },
+      },
+      "(max-width: 767px)": {
+        slides: {
+          perView: 2,
+          spacing: 25,
+        },
+      },
+    },
+  });
+
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
-  const movieCasting = moviePeople.cast.slice(0, 4);
+  const movieCasting = moviePeople.cast.slice(0, 6);
 
   function nativeName() {
     return movieDetails.origin_country
@@ -35,7 +64,9 @@ function MovieDetails() {
   };
 
   const renderCrew = filteredCrew.map((director) => `${director.name}, `);
-  const renderCasting = movieCasting.map((cast) => `${cast.name}, `);
+  const renderCasting = movieCasting
+    .slice(0, 4)
+    .map((cast) => `${cast.name}, `);
   const renderGenres = movieDetails.genres.map((genre) => `${genre.name}, `);
 
   return (
@@ -122,8 +153,13 @@ function MovieDetails() {
       <div className="synopsis">
         <h3 className="blue-Font">Synopsis</h3>
         <p>
-          <ExpandableText text={movieDetails.overview} />
+          <ExpandableText text={movieDetails.overview} maxLength={90} />
         </p>
+      </div>
+      <div ref={sliderRef} className="keen-slider">
+        {movieCasting.map((actor, index) => (
+          <ActorThumb tools={{ actor, index }} key={actor.id} />
+        ))}
       </div>
     </>
   );
