@@ -26,8 +26,26 @@ function Sheet() {
     mode: "free-snap",
     slides: {
       origin: "center",
-      perView: 2,
-      spacing: 15,
+    },
+    breakpoints: {
+      "(min-width: 1024px)": {
+        slides: {
+          perView: 5,
+          spacing: 25,
+        },
+      },
+      "(min-width: 768px) and (max-width: 1023px": {
+        slides: {
+          perView: 3,
+          spacing: 25,
+        },
+      },
+      "(max-width: 767px)": {
+        slides: {
+          perView: 2,
+          spacing: 25,
+        },
+      },
     },
   });
 

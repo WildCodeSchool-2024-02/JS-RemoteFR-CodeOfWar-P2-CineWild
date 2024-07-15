@@ -109,6 +109,13 @@ function MovieDetails() {
             <span className="blue-Font">Pays d'origine : </span>
             <span>{nativeName()}</span>
           </li>
+          <li>
+            <button className="blue-Font fullDetails" type="button">
+              <Link to={`/movies/${movieDetails.id}/sheet`}>
+                Fiche technique
+              </Link>
+            </button>
+          </li>
         </ul>
       </div>
       <div className="separator-movieCard">{}</div>
@@ -118,9 +125,6 @@ function MovieDetails() {
           <ExpandableText text={movieDetails.overview} />
         </p>
       </div>
-      <button className="blue-Font fullDetails" type="button">
-        <Link to={`/movies/${movieDetails.id}/sheet`}> Fiche technique</Link>
-      </button>
     </>
   );
 }
