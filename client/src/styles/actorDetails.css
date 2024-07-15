@@ -34,7 +34,7 @@
 }
 
 .actorContainer .actor_img {
-  width: 50%;
+  width: 15rem;
   height: auto;
   border-radius: 1rem;
   object-fit: contain;

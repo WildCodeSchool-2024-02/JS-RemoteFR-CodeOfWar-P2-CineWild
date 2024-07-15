@@ -7,7 +7,6 @@ import MovieThumb from "../components/MovieThumb";
 
 function ActorDetails() {
   const { actorDetails, actorMovies } = useLoaderData();
-  console.info(actorDetails, actorMovies);
 
   const releaseDate = () => {
     const event = new Date(actorDetails.birthday);
@@ -77,13 +76,15 @@ function ActorDetails() {
       <div className="separator">{}</div>
       <div className="biographie">
         <h2> Biographie :</h2>
-        <ExpandableText
-          text={
-            actorDetails.biography !== ""
-              ? actorDetails.biography
-              : "Pas de Biographie"
-          }
-        />
+        <p>
+          <ExpandableText
+            text={
+              actorDetails.biography !== ""
+                ? actorDetails.biography
+                : "Pas de Biographie"
+            }
+          />
+        </p>
       </div>
       <div className="separator">{}</div>
       <div className="filmography">

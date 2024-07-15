@@ -10,7 +10,7 @@ function Carrousel({ trendingMovies }) {
     slides: {
       origin: "center",
       perView: 2,
-      spacing: 15,
+      spacing: 25,
     },
   });
 
