@@ -9,8 +9,26 @@ function Carrousel({ trendingMovies }) {
     mode: "free-snap",
     slides: {
       origin: "center",
-      perView: 2,
-      spacing: 15,
+    },
+    breakpoints: {
+      "(min-width: 1400px)": {
+        slides: {
+          perView: 5,
+          spacing: 25,
+        },
+      },
+      "(min-width: 768px) and (max-width: 1399px": {
+        slides: {
+          perView: 4,
+          spacing: 25,
+        },
+      },
+      "(max-width: 767px)": {
+        slides: {
+          perView: 2,
+          spacing: 25,
+        },
+      },
     },
   });
 
