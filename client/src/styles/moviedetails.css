@@ -16,10 +16,6 @@ h3 {
   color: var(--white);
 }
 
-a {
-  color: var(--salmon);
-}
-
 .blue-Font {
   color: var(--blue);
 }
@@ -47,6 +43,7 @@ button {
   margin-bottom: 1rem;
 }
 .movieCard h1 {
+  margin-top: 2.5rem;
   font-size: 1.25rem;
   padding-bottom: 0.75rem;
   font-weight: 600;
@@ -143,6 +140,11 @@ li.date-movie {
   flex-direction: row;
 }
 
+.separator-movieCard {
+  height: 2px;
+  background-color: var(--salmon);
+  margin: 1rem;
+}
 /*  #endregion */
 
 /* #region ----- Synopsis */
@@ -163,6 +165,9 @@ li.date-movie {
 }
 a {
   text-decoration: none;
+  color: var(--salmon);
+}
+a:hover {
   color: var(--blue);
 }
 /*  #endregion */

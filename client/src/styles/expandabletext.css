@@ -11,3 +11,6 @@
   color: var(--salmon);
   cursor: pointer;
 }
+.seemorebutton:hover {
+  color: var(--blue);
+}
