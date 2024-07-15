@@ -2,15 +2,14 @@ import { useLoaderData, Link } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
 import { frenchDate, hourMin, cleanString } from "../utils/functions";
 import ExpandableText from "../components/ExpandableText";
+import ActorThumb from "../components/ActorThumb";
 import "../styles/carrousel.css";
 import "keen-slider/keen-slider.min.css";
 import "../styles/dataSheet.css";
 
 function Sheet() {
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
-
-  console.info(movieDetails);
-  const creditFilm = moviePeople.cast;
+  const movieCasting = moviePeople.cast;
   const productCrew = moviePeople.crew.filter(
     (person) => person.department === "Production"
   );
@@ -145,21 +144,8 @@ function Sheet() {
         <div className="separator-dataCast-mobile">{}</div>
         <h2 className="casting">Casting : </h2>
         <div ref={sliderRef} className="keen-slider">
-          {creditFilm.map((actor, index) => (
-            <div
-              key={actor.id}
-              className={`keen-slider__slide number-slide${index}`}
-              id="film"
-            >
-              <Link to={`/actors/${actor.id}`}>
-                <img
-                  className="posterCarrouselPicture"
-                  src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
-                  alt={`Go to ${actor.name} page`}
-                />
-              </Link>
-              {actor.name} <br />
-            </div>
+          {movieCasting.map((actor, index) => (
+            <ActorThumb tools={{ actor, index }} key={actor.id} />
           ))}
         </div>
       </section>

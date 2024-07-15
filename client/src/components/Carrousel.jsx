@@ -11,13 +11,13 @@ function Carrousel({ trendingMovies }) {
       origin: "center",
     },
     breakpoints: {
-      "(min-width: 1024px)": {
+      "(min-width: 1400px)": {
         slides: {
           perView: 5,
           spacing: 25,
         },
       },
-      "(min-width: 768px) and (max-width: 1023px)": {
+      "(min-width: 768px) and (max-width: 1399px": {
         slides: {
           perView: 4,
           spacing: 25,

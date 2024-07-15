@@ -28,13 +28,13 @@
 .actorContainer .actor {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 2rem;
   padding-bottom: 2rem;
 }
 
 .actorContainer .actor_img {
-  width: 50%;
+  width: 15rem;
   height: auto;
   border-radius: 1rem;
   object-fit: contain;
@@ -69,4 +69,16 @@
 
 .actorContainer .filmography {
   padding-top: 2rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .actorContainer {
+    margin-right: 6rem;
+  }
+
+  .actorContainer .biographie,
+  .actorContainer .separator,
+  .filmography h2 {
+    margin-left: 17.3rem;
+  }
 }
