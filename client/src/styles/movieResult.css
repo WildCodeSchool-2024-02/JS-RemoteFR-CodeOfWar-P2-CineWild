@@ -1,6 +1,5 @@
 .resultContent {
   display: flex;
-  margin-top: 4rem;
 }
 
 .resultContent > a > img {
@@ -25,36 +24,33 @@
 .sentenceResult {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 
-.separator > ul {
+.separatorFilter {
+  height: 2px;
+  background-color: var(--salmon);
+}
+
+.separatorFilter > ul {
   display: flex;
   justify-content: space-between;
 }
 
-.separator > ul > li {
+.separatorFilter > ul > li {
   display: flex;
   margin-top: 1.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-.buttonTout {
-  all: unset;
-  width: 4rem;
-  padding: 4px;
-  border-radius: 3rem;
-  background-color: var(--blue);
-  color: var(--white);
-  text-decoration: none;
-  cursor: pointer;
-  text-align: center;
-}
-
+.buttonTout,
 .buttonFilm,
 .buttonArtiste {
   all: unset;
   width: 4rem;
   padding: 4px;
-  border-radius: 3rem;
+  border-radius: 12px;
   background-color: var(--blue);
   color: var(--white);
   text-decoration: none;
@@ -70,15 +66,12 @@
   border: 0.1rem solid var(--salmon);
 }
 
+.buttonTout:active,
+.buttonTout:focus,
 .buttonFilm:active,
 .buttonFilm:focus,
 .buttonArtiste:active,
 .buttonArtiste:focus {
   background-color: var(--blue);
   opacity: 100%;
-}
-
-.buttonTout:active,
-.buttonTout:focus {
-  opacity: 75%;
 }
