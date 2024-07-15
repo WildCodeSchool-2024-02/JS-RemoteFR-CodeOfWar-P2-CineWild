@@ -1,6 +1,7 @@
 import { useLoaderData, Link } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
 import { frenchDate, hourMin, cleanString } from "../utils/functions";
+import ExpandableText from "../components/ExpandableText";
 import "../styles/carrousel.css";
 import "keen-slider/keen-slider.min.css";
 import "../styles/dataSheet.css";
@@ -43,7 +44,7 @@ function Sheet() {
 
   return (
     <>
-      <h1>Fiche technique</h1>
+      <h1 className="sheet-title">Fiche technique</h1>
       <section className="sheet">
         <div className="head-sheet">
           <Link to={`/movies/${movieDetails.id}`}>
@@ -55,7 +56,7 @@ function Sheet() {
           </Link>
           <h2>{movieDetails.title}</h2>
         </div>
-
+        <div className="separator-dataHead">{}</div>
         <div className="dataSheet">
           <ul>
             <li>
@@ -93,7 +94,6 @@ function Sheet() {
             <li>
               <span className="blue-Font">Directeurs : </span>
               <span>
-                {" "}
                 {cleanString(
                   directingCrew.map((directeur) => `${directeur.name}, `)
                 )}
@@ -102,28 +102,30 @@ function Sheet() {
             <li>
               <span className="blue-Font">Editeurs : </span>
               <span>
-                {" "}
                 {cleanString(editeurCrew.map((editeur) => `${editeur.name}, `))}
               </span>
             </li>
             <li>
               <span className="blue-Font">Producteurs : </span>
               <span>
-                {" "}
-                {cleanString(
-                  productCrew.map((production) => `${production.name}, `)
-                )}
+                <ExpandableText
+                  text={cleanString(
+                    productCrew.map((production) => `${production.name}, `)
+                  )}
+                />
               </span>
             </li>
             <li>
               <span className="blue-Font">Synopsis : </span>
-              <span>{movieDetails.overview} </span>
+              <span>
+                <ExpandableText text={movieDetails.overview} />{" "}
+              </span>
             </li>
           </ul>
         </div>
-        <div className="separator">{}</div>
+        <div className="separator-dataCast">{}</div>
+        <div className="separator-dataCast-mobile">{}</div>
         <h2 className="casting">Casting : </h2>
-
         <div ref={sliderRef} className="keen-slider">
           {creditFilm.map((actor, index) => (
             <div

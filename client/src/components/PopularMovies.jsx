@@ -15,7 +15,7 @@ function PopularMovies({ popularMovies }) {
   });
   return (
     <>
-      <h1>Populaires</h1>
+      <h1 className="carrousel-title">Populaires</h1>
 
       <div ref={sliderRef} className="keen-slider">
         {popularMovies.map((movie, index) => (
