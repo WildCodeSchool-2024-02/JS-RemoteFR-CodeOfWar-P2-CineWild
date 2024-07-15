@@ -1,7 +1,9 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
+import ExpandableText from "../components/ExpandableText";
 import "keen-slider/keen-slider.min.css";
 import "../styles/actorDetails.css";
+import MovieThumb from "../components/MovieThumb";
 
 function ActorDetails() {
   const { actorDetails, actorMovies } = useLoaderData();
@@ -54,19 +56,19 @@ function ActorDetails() {
           <h1 className="actorName">{actorDetails.name}</h1>
           <ul>
             <li>
-              <span className="blue-Font">Genre:</span>{" "}
+              <span className="blue-Font">Genre :</span>{" "}
               {actorDetails.gender === 1 ? "Femme" : "Homme"}{" "}
             </li>
             <li>
-              <span className="blue-Font">Lieu de Naissance:</span>{" "}
+              <span className="blue-Font">Lieu de Naissance :</span>{" "}
               {actorDetails.place_of_birth}{" "}
             </li>
             <li>
-              <span className="blue-Font">Date de Naissance:</span>{" "}
+              <span className="blue-Font">Date de Naissance : </span>
               {releaseDate(actorDetails.birthday)}{" "}
             </li>
             <li>
-              <span className="blue-Font">Age:</span>{" "}
+              <span className="blue-Font">Age :</span>{" "}
               {calculateAge(actorDetails.birthday)} ans{" "}
             </li>
           </ul>
@@ -75,32 +77,20 @@ function ActorDetails() {
       <div className="separator">{}</div>
       <div className="biographie">
         <h2> Biographie :</h2>
-        <p>
-          {actorDetails.biography !== ""
-            ? actorDetails.biography
-            : "Pas de Biographie"}
-        </p>
+        <ExpandableText
+          text={
+            actorDetails.biography !== ""
+              ? actorDetails.biography
+              : "Pas de Biographie"
+          }
+        />
       </div>
       <div className="separator">{}</div>
       <div className="filmography">
         <h2> Filmographie :</h2>
         <div ref={sliderRef} className="keen-slider">
           {actorMovies.map((movie, index) => (
-            <div
-              key={movie.id}
-              className={`keen-slider__slide number-slide${index}`}
-              id="film"
-            >
-              <Link to={`/movies/${movie.id}`}>
-                <img
-                  className="posterCarrouselPicture"
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                />
-              </Link>
-              {movie.title} <br />
-              {movie.vote_average.toFixed(1)}
-            </div>
+            <MovieThumb tools={{ movie, index }} key={movie.id} />
           ))}
         </div>
       </div>

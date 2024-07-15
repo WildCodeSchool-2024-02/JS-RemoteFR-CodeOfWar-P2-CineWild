@@ -13,7 +13,6 @@ export function getRandomMovies() {
     })
     .catch((error) => console.error(error));
 }
-
 // API de la page film
 export function getDetailsMoviesById(id) {
   return axios
@@ -89,6 +88,16 @@ export function getActorList() {
   return axios
     .get(
       `https://api.themoviedb.org/3/person/popular?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
+    )
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+}
+
+// APIs barre de recherche
+export function getMoviesSearch(value) {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/search/movie?query=${value}&api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
     )
     .then((response) => response.data.results)
     .catch((error) => console.error(error));
