@@ -247,3 +247,9 @@ a:hover {
 }
 
 /*  #endregion */
+
+@media screen and (min-width: 536px) and (max-width: 1023px) {
+  main {
+    padding-inline: 20svw;
+  }
+}

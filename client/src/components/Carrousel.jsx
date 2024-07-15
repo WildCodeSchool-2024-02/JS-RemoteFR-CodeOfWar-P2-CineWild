@@ -17,7 +17,7 @@ function Carrousel({ trendingMovies }) {
           spacing: 25,
         },
       },
-      "(min-width: 768px) and (max-width: 1023px": {
+      "(min-width: 768px) and (max-width: 1023px)": {
         slides: {
           perView: 4,
           spacing: 25,

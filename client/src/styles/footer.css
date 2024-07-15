@@ -11,3 +11,17 @@ footer > .image {
   padding: 1.5rem;
   margin: 0 1rem;
 }
+
+@media screen and (min-width: 1024px) {
+  footer {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (min-width: 536px) and (max-width: 1023px) {
+  footer {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
