@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import "../styles/moviedetails.css";
 import { useLoaderData, Link } from "react-router-dom";
@@ -118,5 +119,10 @@ function MovieDetails() {
     </>
   );
 }
+
+ExpandableText.propTypes = {
+  text: PropTypes.string.isRequired,
+  maxLength: PropTypes.number,
+};
 
 export default MovieDetails;
