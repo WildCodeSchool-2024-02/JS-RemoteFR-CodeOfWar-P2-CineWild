@@ -84,7 +84,7 @@ const router = createBrowserRouter([
         element: <User />,
       },
       {
-        path: "/result/movies/:query",
+        path: "/result/movies_or_actors/:query",
         element: <Result />,
         loader: async ({ params }) => ({
           searchMovies: await getMoviesSearch(params.query),

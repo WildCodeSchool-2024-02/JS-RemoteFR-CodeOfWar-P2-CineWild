@@ -19,7 +19,7 @@ function NavBar() {
   const navigate = useNavigate();
 
   const redirect = () => {
-    navigate(`/result/movies/${search}`);
+    navigate(`/result/movies_or_actors/${search}`);
     toggleSearch();
   };
 
