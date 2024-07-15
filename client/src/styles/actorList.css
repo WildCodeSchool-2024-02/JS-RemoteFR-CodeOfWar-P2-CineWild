@@ -2,6 +2,7 @@
   font-size: 2rem;
   text-decoration: underline;
   text-decoration-color: var(--salmon);
+  padding-bottom: 2rem;
 }
 .actorPopularList h1:hover {
   text-decoration-color: var(--blue);

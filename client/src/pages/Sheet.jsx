@@ -117,7 +117,9 @@ function Sheet() {
             </li>
             <li>
               <span className="blue-Font">Synopsis : </span>
-              <span>{movieDetails.overview} </span>
+              <span>
+                <ExpandableText text={movieDetails.overview} />{" "}
+              </span>
             </li>
           </ul>
         </div>

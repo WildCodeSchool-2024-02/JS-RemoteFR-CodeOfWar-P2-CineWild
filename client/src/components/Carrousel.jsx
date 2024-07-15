@@ -17,7 +17,6 @@ function Carrousel({ trendingMovies }) {
   return (
     <section className="carrousel-home">
       <h1 className="carrousel-title">Tendances</h1>
-
       <div ref={sliderRef} className="keen-slider">
         {trendingMovies.map((movie, index) => (
           <MovieThumb tools={{ movie, index }} key={movie.id} />
