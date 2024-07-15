@@ -16,7 +16,34 @@ export default function Result() {
       {searchMovies.length + searchPersons.length === 0 ? (
         <p>Oops ! Aucun résultat</p>
       ) : (
-        <p className="sentenceResult">{pluralSingularResults()}</p>
+        <div className="sentenceResult">
+          <p>{pluralSingularResults()}</p>
+          <p>
+            {`${searchMovies.length}
+            ${pluralSingularResults().toLowerCase().slice(0, -2)}`}
+          </p>
+        </div>
+      )}
+      {searchMovies.length + searchPersons.length === 0 ? null : (
+        <div className="separator">
+          <ul>
+            <li>
+              <button type="button" className="buttonTout">
+                Tout
+              </button>
+            </li>
+            <li>
+              <button type="button" className="buttonFilm">
+                Film
+              </button>
+            </li>
+            <li>
+              <button type="button" className="buttonArtiste">
+                Artiste
+              </button>
+            </li>
+          </ul>
+        </div>
       )}
       {!searchMovies
         ? null
