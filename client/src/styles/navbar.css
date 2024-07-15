@@ -159,3 +159,18 @@
   padding: 8px 16px 8px 16px;
   border-radius: 8px 0 0 8px;
 }
+.navigation {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  .burger {
+    display: none;
+  }
+  .navigation {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+  }
+}

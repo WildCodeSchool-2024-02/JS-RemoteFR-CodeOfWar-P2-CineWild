@@ -40,6 +40,7 @@ function NavBar() {
               <span />
             </label>
           </li>
+
           <li>
             <Link to="/">
               <img
@@ -82,6 +83,12 @@ function NavBar() {
             </div>
           </div>
         )}
+        <ul className="navigation">
+          <li>Films</li>
+          <Link to="/actors">
+            <li>Acteurs</li>
+          </Link>
+        </ul>
       </div>
     </nav>
   );
