@@ -2,7 +2,7 @@ import "../styles/expandabletext.css";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-function ExpandableText({ text, maxLength = 100 }) {
+function ExpandableText({ text, maxLength = 90 }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleText = () => {
