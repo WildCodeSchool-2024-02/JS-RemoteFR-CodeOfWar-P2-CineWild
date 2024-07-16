@@ -5,6 +5,8 @@ import { useState, useLayoutEffect } from "react";
 import MovieResult from "../components/MovieResult";
 import PersonResult from "../components/PersonResult";
 
+import noResult from "../assets/images/noResult.webp";
+
 import "../styles/result.css";
 
 export default function Result() {
@@ -36,8 +38,9 @@ export default function Result() {
   return (
     <section>
       {result === 0 ? (
-        <div>
+        <div className="noResult">
           <p>Oops ! Aucun résultat</p>
+          <img src={noResult} alt="broken camera" className="noResult" />
         </div>
       ) : (
         <div className="sentenceResult">
