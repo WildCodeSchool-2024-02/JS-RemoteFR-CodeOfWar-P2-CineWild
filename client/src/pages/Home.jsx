@@ -11,7 +11,7 @@ function Home() {
     window.scrollTo(0, 0);
   }, []);
   
-  const { trendingMovies, popularMovies, randomMovie } = useLoaderData();
+  const { trendingMovies, popularMovies, randomMovie, playingMovies } = useLoaderData();
 
   return (
     <>
