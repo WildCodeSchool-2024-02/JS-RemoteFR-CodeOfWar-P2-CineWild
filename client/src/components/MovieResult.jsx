@@ -35,8 +35,8 @@ export default function MovieResult({ movie }) {
       </Link>
       <ul>
         <li>{movie.title}</li>
-        <li>{yearDate(movie.release_date)}</li>
-        <li>{genreName()}</li>
+        <li>{movie.release_date ? yearDate(movie.release_date) : null}</li>
+        <li>{movie.genre_ids ? genreName() : "Pas d'information"}</li>
       </ul>
     </div>
   );
