@@ -93,7 +93,7 @@ export function getActorList() {
     .catch((error) => console.error(error));
 }
 
-// APIs barre de recherche
+// APIs barre de recherche pour les films
 export function getMoviesSearch(value) {
   return axios
     .get(
@@ -103,10 +103,21 @@ export function getMoviesSearch(value) {
     .catch((error) => console.error(error));
 }
 
+// APIs barre de recherche pour les personnes
 export function getPersonsSearch(value) {
   return axios
     .get(
       `https://api.themoviedb.org/3/search/person?query=${value}&api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
+    )
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+}
+
+// API films à l'affiche
+export function getNowPlayingMovies() {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
     )
     .then((response) => response.data.results)
     .catch((error) => console.error(error));
