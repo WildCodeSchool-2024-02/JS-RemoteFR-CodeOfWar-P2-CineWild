@@ -1,13 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
 import ExpandableText from "../components/ExpandableText";
-import "keen-slider/keen-slider.min.css";
 import "../styles/actorDetails.css";
 import MovieThumb from "../components/MovieThumb";
 
 function ActorDetails() {
   const { actorDetails, actorMovies } = useLoaderData();
-  console.info(actorDetails, actorMovies);
 
   const releaseDate = () => {
     const event = new Date(actorDetails.birthday);
@@ -39,8 +37,26 @@ function ActorDetails() {
     mode: "free-snap",
     slides: {
       origin: "center",
-      perView: 2,
-      spacing: 15,
+    },
+    breakpoints: {
+      "(min-width: 1400px)": {
+        slides: {
+          perView: 5,
+          spacing: 25,
+        },
+      },
+      "(min-width: 768px) and (max-width: 1399px": {
+        slides: {
+          perView: 3,
+          spacing: 25,
+        },
+      },
+      "(max-width: 767px)": {
+        slides: {
+          perView: 2,
+          spacing: 25,
+        },
+      },
     },
   });
 
@@ -77,13 +93,15 @@ function ActorDetails() {
       <div className="separator">{}</div>
       <div className="biographie">
         <h2> Biographie :</h2>
-        <ExpandableText
-          text={
-            actorDetails.biography !== ""
-              ? actorDetails.biography
-              : "Pas de Biographie"
-          }
-        />
+        <p>
+          <ExpandableText
+            text={
+              actorDetails.biography !== ""
+                ? actorDetails.biography
+                : "Pas de Biographie"
+            }
+          />
+        </p>
       </div>
       <div className="separator">{}</div>
       <div className="filmography">

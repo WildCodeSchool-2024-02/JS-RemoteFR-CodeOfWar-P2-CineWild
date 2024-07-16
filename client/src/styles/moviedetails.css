@@ -16,10 +16,6 @@ h3 {
   color: var(--white);
 }
 
-a {
-  color: var(--salmon);
-}
-
 .blue-Font {
   color: var(--blue);
 }
@@ -47,6 +43,7 @@ button {
   margin-bottom: 1rem;
 }
 .movieCard h1 {
+  margin-top: 2.5rem;
   font-size: 1.25rem;
   padding-bottom: 0.75rem;
   font-weight: 600;
@@ -143,12 +140,19 @@ li.date-movie {
   flex-direction: row;
 }
 
+.separator-movieCard {
+  height: 2px;
+  background-color: var(--salmon);
+  margin: 1rem;
+}
 /*  #endregion */
 
 /* #region ----- Synopsis */
 
 .synopsis h3 {
   padding-bottom: 1rem;
+  padding-top: 1rem;
+  font-size: 1.5rem;
 }
 
 .synopsis p {
@@ -163,6 +167,101 @@ li.date-movie {
 }
 a {
   text-decoration: none;
+  color: var(--salmon);
+}
+a:hover {
   color: var(--blue);
 }
+
+.casting h3 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+}
+
+/*  #endregion */
+
+/* #region ----- Version Desktop */
+
+@media screen and (min-width: 536px) {
+  main {
+    padding-inline: 20svw;
+  }
+
+  .film-background {
+    height: 40svw;
+    opacity: 0.3;
+    margin-bottom: -22rem;
+    max-height: 400px;
+  }
+
+  img.frontImg {
+    height: 300px;
+    width: auto;
+  }
+
+  div.movieDescription {
+    margin-top: 10rem;
+    padding-bottom: 2rem;
+  }
+
+  .movieDescription li {
+    line-height: 3rem;
+  }
+
+  ul.movieCardContent {
+    padding: 1rem;
+  }
+  .movieCard h1 {
+    font-size: 2rem;
+    padding-inline: 1rem;
+    margin-top: 0;
+  }
+
+  .fullDetails {
+    padding-bottom: 0;
+    font-weight: 600;
+  }
+
+  .synopsis h3 {
+    font-size: 2rem;
+    padding-top: 2rem;
+  }
+
+  .synopsis p {
+    line-height: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .movieCardList {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  li.title-movie {
+    opacity: 80%;
+    font-weight: 600;
+  }
+
+  li.date-movie {
+    opacity: 80%;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .genre-movie p {
+    font-weight: 600;
+    opacity: 80%;
+  }
+
+  ul.scoreandbuttons {
+    font-size: 22px;
+  }
+
+  .casting h3 {
+    font-size: 2rem;
+  }
+}
+
 /*  #endregion */

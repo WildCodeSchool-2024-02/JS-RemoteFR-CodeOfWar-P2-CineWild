@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import PropTypes from "prop-types";
 
 function MovieThumb({ tools }) {
   const { movie, index } = tools;
+  const [isFavorite, setIsFavorite] = useState("");
+  const handleClickFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   return (
     <div
@@ -17,8 +22,16 @@ function MovieThumb({ tools }) {
           alt={movie.title}
         />
       </Link>
-      {movie.title} <br />
-      {movie.vote_average === 0.0 ? "Non noté" : movie.vote_average.toFixed(1)}
+      {movie.title}{" "}
+      <span className="vote-favorite">
+        ⭐
+        {movie.vote_average === 0.0
+          ? "Non noté"
+          : movie.vote_average.toFixed(1)}
+        <button onClick={handleClickFavorite} type="button">
+          {isFavorite ? "❤️" : "🖤"}
+        </button>
+      </span>
     </div>
   );
 }

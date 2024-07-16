@@ -9,13 +9,31 @@ function PopularMovies({ popularMovies }) {
     mode: "free-snap",
     slides: {
       origin: "center",
-      perView: 2,
-      spacing: 15,
+    },
+    breakpoints: {
+      "(min-width: 1400px)": {
+        slides: {
+          perView: 5,
+          spacing: 25,
+        },
+      },
+      "(min-width: 768px) and (max-width: 1399px": {
+        slides: {
+          perView: 4,
+          spacing: 25,
+        },
+      },
+      "(max-width: 767px)": {
+        slides: {
+          perView: 2,
+          spacing: 25,
+        },
+      },
     },
   });
   return (
     <>
-      <h1>Populaires</h1>
+      <h1 className="carrousel-title">Populaires</h1>
 
       <div ref={sliderRef} className="keen-slider">
         {popularMovies.map((movie, index) => (
