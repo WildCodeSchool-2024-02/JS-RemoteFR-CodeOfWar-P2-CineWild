@@ -16,7 +16,7 @@ export default function Result() {
     setSelection(buttonName);
   };
 
-  const numberResult = () => {
+  const resultNumber = () => {
     if (selection === "buttonTout")
       return searchMovies.length + searchPersons.length;
     if (selection === "buttonFilm") return searchMovies.length;
@@ -24,7 +24,7 @@ export default function Result() {
     return 0;
   };
 
-  const result = numberResult();
+  const result = resultNumber();
 
   const pluralSingularResults = () =>
     result < 2 ? "RÉSULTAT :" : "RÉSULTATS :";
@@ -42,7 +42,6 @@ export default function Result() {
           </p>
         </div>
       )}
-
       {searchMovies.length + searchPersons.length === 0 ? null : (
         <div className="separatorFilter">
           <ul>
