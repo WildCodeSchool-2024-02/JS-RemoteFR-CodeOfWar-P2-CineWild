@@ -182,6 +182,9 @@
     gap: 0.5rem;
     align-items: center;
   }
+  a:hover {
+    color: var(--blue);
+  }
   .navigation-loupe {
     display: flex;
     flex-direction: row;
@@ -199,6 +202,9 @@
     align-items: center;
     justify-content: space-between;
     flex-grow: 0.3;
+  }
+  a:hover {
+    color: var(--blue);
   }
   .navbuttons {
     display: flex;
