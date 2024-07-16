@@ -1,22 +1,25 @@
 import { Link, useLoaderData } from "react-router-dom";
+import "../styles/movieList.css";
 
 function MovieList() {
   const { trendingMovies } = useLoaderData();
   console.info(trendingMovies);
   return (
-    <section className="movieList">
+    <section className="list">
       <h1>Acteurs populaires</h1>
-      <div className="moviesCard">
+      <div className="movieList">
         {trendingMovies.map((movie) => (
           <div key={movie.id}>
-            <h2 className="movieCard"> {movie.title}</h2>
-            <Link to={`/movies/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}&language=fr-FR`}
-                alt={movie.title}
-                className="frontImg"
-              />
-            </Link>
+            <div className="movieListCard">
+              <h2> {movie.title}</h2>
+              <Link to={`/movies/${movie.id}`}>
+                <img
+                  className="movieListCardContent"
+                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}&language=fr-FR`}
+                  alt={movie.title}
+                />
+              </Link>
+            </div>
           </div>
         ))}
       </div>
