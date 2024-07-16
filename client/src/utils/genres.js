@@ -13,7 +13,7 @@ const genres = [
   },
   {
     id: 35,
-    name: "Comedie",
+    name: "Comédie",
   },
   {
     id: 80,
@@ -61,7 +61,7 @@ const genres = [
   },
   {
     id: 10770,
-    name: "Film TV",
+    name: "Téléfilm",
   },
   {
     id: 53,
