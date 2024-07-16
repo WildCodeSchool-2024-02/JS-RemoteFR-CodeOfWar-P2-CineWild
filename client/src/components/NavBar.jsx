@@ -40,29 +40,38 @@ function NavBar() {
               <span />
             </label>
           </li>
-          <li>
-            <Link to="/">
-              <img
-                src="../src/assets/images/logocw.svg"
-                className="logocw"
-                alt="Logo - Back to home page"
-              />
-            </Link>
-          </li>
-          <li>Films</li>
-          <Link to="/actors">
-            <li>Acteurs</li>
-          </Link>
-
-          <li>
-            <button type="button" className="btn_search" onClick={toggleSearch}>
-              <img
-                src="../src/assets/images/loupe.svg"
-                className="searchbaricon"
-                alt="Loupe"
-              />
-            </button>
-          </li>
+          <div className="navigation-loupe">
+            <div className="logo-navigation">
+              <li>
+                <Link to="/">
+                  <img
+                    src="../src/assets/images/logocw.svg"
+                    className="logocw"
+                    alt="Logo - Back to home page"
+                  />
+                </Link>
+              </li>
+              <div className="navigation">
+                <li>Films</li>
+                <Link to="/actors">
+                  <li>Acteurs</li>
+                </Link>
+              </div>
+            </div>
+            <li>
+              <button
+                type="button"
+                className="btn_search"
+                onClick={toggleSearch}
+              >
+                <img
+                  src="../src/assets/images/loupe.svg"
+                  className="searchbaricon"
+                  alt="Loupe"
+                />
+              </button>
+            </li>
+          </div>
         </ul>
         {searchbar && (
           <div className="search">
