@@ -6,7 +6,7 @@ function MovieList() {
   console.info(trendingMovies);
   return (
     <section className="list">
-      <h1>Acteurs populaires</h1>
+      <h1>Films</h1>
       <div className="movieList">
         {trendingMovies.map((movie) => (
           <div key={movie.id}>
