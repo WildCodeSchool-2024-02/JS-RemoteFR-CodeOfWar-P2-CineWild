@@ -33,7 +33,7 @@ const genres = [
   },
   {
     id: 14,
-    name: "Fantasie",
+    name: "Fantaisie",
   },
   {
     id: 36,
