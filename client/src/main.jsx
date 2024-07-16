@@ -15,6 +15,7 @@ import {
   getActorsById,
   getMovieActorsById,
   getPersonsSearch,
+  getNowPlayingMovies,
 } from "./services/request";
 
 import App from "./App";
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
           randomMovie: await getRandomMovies(),
           trendingMovies: await getCarrousel(),
           popularMovies: await getPopularMovies(),
+          playingMovies: await getNowPlayingMovies(),
         }),
       },
       {

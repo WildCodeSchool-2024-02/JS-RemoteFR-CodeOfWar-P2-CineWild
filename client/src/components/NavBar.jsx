@@ -13,20 +13,16 @@ function NavBar() {
       toggleSearch(!searchbar);
     }
   };
-
   const [search, setSearch] = useState("");
-
   const navigate = useNavigate();
-
-  const redirect = () => {
-    navigate(`/result/movies_or_actors/${search}`);
-    toggleSearch();
-  };
-
   const handleChangeSearch = (event) => {
     setSearch(event.target.value);
   };
-
+  const onFormSubmit = () => {
+    navigate(`/result/movies_or_actors/${search}`);
+    toggleSearch();
+  };
+  const submitting = false;
   return (
     <nav>
       <div className="navbar">
@@ -87,14 +83,16 @@ function NavBar() {
               <title>empty</title>
             </div>
             <div className="search-content">
-              <button onClick={redirect} type="button">
-                <span className="material-symbols-outlined">search</span>
-              </button>
-              <input
-                onChange={handleChangeSearch}
-                type="search"
-                placeholder="Rechercher un film, un acteur,..."
-              />
+              <form onSubmit={onFormSubmit}>
+                <button type="submit" disabled={submitting}>
+                  <span className="material-symbols-outlined">search</span>
+                </button>
+                <input
+                  onChange={handleChangeSearch}
+                  type="search"
+                  placeholder="Rechercher un film, un acteur,..."
+                />
+              </form>
             </div>
           </div>
         )}
@@ -102,5 +100,4 @@ function NavBar() {
     </nav>
   );
 }
-
 export default NavBar;
