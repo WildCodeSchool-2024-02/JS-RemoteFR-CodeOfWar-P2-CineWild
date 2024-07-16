@@ -32,7 +32,9 @@ export default function Result() {
   return (
     <section>
       {result === 0 ? (
-        <p>Oops ! Aucun résultat</p>
+        <div>
+          <p>Oops ! Aucun résultat</p>
+        </div>
       ) : (
         <div className="sentenceResult">
           <p>{pluralSingularResults()}</p>

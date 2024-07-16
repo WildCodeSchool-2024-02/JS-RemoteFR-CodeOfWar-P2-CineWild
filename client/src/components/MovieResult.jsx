@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { yearDate } from "../utils/functions";
 import genres from "../utils/genres";
 
+import camera from "../assets/images/camera.jpg";
+
 import "../styles/movieResult.css";
 
 export default function MovieResult({ movie }) {
@@ -20,11 +22,16 @@ export default function MovieResult({ movie }) {
   return (
     <div className="resultContent">
       <Link to={`/movies/${movie.id}`}>
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}&language=fr-FR`}
-          alt={movie.title}
-          className="resultSearchImg"
-        />
+        {movie.poster_path ? (
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}&language=fr-FR`}
+            alt={movie.title}
+            className="resultSearchImg"
+          />
+        ) : (
+          <img src={camera} alt={movie.title} className="resultSearchImg" />
+        )}
+        ;
       </Link>
       <ul>
         <li>{movie.title}</li>
