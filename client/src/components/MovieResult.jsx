@@ -12,7 +12,7 @@ export default function MovieResult({ movie }) {
       <Link to={`/movies/${movie.id}`}>
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}&language=fr-FR`}
-          alt=""
+          alt={movie.title}
           className="resultSearchImg"
         />
       </Link>
