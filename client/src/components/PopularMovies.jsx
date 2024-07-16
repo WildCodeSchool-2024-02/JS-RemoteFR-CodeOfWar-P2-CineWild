@@ -19,7 +19,7 @@ function PopularMovies({ popularMovies }) {
       },
       "(min-width: 768px) and (max-width: 1399px": {
         slides: {
-          perView: 4,
+          perView: 3,
           spacing: 25,
         },
       },
