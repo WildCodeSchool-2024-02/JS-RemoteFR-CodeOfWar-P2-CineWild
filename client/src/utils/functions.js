@@ -2,7 +2,7 @@
 export function yearDate(date) {
   const formatDate = new Date(date);
   const year = formatDate.getFullYear();
-  return year;
+  return date ? year : "Pas d'information";
 }
 
 // French date format
@@ -13,7 +13,9 @@ export function frenchDate(date) {
     month: "long",
     day: "numeric",
   };
-  return event.toLocaleDateString("fr-FR", options);
+  return date
+    ? event.toLocaleDateString("fr-FR", options)
+    : " Pas d'information";
 }
 
 // Hour minute run time format

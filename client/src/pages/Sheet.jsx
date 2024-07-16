@@ -1,4 +1,5 @@
 import { useLoaderData, Link } from "react-router-dom";
+import { useEffect } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import { frenchDate, hourMin, cleanString } from "../utils/functions";
 import ExpandableText from "../components/ExpandableText";
@@ -8,6 +9,9 @@ import "keen-slider/keen-slider.min.css";
 import "../styles/dataSheet.css";
 
 function Sheet() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
   const movieCasting = moviePeople.cast;
   const productCrew = moviePeople.crew.filter(

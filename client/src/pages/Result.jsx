@@ -1,13 +1,19 @@
 import { useLoaderData } from "react-router-dom";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import MovieResult from "../components/MovieResult";
 import PersonResult from "../components/PersonResult";
 
+import noResult from "../assets/images/noResult.webp";
+
 import "../styles/result.css";
 
 export default function Result() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { searchMovies, searchPersons } = useLoaderData();
 
   const [selection, setSelection] = useState("buttonTout");
@@ -32,7 +38,10 @@ export default function Result() {
   return (
     <section>
       {result === 0 ? (
-        <p>Oops ! Aucun résultat</p>
+        <div className="noResult">
+          <p>Oops ! Aucun résultat</p>
+          <img src={noResult} alt="broken camera" className="noResult" />
+        </div>
       ) : (
         <div className="sentenceResult">
           <p>{pluralSingularResults()}</p>

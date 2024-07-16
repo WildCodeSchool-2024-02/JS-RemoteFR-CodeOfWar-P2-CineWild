@@ -1,12 +1,18 @@
 import { useLoaderData } from "react-router-dom";
+import { useEffect } from "react";
 import RandomMovie from "../components/RandomMovie";
 import Carrousel from "../components/Carrousel";
 import PopularMovies from "../components/PopularMovies";
 import PlayingMovies from "../components/NowPlaying";
 
 function Home() {
-  const { trendingMovies, popularMovies, randomMovie, playingMovies } =
-    useLoaderData();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  const { trendingMovies, popularMovies, randomMovie, playingMovies } = useLoaderData();
+
   return (
     <>
       <RandomMovie randomMovie={randomMovie} />
