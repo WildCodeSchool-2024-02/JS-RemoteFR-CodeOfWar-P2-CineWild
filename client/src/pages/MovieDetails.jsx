@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import "../styles/moviedetails.css";
 import { useLoaderData, Link } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
@@ -8,9 +8,9 @@ import { yearDate, frenchDate, hourMin, cleanString } from "../utils/functions";
 import ActorThumb from "../components/ActorThumb";
 
 function MovieDetails() {
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",

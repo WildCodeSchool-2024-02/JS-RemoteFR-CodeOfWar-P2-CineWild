@@ -13,22 +13,16 @@ function NavBar() {
       toggleSearch(!searchbar);
     }
   };
-
   const [search, setSearch] = useState("");
-
   const navigate = useNavigate();
-
   const handleChangeSearch = (event) => {
     setSearch(event.target.value);
   };
-
   const onFormSubmit = () => {
     navigate(`/result/movies_or_actors/${search}`);
     toggleSearch();
   };
-
   const submitting = false;
-
   return (
     <nav>
       <div className="navbar">
@@ -104,5 +98,4 @@ function NavBar() {
     </nav>
   );
 }
-
 export default NavBar;

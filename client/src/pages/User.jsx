@@ -1,11 +1,11 @@
 import "../styles/user.css";
 
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 function User() {
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   return (
     <section>
