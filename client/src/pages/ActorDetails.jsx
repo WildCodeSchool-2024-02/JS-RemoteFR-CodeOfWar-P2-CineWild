@@ -1,10 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
+import { useLayoutEffect } from "react";
 import ExpandableText from "../components/ExpandableText";
 import "../styles/actorDetails.css";
 import MovieThumb from "../components/MovieThumb";
 
 function ActorDetails() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const { actorDetails, actorMovies } = useLoaderData();
 
   const releaseDate = () => {

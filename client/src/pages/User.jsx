@@ -1,6 +1,12 @@
 import "../styles/user.css";
 
+import { useLayoutEffect } from "react";
+
 function User() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <section>
       <div className="headerUser">

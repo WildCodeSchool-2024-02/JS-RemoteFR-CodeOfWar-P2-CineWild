@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 
-import { useState } from "react";
+import { useState, useLayoutEffect } from "react";
 
 import MovieResult from "../components/MovieResult";
 import PersonResult from "../components/PersonResult";
@@ -8,6 +8,10 @@ import PersonResult from "../components/PersonResult";
 import "../styles/result.css";
 
 export default function Result() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   const { searchMovies, searchPersons } = useLoaderData();
 
   const [selection, setSelection] = useState("buttonTout");
