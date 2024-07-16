@@ -4,7 +4,6 @@ import ActorCard from "../components/ActorCard";
 
 function ActorList() {
   const actorInfos = useLoaderData();
-
   return (
     <section className="actorPopularList">
       <h1>Acteurs populaires</h1>

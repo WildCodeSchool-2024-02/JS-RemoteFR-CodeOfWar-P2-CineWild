@@ -18,7 +18,7 @@
 
 /*En-tete avec les informations de l'acteur*/
 .actorName {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .actorContainer {
   display: flex;
@@ -34,7 +34,7 @@
 }
 
 .actorContainer .actor_img {
-  width: 15rem;
+  width: 10rem;
   height: auto;
   border-radius: 1rem;
   object-fit: contain;

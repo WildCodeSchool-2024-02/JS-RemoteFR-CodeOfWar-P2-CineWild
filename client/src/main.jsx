@@ -25,6 +25,7 @@ import Favoris from "./pages/Favoris";
 import User from "./pages/User";
 import Result from "./pages/Result";
 
+import MovieList from "./pages/MovieList";
 import MovieDetails from "./pages/MovieDetails";
 import ActorList from "./pages/ActorList";
 import Sheet from "./pages/Sheet";
@@ -41,6 +42,13 @@ const router = createBrowserRouter([
           randomMovie: await getRandomMovies(),
           trendingMovies: await getCarrousel(),
           popularMovies: await getPopularMovies(),
+        }),
+      },
+      {
+        path: "/movies",
+        element: <MovieList />,
+        loader: async () => ({
+          trendingMovies: await getCarrousel(),
         }),
       },
       {

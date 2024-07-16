@@ -52,7 +52,9 @@ function NavBar() {
                 </Link>
               </li>
               <div className="navigation">
-                <li>Films</li>
+                <Link to="/movies">
+                  <li>Films</li>
+                </Link>
                 <Link to="/actors">
                   <li>Acteurs</li>
                 </Link>
