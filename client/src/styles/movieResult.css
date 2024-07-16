@@ -59,13 +59,6 @@
   opacity: 75%;
 }
 
-.buttonTout:hover,
-.buttonFilm:hover,
-.buttonArtiste:hover {
-  opacity: 75%;
-  border: 0.1rem solid var(--salmon);
-}
-
 .buttonTout:active,
 .buttonTout:focus,
 .buttonFilm:active,
