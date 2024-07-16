@@ -28,6 +28,7 @@ import MovieDetails from "./pages/MovieDetails";
 import ActorList from "./pages/ActorList";
 import Sheet from "./pages/Sheet";
 import ActorDetails from "./pages/ActorDetails";
+import FavoritesProvider from "./contexts/FavoritesContext";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +98,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <FavoritesProvider>
+     <RouterProvider router={router} />
+    </FavoritesProvider>
   </React.StrictMode>
 );

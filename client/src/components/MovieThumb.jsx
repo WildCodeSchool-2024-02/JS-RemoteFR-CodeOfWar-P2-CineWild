@@ -2,19 +2,16 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 
-
 function MovieThumb({ tools }) {
   const { movie, index, favorite, setFavorite} = tools;
 
   if (!Array.isArray(favorite)) {
-    console.error("favorite is not an array");
     return null;
   }
 
-   const isFavorite = favorite.some(favMovie => favMovie.id === movie.id);
+  const isFavorite = favorite.some(favMovie => favMovie.id === movie.id);
 
   const addToFavorite = () => {
-   
    if (isFavorite) {
       setFavorite(prevFavorites => prevFavorites.filter(favMovie => favMovie.id !== movie.id));
     } else {
