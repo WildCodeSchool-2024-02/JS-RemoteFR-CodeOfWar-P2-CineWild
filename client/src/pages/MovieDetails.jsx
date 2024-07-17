@@ -67,7 +67,13 @@ function MovieDetails() {
     setIsWatchListed(!isWatchListed);
   };
 
-  const renderCrew = filteredCrew.map((director) => `${director.name}, `);
+  const renderCrew = filteredCrew.map((director, index, array) => (
+    <Link key={director.id} to={`/actors/${director.id}`}>
+      {director.name}
+      {index < array.length - 1 ? ", " : ""}
+    </Link>
+  ));
+
   const renderCasting = movieCasting.slice(0, 4).map((cast, index, array) => (
     <Link key={cast.id} to={`/actors/${cast.id}`}>
       {cast.name}
@@ -133,7 +139,7 @@ function MovieDetails() {
         <ul>
           <li>
             <span className="blue-Font">Dirigés par : </span>
-            <span>{cleanString(renderCrew)}</span>
+            <span className="crew">{renderCrew}</span>
           </li>
           <li>
             <span className="blue-Font">En salle depuis :</span>
