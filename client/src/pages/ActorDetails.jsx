@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import ExpandableText from "../components/ExpandableText";
 import "../styles/actorDetails.css";
 import MovieThumb from "../components/MovieThumb";
+import { frenchDate } from "../utils/functions";
 
 function ActorDetails() {
   useEffect(() => {
@@ -11,31 +12,43 @@ function ActorDetails() {
   }, []);
   const { actorDetails, actorMovies } = useLoaderData();
 
-  const releaseDate = () => {
-    const event = new Date(actorDetails.birthday);
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-    return event.toLocaleDateString("fr-FR", options);
-  };
-
-  const calculateAge = (newBirthdayDate) => {
+  // Show age or age when deceased for a person
+  function calculateAge(birthdayDate, deathdayDate) {
+    const birthDate = new Date(birthdayDate);
     const today = new Date();
-    const birthDate = new Date(newBirthdayDate);
+    const deathDate = deathdayDate ? new Date(deathdayDate) : null;
+    let age;
 
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDifference = today.getMonth() - birthDate.getMonth();
-
+    if (!deathDate) {
+      age = today.getFullYear() - birthDate.getFullYear();
+      const monthDifference = today.getMonth() - birthDate.getMonth();
+      if (
+        monthDifference < 0 ||
+        (monthDifference === 0 && today.getDate() < birthDate.getDate())
+      ) {
+        age -= 1;
+      }
+      return (
+        <li>
+          <span className="blue-Font">Age :</span> {age} ans{" "}
+        </li>
+      );
+    }
+    age = deathDate.getFullYear() - birthDate.getFullYear();
+    const monthDifference = deathDate.getMonth() - birthDate.getMonth();
     if (
       monthDifference < 0 ||
-      (monthDifference === 0 && today.getDate() < birthDate.getDate())
+      (monthDifference === 0 && deathDate.getDate() < birthDate.getDate())
     ) {
       age -= 1;
     }
-    return age;
-  };
+    return (
+      <li>
+        <span className="blue-Font">Décès :</span>{" "}
+        {frenchDate(actorDetails.deathday)} à l'âge de {age} ans{" "}
+      </li>
+    );
+  }
 
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
@@ -85,12 +98,9 @@ function ActorDetails() {
             </li>
             <li>
               <span className="blue-Font">Date de Naissance : </span>
-              {releaseDate(actorDetails.birthday)}{" "}
+              {frenchDate(actorDetails.birthday)}{" "}
             </li>
-            <li>
-              <span className="blue-Font">Age :</span>{" "}
-              {calculateAge(actorDetails.birthday)} ans{" "}
-            </li>
+            {calculateAge(actorDetails.birthday, actorDetails.deathday)}
           </ul>
         </div>
       </section>
