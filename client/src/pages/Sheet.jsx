@@ -101,7 +101,7 @@ function Sheet() {
               <span>
                 {movieDetails.status === "Post Production"
                   ? "En production"
-                  : "Sorti"}{" "}
+                  : "Sortie"}{" "}
               </span>
             </li>
             <li>

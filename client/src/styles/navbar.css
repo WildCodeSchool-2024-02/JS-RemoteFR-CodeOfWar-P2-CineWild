@@ -177,6 +177,9 @@
   .burger {
     display: none;
   }
+  .navigation li:hover {
+    color: var(--blue);
+  }
 
   .navigation {
     font-size: 1.3rem;
@@ -186,6 +189,7 @@
     gap: 0.5rem;
     align-items: center;
     max-height: none;
+    gap: 1rem;
   }
 
   .navigation.open {
