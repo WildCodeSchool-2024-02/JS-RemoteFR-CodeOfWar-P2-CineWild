@@ -18,6 +18,7 @@ function NavBar() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
   const closeMenu = () => {
     setMenuOpen(false);
   };

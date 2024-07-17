@@ -31,7 +31,6 @@ export default function MovieResult({ movie }) {
         ) : (
           <img src={camera} alt={movie.title} className="resultSearchImg" />
         )}
-        ;
       </Link>
       <ul>
         <li>{movie.title}</li>

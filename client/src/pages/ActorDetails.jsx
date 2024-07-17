@@ -79,6 +79,7 @@ function ActorDetails() {
 
   return (
     <div className="actorContainer">
+      <h1 className="actorName">{actorDetails.name}</h1>
       <section className="actor">
         <img
           className="actor_img"
@@ -86,7 +87,6 @@ function ActorDetails() {
           alt={actorDetails.name}
         />
         <div className="actordetails">
-          <h1 className="actorName">{actorDetails.name}</h1>
           <ul>
             <li>
               <span className="blue-Font">Genre :</span>{" "}
