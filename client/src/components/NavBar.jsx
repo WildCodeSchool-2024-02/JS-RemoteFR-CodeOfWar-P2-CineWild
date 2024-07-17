@@ -62,7 +62,7 @@ function NavBar() {
               </li>
 
               <div className={`navigation ${menuOpen ? "open" : ""}`}>
-                <Link to="/movies">
+                <Link to="/movies" onClick={closeMenu}>
                   <li>Films</li>
                 </Link>
                 <Link to="/actors" onClick={closeMenu}>
