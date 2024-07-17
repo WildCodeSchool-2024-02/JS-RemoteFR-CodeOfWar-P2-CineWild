@@ -146,7 +146,7 @@ function Sheet() {
         </div>
         <div className="separator-dataCast">{}</div>
         <div className="separator-dataCast-mobile">{}</div>
-        <h2 className="casting">Casting : </h2>
+        <h2 className="casting">Casting </h2>
         <div ref={sliderRef} className="keen-slider">
           {movieCasting.map((actor, index) => (
             <ActorThumb tools={{ actor, index }} key={actor.id} />
