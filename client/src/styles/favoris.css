@@ -1,6 +1,15 @@
 * {
   font-family: var(--main-font);
 }
+.favorite-page h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--salmon);
+}
+.favorite-page h1:hover {
+  text-decoration-color: var(--blue);
+}
 .myFavoriteMovies {
   display: grid;
   grid-template-columns: 2fr 2fr;
@@ -10,25 +19,9 @@
   padding-top: 1rem;
   margin: 0 auto;
 }
-.myFavoris {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-}
-.myFavoris > p {
-  font-weight: 600;
-  padding: 0.5rem;
-}
-.myFavoris img {
-  width: 70%;
-  height: auto;
-  border-radius: 10px;
-}
-
 @media (min-width: 768px) {
   .myFavoriteMovies {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
     max-width: 1500px;
   }
 }

@@ -67,10 +67,20 @@ function MovieDetails() {
     setIsWatchListed(!isWatchListed);
   };
 
-  const renderCrew = filteredCrew.map((director) => `${director.name}, `);
-  const renderCasting = movieCasting
-    .slice(0, 4)
-    .map((cast) => `${cast.name}, `);
+  const renderCrew = filteredCrew.map((director, index, array) => (
+    <Link key={director.id} to={`/actors/${director.id}`}>
+      {director.name}
+      {index < array.length - 1 ? ", " : ""}
+    </Link>
+  ));
+
+  const renderCasting = movieCasting.slice(0, 4).map((cast, index, array) => (
+    <Link key={cast.id} to={`/actors/${cast.id}`}>
+      {cast.name}
+      {index < array.length - 1 ? ", " : ""}
+    </Link>
+  ));
+
   const renderGenres = movieDetails.genres.map((genre) => `${genre.name}, `);
 
   return (
@@ -129,7 +139,7 @@ function MovieDetails() {
         <ul>
           <li>
             <span className="blue-Font">Dirigés par : </span>
-            <span>{cleanString(renderCrew)}</span>
+            <span className="crew">{renderCrew}</span>
           </li>
           <li>
             <span className="blue-Font">En salle depuis :</span>
@@ -138,7 +148,7 @@ function MovieDetails() {
 
           <li>
             <span className="blue-Font">Casting principal : </span>
-            <span className="casting">{cleanString(renderCasting)}</span>
+            <span className="casting">{renderCasting}</span>
           </li>
           <li>
             <span className="blue-Font">Pays d'origine : </span>

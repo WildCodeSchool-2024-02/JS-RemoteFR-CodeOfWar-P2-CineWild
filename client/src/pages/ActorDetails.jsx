@@ -12,7 +12,7 @@ function ActorDetails() {
     window.scrollTo(0, 0);
   }, []);
   const { actorDetails, actorMovies } = useLoaderData();
-  const {favorite, setFavorite} =useFavorites();
+  const {favorite, setFavorite} = useFavorites();
 
   // Show age or age when deceased for a person
   function calculateAge(birthdayDate, deathdayDate) {
