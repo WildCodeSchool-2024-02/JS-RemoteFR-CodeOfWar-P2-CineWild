@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   getRandomMovies,
-  getCarrousel,
+  getTrendingMovies,
   getPopularMovies,
   getDetailsMoviesById,
   getCastingById,
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: async () => ({
           randomMovie: await getRandomMovies(),
-          trendingMovies: await getCarrousel(),
+          trendingMovies: await getTrendingMovies(),
           popularMovies: await getPopularMovies(),
           playingMovies: await getNowPlayingMovies(),
         }),
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
         path: "/movies",
         element: <MovieList />,
         loader: async () => ({
-          trendingMovies: await getCarrousel(),
+          trendingMovies: await getTrendingMovies(),
         }),
       },
       {
