@@ -2,9 +2,9 @@ import { Link, useLoaderData } from "react-router-dom";
 import "../styles/movieList.css";
 
 function MovieList() {
-  const { trendingMovies, popularMovies, playingMovies } = useLoaderData();
+  const { trendingMovies, popularMovies } = useLoaderData();
 
-  const allMovies = [...trendingMovies, ...popularMovies, ...playingMovies];
+  const allMovies = [...trendingMovies, ...popularMovies];
 
   console.info(allMovies);
 

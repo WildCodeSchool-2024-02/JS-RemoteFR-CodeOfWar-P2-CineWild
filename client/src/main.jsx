@@ -53,7 +53,6 @@ const router = createBrowserRouter([
         loader: async () => ({
           trendingMovies: await getTrendingMovies(),
           popularMovies: await getPopularMovies(),
-          playingMovies: await getNowPlayingMovies(),
         }),
       },
       {
