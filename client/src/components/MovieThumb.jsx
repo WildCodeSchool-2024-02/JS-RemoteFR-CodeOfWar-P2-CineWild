@@ -1,12 +1,23 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import PropTypes from "prop-types";
 
 function MovieThumb({ tools }) {
-  const { movie, index } = tools;
-  const [isFavorite, setIsFavorite] = useState("");
-  const handleClickFavorite = () => {
-    setIsFavorite(!isFavorite);
+  const { movie, index, favorite, setFavorite } = tools;
+
+  if (!Array.isArray(favorite)) {
+    return null;
+  }
+
+  const isFavorite = favorite.some((favMovie) => favMovie.id === movie.id);
+
+  const addToFavorite = () => {
+    if (isFavorite) {
+      setFavorite((prevFavorites) =>
+        prevFavorites.filter((favMovie) => favMovie.id !== movie.id)
+      );
+    } else {
+      setFavorite((prevFavorites) => [...prevFavorites, movie]);
+    }
   };
 
   return (
@@ -22,15 +33,15 @@ function MovieThumb({ tools }) {
           alt={movie.title}
         />
       </Link>
-      {movie.title}{" "}
+      {movie.title} 
       <span className="vote-favorite">
         ⭐
         {movie.vote_average === 0.0
           ? "Non noté"
           : movie.vote_average.toFixed(1)}
-        <button onClick={handleClickFavorite} type="button">
-          {isFavorite ? "❤️" : "🖤"}
-        </button>
+      <button type="button" onClick={addToFavorite}>
+        {isFavorite ? "❤️" : "🤍"}
+      </button>
       </span>
     </div>
   );
@@ -44,3 +55,5 @@ MovieThumb.propTypes = {
 }.isRequired;
 
 export default MovieThumb;
+
+
