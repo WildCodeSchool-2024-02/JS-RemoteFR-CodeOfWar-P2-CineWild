@@ -1,20 +1,16 @@
 import { useFavorites } from "../contexts/FavoritesContext";
 import "../styles/favoris.css";
+import MovieThumb from "../components/MovieThumb";
 
 function Favoris() {
-  const { favorite } = useFavorites();
+  const { favorite, setFavorite } = useFavorites();
   return (
     <>
       <h1>Mes favoris</h1>
       <div className="myFavoriteMovies">
-        {favorite.map((favoris) => (
-          <div key={favoris.title} className="myFavoris">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${favoris.poster_path}`}
-              alt={favoris.title}
-            />
-            <p> {favoris.title} </p>
-          </div>
+        {favorite.map((movie, index) => (
+           <MovieThumb tools={{ movie, index, favorite, setFavorite }} key={movie.id}
+         />
         ))}
       </div>
     </>
