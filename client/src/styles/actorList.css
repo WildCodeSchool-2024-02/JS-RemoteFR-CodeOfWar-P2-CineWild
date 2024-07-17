@@ -33,3 +33,6 @@
   width: 100%;
   border-radius: 10px;
 }
+.actorCardContent:hover {
+  opacity: 0.4;
+}

@@ -1,12 +1,24 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import PropTypes from "prop-types";
+import camera from "../assets/images/camera.jpg";
 
 function MovieThumb({ tools }) {
-  const { movie, index } = tools;
-  const [isFavorite, setIsFavorite] = useState("");
-  const handleClickFavorite = () => {
-    setIsFavorite(!isFavorite);
+  const { movie, index, favorite, setFavorite } = tools;
+
+  if (!Array.isArray(favorite)) {
+    return null;
+  }
+
+  const isFavorite = favorite.some((favMovie) => favMovie.id === movie.id);
+
+  const addToFavorite = () => {
+    if (isFavorite) {
+      setFavorite((prevFavorites) =>
+        prevFavorites.filter((favMovie) => favMovie.id !== movie.id)
+      );
+    } else {
+      setFavorite((prevFavorites) => [...prevFavorites, movie]);
+    }
   };
 
   return (
@@ -15,22 +27,30 @@ function MovieThumb({ tools }) {
       className={`keen-slider__slide number-slide${index}`}
       id="film"
     >
-      <Link to={`/movies/${movie.id}`}>
-        <img
-          className="posterCarrouselPicture"
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.title}
-        />
+       <Link to={`/movies/${movie.id}`}>
+        {movie.poster_path ? (
+          <img
+            className="posterCarrouselPicture"
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+          />
+        ) : (
+          <img
+            src={camera}
+            alt={movie.title}
+            className="posterCarrouselPicture"
+          />
+        )}
       </Link>
-      {movie.title}{" "}
+      {movie.title} 
       <span className="vote-favorite">
         ⭐
         {movie.vote_average === 0.0
           ? "Non noté"
           : movie.vote_average.toFixed(1)}
-        <button onClick={handleClickFavorite} type="button">
-          {isFavorite ? "❤️" : "🖤"}
-        </button>
+      <button type="button" onClick={addToFavorite}>
+        {isFavorite ? "❤️" : "🤍"}
+      </button>
       </span>
     </div>
   );

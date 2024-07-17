@@ -35,3 +35,6 @@
   width: 100%;
   border-radius: 10px;
 }
+.movieListCardContent:hover {
+  opacity: 0.4;
+}

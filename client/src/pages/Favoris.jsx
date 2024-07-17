@@ -1,10 +1,20 @@
-import { useEffect } from "react";
+import { useFavorites } from "../contexts/FavoritesContext";
+import "../styles/favoris.css";
+import MovieThumb from "../components/MovieThumb";
 
 function Favoris() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  return <h1>Bienvenue sur tes films favoris</h1>;
+  const { favorite, setFavorite } = useFavorites();
+  return (
+    <>
+      <h1>Mes favoris</h1>
+      <div className="myFavoriteMovies">
+        {favorite.map((movie, index) => (
+           <MovieThumb tools={{ movie, index, favorite, setFavorite }} key={movie.id}
+         />
+        ))}
+      </div>
+    </>
+  );
 }
 
 export default Favoris;

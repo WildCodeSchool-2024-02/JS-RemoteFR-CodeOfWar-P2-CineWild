@@ -5,12 +5,14 @@ import ExpandableText from "../components/ExpandableText";
 import "../styles/actorDetails.css";
 import MovieThumb from "../components/MovieThumb";
 import { frenchDate } from "../utils/functions";
+import { useFavorites } from "../contexts/FavoritesContext";
 
 function ActorDetails() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const { actorDetails, actorMovies } = useLoaderData();
+  const {favorite, setFavorite} =useFavorites();
 
   // Show age or age when deceased for a person
   function calculateAge(birthdayDate, deathdayDate) {
@@ -79,6 +81,7 @@ function ActorDetails() {
 
   return (
     <div className="actorContainer">
+      <h1 className="actorName">{actorDetails.name}</h1>
       <section className="actor">
         <img
           className="actor_img"
@@ -86,7 +89,6 @@ function ActorDetails() {
           alt={actorDetails.name}
         />
         <div className="actordetails">
-          <h1 className="actorName">{actorDetails.name}</h1>
           <ul>
             <li>
               <span className="blue-Font">Genre :</span>{" "}
@@ -122,7 +124,10 @@ function ActorDetails() {
         <h2> Filmographie :</h2>
         <div ref={sliderRef} className="keen-slider">
           {actorMovies.map((movie, index) => (
-            <MovieThumb tools={{ movie, index }} key={movie.id} />
+           <MovieThumb
+           tools={{ movie, index, favorite, setFavorite }}
+           key={movie.id}
+         />
           ))}
         </div>
       </div>
