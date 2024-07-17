@@ -18,13 +18,7 @@ function FavoritesProvider({ children }) {
 }
 
 FavoritesProvider.propTypes = {
-  children: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      poster_path: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default FavoritesProvider;

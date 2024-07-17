@@ -3,8 +3,9 @@
 }
 
 .noResult > p {
-  margin-top: 1rem;
-  font-size: x-large;
+  padding-top: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .noResult > img {
@@ -12,4 +13,9 @@
   margin-bottom: 6rem;
   width: 100%;
   max-width: 600px;
+}
+.noResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
