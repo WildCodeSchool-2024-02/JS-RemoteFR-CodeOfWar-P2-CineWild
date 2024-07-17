@@ -3,7 +3,7 @@ import "../styles/movieList.css";
 
 function MovieList() {
   const { trendingMovies } = useLoaderData();
-  console.info(trendingMovies);
+
   return (
     <section className="list">
       <h1>Films</h1>
