@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import camera from "../assets/images/camera.jpg";
 
 function MovieThumb({ tools }) {
   const { movie, index, favorite, setFavorite } = tools;
@@ -26,12 +27,20 @@ function MovieThumb({ tools }) {
       className={`keen-slider__slide number-slide${index}`}
       id="film"
     >
-      <Link to={`/movies/${movie.id}`}>
-        <img
-          className="posterCarrouselPicture"
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.title}
-        />
+       <Link to={`/movies/${movie.id}`}>
+        {movie.poster_path ? (
+          <img
+            className="posterCarrouselPicture"
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+          />
+        ) : (
+          <img
+            src={camera}
+            alt={movie.title}
+            className="posterCarrouselPicture"
+          />
+        )}
       </Link>
       {movie.title} 
       <span className="vote-favorite">
@@ -55,5 +64,3 @@ MovieThumb.propTypes = {
 }.isRequired;
 
 export default MovieThumb;
-
-
