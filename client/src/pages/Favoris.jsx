@@ -1,18 +1,23 @@
 import { useFavorites } from "../contexts/FavoritesContext";
+import "../styles/favoris.css";
 
 function Favoris() {
   const { favorite } = useFavorites();
   return (
-       <div>
-        <h1>Liste de mes favoris</h1>
+    <>
+      <h1>Mes favoris</h1>
+      <div className="myFavoriteMovies">
         {favorite.map((favoris) => (
-          <div key={favoris.title}>
-            <h2> {favoris.title} </h2>
-            <img  src={`https://image.tmdb.org/t/p/w500${favoris.backdrop_path}`} alt={favoris.title} />
+          <div key={favoris.title} className="myFavoris">
+            <img
+              src={`https://image.tmdb.org/t/p/w500${favoris.backdrop_path}`}
+              alt={favoris.title}
+            />
+            <p> {favoris.title} </p>
           </div>
-        ))
-        }
-       </div>
+        ))}
+      </div>
+    </>
   );
 }
 

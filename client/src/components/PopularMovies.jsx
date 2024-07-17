@@ -6,8 +6,7 @@ import MovieThumb from "./MovieThumb";
 import { useFavorites } from "../contexts/FavoritesContext";
 
 function PopularMovies({ popularMovies }) {
-
-  const {favorite, setFavorite} = useFavorites();
+  const { favorite, setFavorite } = useFavorites();
 
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
@@ -20,10 +19,12 @@ function PopularMovies({ popularMovies }) {
   return (
     <>
       <h1>Populaires</h1>
-
       <div ref={sliderRef} className="keen-slider">
         {popularMovies.map((movie, index) => (
-          <MovieThumb tools={{ movie, index, favorite, setFavorite }} key={movie.id} />
+          <MovieThumb
+            tools={{ movie, index, favorite, setFavorite }}
+            key={movie.id}
+          />
         ))}
       </div>
     </>
