@@ -21,6 +21,10 @@
   height: 26px;
 }
 
+.searchbaricon:hover {
+  fill: var(--blue);
+}
+
 .navbuttons {
   display: flex;
   justify-content: space-between;
