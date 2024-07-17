@@ -2,13 +2,15 @@ import { Link, useLoaderData } from "react-router-dom";
 import "../styles/movieList.css";
 
 function MovieList() {
-  const { trendingMovies } = useLoaderData();
+  const { trendingMovies, popularMovies } = useLoaderData();
+
+  const allMovies = [...trendingMovies, ...popularMovies];
 
   return (
     <section className="list">
       <h1>Films</h1>
       <div className="movieList">
-        {trendingMovies.map((movie) => (
+        {allMovies.map((movie) => (
           <div key={movie.id}>
             <div className="movieListCard">
               <h2> {movie.title}</h2>
