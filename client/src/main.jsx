@@ -52,6 +52,8 @@ const router = createBrowserRouter([
         element: <MovieList />,
         loader: async () => ({
           trendingMovies: await getTrendingMovies(),
+          popularMovies: await getPopularMovies(),
+          playingMovies: await getNowPlayingMovies(),
         }),
       },
       {
