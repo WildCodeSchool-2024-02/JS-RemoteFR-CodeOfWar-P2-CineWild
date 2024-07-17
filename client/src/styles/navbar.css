@@ -186,11 +186,9 @@
     max-height: none;
   }
 
-
   .navigation.open {
     max-height: none;
   }
-
 
   .navigation-loupe {
     display: flex;
