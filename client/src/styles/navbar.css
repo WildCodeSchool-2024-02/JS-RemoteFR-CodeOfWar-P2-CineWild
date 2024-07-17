@@ -186,6 +186,8 @@
     gap: 0.5rem;
     align-items: center;
     max-height: none;
+    margin-left: 1rem;
+    gap: 2rem;
   }
 
   .navigation.open {
@@ -200,6 +202,13 @@
     flex-basis: 0;
     justify-content: space-between;
     padding-inline: 18svw;
+  }
+
+  .search-content > form > button {
+    margin-left: 30rem;
+  }
+  .search-content > form > input {
+    margin-right: 30rem;
   }
 }
 
