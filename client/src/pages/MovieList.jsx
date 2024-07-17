@@ -6,8 +6,6 @@ function MovieList() {
 
   const allMovies = [...trendingMovies, ...popularMovies];
 
-  console.info(allMovies);
-
   return (
     <section className="list">
       <h1>Films</h1>
