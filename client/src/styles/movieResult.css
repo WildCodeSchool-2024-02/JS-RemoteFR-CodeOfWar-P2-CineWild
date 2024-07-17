@@ -68,3 +68,16 @@
   background-color: var(--blue);
   opacity: 100%;
 }
+
+@media screen and (min-width: 1024px) {
+  .buttonTout,
+  .buttonFilm,
+  .buttonArtiste {
+    width: 8rem;
+  }
+
+  .separatorFilter > ul {
+    margin-left: 7rem;
+    margin-right: 7rem;
+  }
+}

@@ -36,13 +36,15 @@ function User() {
         <p className="titleInformations">Mot de passe</p>
         <p className="userInformations">********</p>
         <p className="titleInformations">Date de naissance</p>
-        <p className="userInformations">21 mai 1990</p>
+        <p className="userInformations">21/05/1990</p>
         <p className="titleInformations">Numéro de téléphone</p>
         <p className="userInformations">+ 33 6 07 08 09 99</p>
         <p className="titleInformations">Mes préférences</p>
-        <p className="userInformations">Fantastisque</p>
-        <p className="userInformations">Comédie</p>
-        <p className="userInformations">Thriller</p>
+        <p className="userInformations">
+          Fantastisque <br />
+          Comédie <br />
+          Thriller
+        </p>
       </div>
     </section>
   );
