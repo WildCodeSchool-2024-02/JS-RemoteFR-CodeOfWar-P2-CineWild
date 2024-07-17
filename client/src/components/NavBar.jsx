@@ -13,7 +13,7 @@ function NavBar() {
     }
   };
   const [search, setSearch] = useState("");
-  
+
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);

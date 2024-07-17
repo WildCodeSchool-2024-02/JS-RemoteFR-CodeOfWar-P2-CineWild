@@ -64,7 +64,7 @@ export function getCountriesList() {
 }
 
 // Carrousel avec les trending movies
-export function getCarrousel() {
+export function getTrendingMovies() {
   return axios
     .get(
       `https://api.themoviedb.org/3/trending/movie/day?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`
