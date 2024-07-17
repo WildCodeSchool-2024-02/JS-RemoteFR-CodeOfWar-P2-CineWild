@@ -11,10 +11,10 @@
 
   .dataSheet {
     padding-top: 0rem;
-    margin-left: 11.3rem;
+    margin-left: 1rem;
   }
   .sheet .casting {
-    margin-left: 11.3rem;
+    margin-left: 1rem;
   }
 
   .sheet .separator-dataHead,
@@ -22,7 +22,7 @@
     height: 2px;
     background-color: var(--salmon);
     margin-top: 1rem;
-    margin-left: 11.3rem;
+    margin-left: 1rem;
     margin-bottom: 1rem;
   }
   .sheet .separator-dataCast {
