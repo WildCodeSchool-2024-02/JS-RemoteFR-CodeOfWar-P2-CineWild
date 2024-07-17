@@ -177,7 +177,7 @@
   .burger {
     display: none;
   }
-  li:hover {
+  .navigation li:hover {
     color: var(--blue);
   }
 
