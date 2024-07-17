@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-
 import "../styles/navbar.css";
 
 function NavBar() {
@@ -14,6 +13,12 @@ function NavBar() {
     }
   };
   const [search, setSearch] = useState("");
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   const navigate = useNavigate();
   const handleChangeSearch = (event) => {
     setSearch(event.target.value);
@@ -30,7 +35,12 @@ function NavBar() {
           <li>
             <label className="burger" htmlFor="burger">
               <title>empty</title>
-              <input type="checkbox" id="burger" />
+              <input
+                type="checkbox"
+                id="burger"
+                checked={menuOpen}
+                onChange={toggleMenu}
+              />
               <span />
               <span />
               <span />
@@ -47,8 +57,11 @@ function NavBar() {
                   />
                 </Link>
               </li>
+
               <div className="navigation">
-                <li>Films</li>
+                <Link to="/movies">
+                  <li>Films</li>
+                </Link>
                 <Link to="/actors">
                   <li>Acteurs</li>
                 </Link>
