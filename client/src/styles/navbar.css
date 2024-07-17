@@ -22,7 +22,8 @@
 }
 
 .searchbaricon:hover {
-  fill: var(--blue);
+  filter: invert(29%) sepia(77%) saturate(3366%) hue-rotate(174deg)
+    brightness(93%) contrast(86%);
 }
 
 .navbuttons {
