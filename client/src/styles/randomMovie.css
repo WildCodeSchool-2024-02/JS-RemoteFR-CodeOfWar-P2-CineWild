@@ -1,11 +1,3 @@
-/* A voir car déjà indiqué dans app.css (sauf line-height)
-* {
-  margin: 0;
-  box-sizing: border-box;
-  line-height: 1.5rem;
-}
-  */
-
 .cardRandom {
   width: auto;
   height: 100%;
