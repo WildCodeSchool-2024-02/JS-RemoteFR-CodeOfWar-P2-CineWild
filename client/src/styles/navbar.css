@@ -190,7 +190,6 @@
     align-items: center;
     max-height: none;
     gap: 1rem;
-    text-decoration: var(--black);
   }
 
   .navigation.open {

@@ -61,7 +61,6 @@ function NavBar() {
                   />
                 </Link>
               </li>
-
               <div className={`navigation ${menuOpen ? "open" : ""}`}>
                 <Link to="/movies" onClick={closeMenu}>
                   <li>Films</li>
