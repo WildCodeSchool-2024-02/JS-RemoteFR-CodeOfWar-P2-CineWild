@@ -3,11 +3,8 @@ import "keen-slider/keen-slider.min.css";
 import "../styles/carrousel.css";
 import PropTypes from "prop-types";
 import MovieThumb from "./MovieThumb";
-import { useFavorites } from "../contexts/FavoritesContext";
 
-function PopularMovies({ popularMovies }) {
-  const { favorite, setFavorite } = useFavorites();
-
+function PlayingMovies({ playingMovies }) {
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
     slides: {
@@ -20,7 +17,7 @@ function PopularMovies({ popularMovies }) {
           spacing: 25,
         },
       },
-      "(min-width: 768px) and (max-width: 1399px)": {
+      "(min-width: 768px) and (max-width: 1399px": {
         slides: {
           perView: 3,
           spacing: 25,
@@ -36,21 +33,19 @@ function PopularMovies({ popularMovies }) {
   });
   return (
     <>
-      <h1 className="carrousel-title">Populaires</h1>
+      <h1 className="carrousel-title">A l'affiche</h1>
+
       <div ref={sliderRef} className="keen-slider">
-        {popularMovies.map((movie, index) => (
-          <MovieThumb
-            tools={{ movie, index, favorite, setFavorite }}
-            key={movie.id}
-          />
+        {playingMovies.map((movie, index) => (
+          <MovieThumb tools={{ movie, index }} key={movie.id} />
         ))}
       </div>
     </>
   );
 }
 
-PopularMovies.propTypes = {
-  popularMovies: PropTypes.arrayOf(
+PlayingMovies.propTypes = {
+  playingMovies: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
@@ -58,4 +53,4 @@ PopularMovies.propTypes = {
     })
   ).isRequired,
 };
-export default PopularMovies;
+export default PlayingMovies;

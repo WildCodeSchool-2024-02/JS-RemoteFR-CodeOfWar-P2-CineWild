@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   getRandomMovies,
-  getCarrousel,
+  getTrendingMovies,
   getPopularMovies,
   getDetailsMoviesById,
   getCastingById,
@@ -14,6 +14,8 @@ import {
   getMoviesSearch,
   getActorsById,
   getMovieActorsById,
+  getPersonsSearch,
+  getNowPlayingMovies,
 } from "./services/request";
 
 import App from "./App";
@@ -24,6 +26,7 @@ import Favoris from "./pages/Favoris";
 import User from "./pages/User";
 import Result from "./pages/Result";
 
+import MovieList from "./pages/MovieList";
 import MovieDetails from "./pages/MovieDetails";
 import ActorList from "./pages/ActorList";
 import Sheet from "./pages/Sheet";
@@ -39,8 +42,16 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: async () => ({
           randomMovie: await getRandomMovies(),
-          trendingMovies: await getCarrousel(),
+          trendingMovies: await getTrendingMovies(),
           popularMovies: await getPopularMovies(),
+          playingMovies: await getNowPlayingMovies(),
+        }),
+      },
+      {
+        path: "/movies",
+        element: <MovieList />,
+        loader: async () => ({
+          trendingMovies: await getTrendingMovies(),
         }),
       },
       {
@@ -84,10 +95,11 @@ const router = createBrowserRouter([
         element: <User />,
       },
       {
-        path: "/result/movies/:query",
+        path: "/result/movies_or_actors/:query",
         element: <Result />,
         loader: async ({ params }) => ({
           searchMovies: await getMoviesSearch(params.query),
+          searchPersons: await getPersonsSearch(params.query),
         }),
       },
     ],

@@ -1,51 +1,43 @@
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.carrousel-title {
+  font-size: var(--main-font);
+  font-size: 2rem;
+  text-decoration: underline;
+  text-decoration-color: var(--salmon);
+  padding: 2rem 0rem 1rem 0rem;
+}
+.carrousel-title:hover {
+  text-decoration-color: var(--blue);
 }
 
+/*Fonctions du carrousel*/
 .carrousel-home {
   padding-top: 3rem;
 }
 
 [class^="number-slide"],
 [class*=" number-slide"] {
-  background: grey;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  /* font-size: 25px; */
   color: var(--white);
-  font-weight: 500;
-  height: auto;
-  max-height: 100vh;
   background: var(--black);
   font-weight: bold;
 }
 
 .posterCarrouselPicture {
   width: 100%;
-
   height: 15.5rem;
   border-radius: 20px;
   padding-bottom: 0.5rem;
 }
+
+/*Parti film + vote favoris*/
 #film {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-
   padding-bottom: 1rem;
 }
-.keen-slider {
-  background: var(--black);
-}
-h1 {
-  font-size: var(--main-font);
-  font-size: larger;
-  text-decoration: underline;
-  text-decoration-color: var(--salmon);
-  padding: 2rem 0rem 1rem 0rem;
+
+.vote-favorite {
+  display: flex;
+  gap: 2rem;
 }

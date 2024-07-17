@@ -1,11 +1,3 @@
-/* A voir car déjà indiqué dans app.css (sauf line-height)
-* {
-  margin: 0;
-  box-sizing: border-box;
-  line-height: 1.5rem;
-}
-  */
-
 .cardRandom {
   width: auto;
   height: 100%;
@@ -17,13 +9,31 @@
 
 .posterPicture {
   border-radius: 1rem;
-  width: 5rem;
-  height: 7.5rem;
-  margin-top: 1.5rem;
+  width: auto;
+  height: 15.5rem;
+  margin-right: 1rem;
+}
+@media screen and (max-width: 440px) {
+  .posterPicture {
+    border-radius: 1rem;
+    width: auto;
+    height: 10rem;
+  }
+  .informationsMovie {
+    padding-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 380px) and (max-width: 439px) {
+  .posterPicture {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
 }
 
 .informationsMovie {
   display: flex;
+  align-items: center;
   margin: 0.25rem;
   margin-bottom: 0.25rem;
   position: relative;
@@ -34,13 +44,14 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin-left: 2rem;
+  margin-left: 0.75rem;
   gap: 0.75rem;
 }
 
 .titleMovie h1 {
   color: var(--white);
   text-decoration: none;
+  font-size: 1.25rem;
 }
 
 .buttonSalmon {
@@ -55,13 +66,16 @@
   text-align: center;
   font-weight: bold;
 }
+.buttonSalmon:hover {
+  color: var(--blue);
+}
 .background-random {
-  height: 25rem;
+  height: 20rem;
   width: auto;
   background-size: cover;
   background-position: center;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  margin-bottom: -13rem;
+  margin-bottom: -14.5rem;
   opacity: 0.3;
 }

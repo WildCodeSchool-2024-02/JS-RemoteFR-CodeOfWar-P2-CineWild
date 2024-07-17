@@ -1,6 +1,12 @@
 import "../styles/user.css";
 
+import { useEffect } from "react";
+
 function User() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section>
       <div className="headerUser">

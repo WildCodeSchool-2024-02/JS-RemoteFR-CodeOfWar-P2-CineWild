@@ -1,51 +1,85 @@
 import { useLoaderData } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
+import { useEffect } from "react";
 import ExpandableText from "../components/ExpandableText";
-import "keen-slider/keen-slider.min.css";
 import "../styles/actorDetails.css";
 import MovieThumb from "../components/MovieThumb";
+import { frenchDate } from "../utils/functions";
 
 function ActorDetails() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { actorDetails, actorMovies } = useLoaderData();
-  console.info(actorDetails, actorMovies);
 
-  const releaseDate = () => {
-    const event = new Date(actorDetails.birthday);
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-    return event.toLocaleDateString("fr-FR", options);
-  };
-
-  const calculateAge = (newBirthdayDate) => {
+  // Show age or age when deceased for a person
+  function calculateAge(birthdayDate, deathdayDate) {
+    const birthDate = new Date(birthdayDate);
     const today = new Date();
-    const birthDate = new Date(newBirthdayDate);
+    const deathDate = deathdayDate ? new Date(deathdayDate) : null;
+    let age;
 
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDifference = today.getMonth() - birthDate.getMonth();
-
+    if (!deathDate) {
+      age = today.getFullYear() - birthDate.getFullYear();
+      const monthDifference = today.getMonth() - birthDate.getMonth();
+      if (
+        monthDifference < 0 ||
+        (monthDifference === 0 && today.getDate() < birthDate.getDate())
+      ) {
+        age -= 1;
+      }
+      return (
+        <li>
+          <span className="blue-Font">Age :</span> {age} ans{" "}
+        </li>
+      );
+    }
+    age = deathDate.getFullYear() - birthDate.getFullYear();
+    const monthDifference = deathDate.getMonth() - birthDate.getMonth();
     if (
       monthDifference < 0 ||
-      (monthDifference === 0 && today.getDate() < birthDate.getDate())
+      (monthDifference === 0 && deathDate.getDate() < birthDate.getDate())
     ) {
       age -= 1;
     }
-    return age;
-  };
+    return (
+      <li>
+        <span className="blue-Font">Décès :</span>{" "}
+        {frenchDate(actorDetails.deathday)} à l'âge de {age} ans{" "}
+      </li>
+    );
+  }
 
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
     slides: {
       origin: "center",
-      perView: 2,
-      spacing: 15,
+    },
+    breakpoints: {
+      "(min-width: 1400px)": {
+        slides: {
+          perView: 5,
+          spacing: 25,
+        },
+      },
+      "(min-width: 768px) and (max-width: 1399px": {
+        slides: {
+          perView: 3,
+          spacing: 25,
+        },
+      },
+      "(max-width: 767px)": {
+        slides: {
+          perView: 2,
+          spacing: 25,
+        },
+      },
     },
   });
 
   return (
     <div className="actorContainer">
+      <h1 className="actorName">{actorDetails.name}</h1>
       <section className="actor">
         <img
           className="actor_img"
@@ -53,7 +87,6 @@ function ActorDetails() {
           alt={actorDetails.name}
         />
         <div className="actordetails">
-          <h1 className="actorName">{actorDetails.name}</h1>
           <ul>
             <li>
               <span className="blue-Font">Genre :</span>{" "}
@@ -65,25 +98,24 @@ function ActorDetails() {
             </li>
             <li>
               <span className="blue-Font">Date de Naissance : </span>
-              {releaseDate(actorDetails.birthday)}{" "}
+              {frenchDate(actorDetails.birthday)}{" "}
             </li>
-            <li>
-              <span className="blue-Font">Age :</span>{" "}
-              {calculateAge(actorDetails.birthday)} ans{" "}
-            </li>
+            {calculateAge(actorDetails.birthday, actorDetails.deathday)}
           </ul>
         </div>
       </section>
       <div className="separator">{}</div>
       <div className="biographie">
         <h2> Biographie :</h2>
-        <ExpandableText
-          text={
-            actorDetails.biography !== ""
-              ? actorDetails.biography
-              : "Pas de Biographie"
-          }
-        />
+        <p>
+          <ExpandableText
+            text={
+              actorDetails.biography !== ""
+                ? actorDetails.biography
+                : "Pas de Biographie"
+            }
+          />
+        </p>
       </div>
       <div className="separator">{}</div>
       <div className="filmography">

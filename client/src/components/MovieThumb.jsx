@@ -33,11 +33,16 @@ function MovieThumb({ tools }) {
           alt={movie.title}
         />
       </Link>
-      {movie.title} <br />
-      {movie.vote_average === 0.0 ? "Non noté" : movie.vote_average.toFixed(1)}
+      {movie.title} 
+      <span className="vote-favorite">
+        ⭐
+        {movie.vote_average === 0.0
+          ? "Non noté"
+          : movie.vote_average.toFixed(1)}
       <button type="button" onClick={addToFavorite}>
         {isFavorite ? "❤️" : "🤍"}
       </button>
+      </span>
     </div>
   );
 }
@@ -50,3 +55,5 @@ MovieThumb.propTypes = {
 }.isRequired;
 
 export default MovieThumb;
+
+

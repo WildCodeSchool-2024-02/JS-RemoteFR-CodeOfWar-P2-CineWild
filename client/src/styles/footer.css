@@ -11,3 +11,10 @@ footer > .image {
   padding: 1.5rem;
   margin: 0 1rem;
 }
+
+@media screen and (min-width: 536px) {
+  footer {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

@@ -1,26 +1,28 @@
-.actorPopularList h1 {
+.list h1 {
   font-size: 2rem;
   text-decoration: underline;
   text-decoration-color: var(--salmon);
   padding-bottom: 2rem;
 }
-.actorPopularList h1:hover {
+
+.list h1:hover {
   text-decoration-color: var(--blue);
 }
-/*Zone liste acteur */
-.actorCard > h2 {
+
+/*Zone liste film */
+.movieListCard > h2 {
   font-size: var(--main-font);
   color: var(--white);
   padding-top: 1rem;
 }
-.actorList {
+.movieList {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
 
-.actorCard {
+.movieListCard {
   display: flex;
   flex-direction: column-reverse;
   text-align: center;
@@ -28,7 +30,7 @@
   justify-content: space-between;
 }
 
-.actorCardContent {
+.movieListCardContent {
   height: auto;
   width: 100%;
   border-radius: 10px;

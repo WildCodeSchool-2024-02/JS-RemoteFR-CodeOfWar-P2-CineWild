@@ -6,55 +6,87 @@
   --green: #58b09c;
 }
 
-h2 {
+.actorContainer h2 {
   color: var(--blue);
   padding-bottom: 2rem;
 }
-.actor_img {
-  width: 50%;
-  height: auto;
-  border-radius: 1rem;
-  object-fit: contain;
+
+.actorContainer .separator {
+  height: 2px;
+  background-color: var(--salmon);
+}
+
+/*En-tete avec les informations de l'acteur*/
+.actorName {
+  font-size: 1.5rem;
+  display: flex;
+  letter-spacing: 1px;
+  justify-content: flex-start;
 }
 .actorContainer {
   display: flex;
   flex-direction: column;
 }
-.actor {
+
+.actorContainer .actor {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 2rem;
   padding-bottom: 2rem;
 }
-.actordetails {
-  font-weight: 600;
-  margin-bottom: 1rem;
+
+.actorContainer .actor_img {
+  width: 10rem;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: contain;
 }
 
-.actordetails li {
+.actorContainer .actordetails {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.actorContainer .actordetails li {
   list-style: none;
   line-height: 2rem;
 }
 
-.biographie h2 {
+/*Zone biographie*/
+.actorContainer .biographie h2 {
   padding-bottom: 1rem;
 }
 
-.biographie p {
+.actorContainer .biographie p {
   font-weight: 600;
   line-height: 1.5rem;
   margin-bottom: 1rem;
 }
-.biographie {
+
+.actorContainer .biographie {
   padding: 2rem 0;
 }
 
-.separator {
-  height: 2px;
-  background-color: var(--salmon);
+/*Zone filmographie*/
+
+.actorContainer .filmography {
+  padding-top: 2rem;
 }
 
-.filmography {
-  padding-top: 2rem;
+@media screen and (min-width: 1024px) {
+  .actorContainer {
+    margin-right: 6rem;
+  }
+
+  .actorContainer .biographie,
+  .actorContainer .separator,
+  .filmography h2 {
+    margin-left: 1rem;
+  }
+
+  .actorName {
+    font-size: 2.5rem;
+  }
 }

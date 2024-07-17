@@ -10,7 +10,7 @@ function Favoris() {
         {favorite.map((favoris) => (
           <div key={favoris.title} className="myFavoris">
             <img
-              src={`https://image.tmdb.org/t/p/w500${favoris.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w500${favoris.poster_path}`}
               alt={favoris.title}
             />
             <p> {favoris.title} </p>

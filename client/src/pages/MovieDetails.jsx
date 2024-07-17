@@ -1,13 +1,46 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/moviedetails.css";
 import { useLoaderData, Link } from "react-router-dom";
+import { useKeenSlider } from "keen-slider/react";
 import ExpandableText from "../components/ExpandableText";
 import { yearDate, frenchDate, hourMin, cleanString } from "../utils/functions";
+import ActorThumb from "../components/ActorThumb";
 
 function MovieDetails() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const [sliderRef] = useKeenSlider({
+    mode: "free-snap",
+    slides: {
+      origin: "center",
+    },
+    breakpoints: {
+      "(min-width: 1400px)": {
+        slides: {
+          perView: 5,
+          spacing: 25,
+        },
+      },
+      "(min-width: 768px) and (max-width: 1399px": {
+        slides: {
+          perView: 3,
+          spacing: 25,
+        },
+      },
+      "(max-width: 767px)": {
+        slides: {
+          perView: 2,
+          spacing: 25,
+        },
+      },
+    },
+  });
+
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
-  const movieCasting = moviePeople.cast.slice(0, 4);
+  const movieCasting = moviePeople.cast.slice(0, 6);
 
   function nativeName() {
     return movieDetails.origin_country
@@ -35,7 +68,9 @@ function MovieDetails() {
   };
 
   const renderCrew = filteredCrew.map((director) => `${director.name}, `);
-  const renderCasting = movieCasting.map((cast) => `${cast.name}, `);
+  const renderCasting = movieCasting
+    .slice(0, 4)
+    .map((cast) => `${cast.name}, `);
   const renderGenres = movieDetails.genres.map((genre) => `${genre.name}, `);
 
   return (
@@ -66,7 +101,12 @@ function MovieDetails() {
               <p>{cleanString(renderGenres.slice(0, 3))}</p>
             </li>
             <ul className="scoreandbuttons">
-              <li>⭐{movieDetails.vote_average.toFixed(1)}</li>
+              <li>
+                ⭐
+                {movieDetails.vote_average === 0.0
+                  ? " Non noté"
+                  : movieDetails.vote_average.toFixed(1)}
+              </li>
               <li>
                 <button onClick={handleClickFavorite} type="button">
                   {isFavorite ? "❤️" : "🖤"}
@@ -104,18 +144,31 @@ function MovieDetails() {
             <span className="blue-Font">Pays d'origine : </span>
             <span>{nativeName()}</span>
           </li>
+          <li>
+            <button className="blue-Font fullDetails" type="button">
+              <Link to={`/movies/${movieDetails.id}/sheet`}>
+                Fiche technique
+              </Link>
+            </button>
+          </li>
         </ul>
       </div>
-      <div className="separator">{}</div>
+      <div className="separator-movieCard">{}</div>
       <div className="synopsis">
         <h3 className="blue-Font">Synopsis</h3>
         <p>
-          <ExpandableText text={movieDetails.overview} />
+          <ExpandableText text={movieDetails.overview} maxLength={90} />
         </p>
       </div>
-      <button className="blue-Font fullDetails" type="button">
-        <Link to={`/movies/${movieDetails.id}/sheet`}> Fiche technique</Link>
-      </button>
+      <div className="separator-movieCard">{}</div>
+      <section className="casting">
+        <h3 className="blue-Font">Casting</h3>
+        <div ref={sliderRef} className="keen-slider">
+          {movieCasting.map((actor, index) => (
+            <ActorThumb tools={{ actor, index }} key={actor.id} />
+          ))}
+        </div>
+      </section>
     </>
   );
 }

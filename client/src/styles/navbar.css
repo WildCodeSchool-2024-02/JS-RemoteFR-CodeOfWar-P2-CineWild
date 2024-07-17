@@ -1,6 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0");
 
-/* Navbar*/
+:root {
+  --salmon: #ff7e6b;
+  --black: #0f0f0f;
+  --white: #f5f5f5;
+  --blue: #1282a2;
+  --green: #58b09c;
+  --main-font: "League Spartan", sans-serif;
+}
+
+/* Navbar */
 .navbar {
   background-color: var(--black);
   position: relative;
@@ -20,7 +29,7 @@
   list-style: none;
 }
 
-/*Menu burger*/
+/* Menu burger */
 .burger {
   position: relative;
   width: 40px;
@@ -81,14 +90,13 @@
   left: 5px;
 }
 
-/*logo*/
-
+/* logo */
 .logocw {
   height: 67px;
   width: 144px;
 }
 
-/*Search*/
+/* Search */
 .searchbaricon {
   cursor: pointer;
 }
@@ -110,7 +118,7 @@
   height: 100%;
 }
 
-.search-content {
+.search-content > form {
   line-height: 28px;
   margin-left: 1rem;
   margin-right: 1rem;
@@ -118,7 +126,7 @@
   display: flex;
 }
 
-.search-content > input {
+.search-content > form > input {
   width: 100%;
   height: 40px;
   line-height: 28px;
@@ -133,7 +141,7 @@
   font-size: larger;
 }
 
-.search-content > input::placeholder {
+.search-content > form > input::placeholder {
   color: #9e9ea7;
 }
 
@@ -149,7 +157,7 @@
   color: var(--white);
 }
 
-.search-content > button {
+.search-content > form > button {
   border: none;
   cursor: pointer;
   display: flex;
@@ -158,4 +166,165 @@
   background-color: var(--salmon);
   padding: 8px 16px 8px 16px;
   border-radius: 8px 0 0 8px;
+}
+
+.logo-navigation {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (min-width: 1024px) {
+  .burger {
+    display: none;
+  }
+
+  .navigation {
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    list-style-type: none;
+    gap: 0.5rem;
+    align-items: center;
+    max-height: none;
+  }
+
+  .navigation.open {
+    max-height: none;
+  }
+
+  .navigation-loupe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+    flex-basis: 0;
+    justify-content: space-between;
+    padding-inline: 18svw;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Burger Menu Animation */
+  .navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--black);
+    max-width: 40%;
+    width: 100%;
+    height: 80%;
+    z-index: 9;
+  }
+
+  .navigation.open li {
+    padding: 0.5rem;
+    font-family: var(--main-font);
+    font-weight: 600;
+  }
+
+  .navigation.open {
+    display: block;
+    padding-inline: 20svw;
+    text-align: left;
+    border-radius: 1rem;
+  }
+
+  .navigation-loupe {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 0.3;
+  }
+
+  .navbuttons {
+    display: flex;
+    padding: 1.25rem;
+    list-style: none;
+    padding-inline: 11svw;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (min-width: 536px) and (max-width: 767px) {
+  /* Burger Menu Animation */
+  .navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--black);
+    max-width: 40%;
+    width: 100%;
+    height: 80%;
+    z-index: 9;
+  }
+
+  .navigation.open li {
+    padding: 0.5rem;
+    font-family: var(--main-font);
+    font-weight: 600;
+  }
+
+  .navigation.open {
+    display: block;
+    padding-inline: 20svw;
+    text-align: left;
+    border-radius: 1rem;
+  }
+
+  .navigation-loupe {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 0.3;
+  }
+
+  .navbuttons {
+    display: flex;
+    padding: 1.25rem;
+    list-style: none;
+    padding-inline: 11svw;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  /* Burger Menu Animation */
+  .navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background-color: var(--black);
+    max-width: 40%;
+    z-index: 9;
+  }
+
+  .navigation.open li {
+    padding: 0.5rem;
+    position: relative;
+    font-family: var(--main-font);
+    font-weight: 600;
+  }
+
+  .navigation.open {
+    display: block;
+    text-align: left;
+    padding-left: 1rem;
+    border-radius: 1rem;
+  }
+
+  .navigation-loupe {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 0.5;
+  }
 }
