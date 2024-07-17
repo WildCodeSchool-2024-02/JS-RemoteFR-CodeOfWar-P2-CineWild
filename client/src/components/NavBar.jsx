@@ -19,6 +19,10 @@ function NavBar() {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   const navigate = useNavigate();
   const handleChangeSearch = (event) => {
     setSearch(event.target.value);
@@ -57,12 +61,11 @@ function NavBar() {
                   />
                 </Link>
               </li>
-
-              <div className="navigation">
+              <div className={`navigation ${menuOpen ? "open" : ""}`}>
                 <Link to="/movies">
                   <li>Films</li>
                 </Link>
-                <Link to="/actors">
+                <Link to="/actors" onClick={closeMenu}>
                   <li>Acteurs</li>
                 </Link>
               </div>
