@@ -55,6 +55,13 @@
   margin-right: 1rem;
 }
 
+.sheet .camera {
+  height: 15rem;
+  width: auto;
+  border-radius: 10px;
+  margin-right: 1rem;
+}
+
 /* Information sur le film*/
 .sheet h2 {
   color: var(--white);
