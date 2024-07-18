@@ -7,6 +7,7 @@ import ActorThumb from "../components/ActorThumb";
 import "../styles/carrousel.css";
 import "keen-slider/keen-slider.min.css";
 import "../styles/dataSheet.css";
+import camera from "../assets/images/camera.jpg";
 
 function Sheet() {
   useEffect(() => {
@@ -96,11 +97,15 @@ function Sheet() {
       <section className="sheet">
         <div className="head-sheet">
           <Link to={`/movies/${movieDetails.id}`}>
-            <img
-              className="film-img"
-              src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}&language=fr-FR`}
-              alt={`Back to${movieDetails.title}`}
-            />
+            {movieDetails.poster_path ? (
+              <img
+                className="film-img"
+                src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}&language=fr-FR`}
+                alt={`Back to${movieDetails.title}`}
+              />
+            ) : (
+              <img src={camera} className="brokeImg" alt={movieDetails.title} />
+            )}
           </Link>
           <h2>{movieDetails.title}</h2>
         </div>

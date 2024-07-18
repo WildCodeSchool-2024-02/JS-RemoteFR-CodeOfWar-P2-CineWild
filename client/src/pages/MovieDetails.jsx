@@ -9,7 +9,6 @@ import ActorThumb from "../components/ActorThumb";
 import camera from "../assets/images/camera.jpg";
 import { useFavorites } from "../contexts/FavoritesContext";
 
-
 function MovieDetails() {
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
@@ -116,7 +115,7 @@ function MovieDetails() {
           {movieDetails.poster_path ? (
             <img
               src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}&language=fr-FR`}
-              alt=""
+              alt={movieDetails.title}
               className="frontImg"
             />
           ) : (
