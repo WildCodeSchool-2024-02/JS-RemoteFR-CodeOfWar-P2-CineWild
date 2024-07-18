@@ -11,32 +11,6 @@
   color: var(--salmon);
 }
 
-@media screen and (min-width: 1024px) {
-  .sheet {
-    padding-left: 2rem;
-    margin-right: 6rem;
-  }
-
-  .dataSheet {
-    padding-top: 0rem;
-    margin-left: 1rem;
-  }
-  .sheet .casting {
-    margin-left: 1rem;
-  }
-
-  .sheet .separator-dataHead,
-  .sheet .separator-dataCast-mobile {
-    height: 2px;
-    background-color: var(--salmon);
-    margin-top: 1rem;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-  }
-  .sheet .separator-dataCast {
-    display: none;
-  }
-}
 /* Région header*/
 .head-sheet {
   display: flex;
@@ -62,7 +36,12 @@
   border-radius: 10px;
   margin-right: 1rem;
 }
-
+.sheet .brokeImg {
+  height: 10rem;
+  width: auto;
+  border-radius: 10px;
+  margin-right: 1rem;
+}
 /* Information sur le film*/
 .sheet h2 {
   color: var(--white);
@@ -92,4 +71,73 @@
 .sheet .casting {
   margin-bottom: 1rem;
   color: var(--blue);
+}
+
+@media screen and (min-width: 1024px) {
+  .sheet {
+    padding-left: 2rem;
+    margin-right: 6rem;
+  }
+
+  .dataSheet {
+    padding-top: 0rem;
+    margin-left: 1rem;
+  }
+  .sheet .casting {
+    margin-left: 1rem;
+  }
+
+  .sheet .separator-dataHead,
+  .sheet .separator-dataCast-mobile {
+    height: 2px;
+    background-color: var(--salmon);
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+  }
+  .sheet .separator-dataCast {
+    display: none;
+  }
+  .sheet .brokeImg {
+    height: 15rem;
+    width: auto;
+    border-radius: 10px;
+    margin-right: 1rem;
+  }
+}
+@media screen and (min-width: 536px) and (max-width: 1023px) {
+  main {
+    padding-inline: 14svw;
+  }
+
+  .sheet .brokeImg {
+    height: 12rem;
+    margin-top: 1.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sheet {
+    padding-left: 2rem;
+    margin-right: 6rem;
+  }
+
+  .dataSheet {
+    padding-top: 0rem;
+    margin-left: 1rem;
+  }
+  .sheet .casting {
+    margin-left: 1rem;
+  }
+
+  .sheet .separator-dataHead,
+  .sheet .separator-dataCast-mobile {
+    height: 2px;
+    background-color: var(--salmon);
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+  }
+  .sheet .separator-dataCast {
+    display: none;
+  }
 }

@@ -6,6 +6,7 @@ import "../styles/actorDetails.css";
 import MovieThumb from "../components/MovieThumb";
 import { frenchDate } from "../utils/functions";
 import { useFavorites } from "../contexts/FavoritesContext";
+import noAvatar from "../assets/images/no_avatar.jpg";
 
 function ActorDetails() {
   useEffect(() => {
@@ -83,11 +84,16 @@ function ActorDetails() {
     <div className="actorContainer">
       <h1 className="actorName">{actorDetails.name}</h1>
       <section className="actor">
-        <img
-          className="actor_img"
-          src={`https://image.tmdb.org/t/p/w500/${actorDetails.profile_path}&language=fr-FR`}
-          alt={actorDetails.name}
-        />
+        {actorDetails.profile_path ? (
+          <img
+            className="actor_img"
+            src={`https://image.tmdb.org/t/p/w500/${actorDetails.profile_path}&language=fr-FR`}
+            alt={actorDetails.name}
+          />
+        ) : (
+          <img src={noAvatar} alt={actorDetails.name} className="actor_img" />
+        )}
+
         <div className="actordetails">
           <ul>
             <li>

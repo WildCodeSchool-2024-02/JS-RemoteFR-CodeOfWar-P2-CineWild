@@ -7,6 +7,7 @@ import ActorThumb from "../components/ActorThumb";
 import "../styles/carrousel.css";
 import "keen-slider/keen-slider.min.css";
 import "../styles/dataSheet.css";
+import camera from "../assets/images/camera.jpg";
 
 function Sheet() {
   useEffect(() => {
@@ -23,7 +24,7 @@ function Sheet() {
     <Link
       className="sheetCrew"
       key={productor.id}
-      to={`/actors/${productor.id}`}
+      to={`/person/${productor.id}`}
     >
       {productor.name}
       {index < array.length - 1 ? ", " : ""}
@@ -35,7 +36,7 @@ function Sheet() {
   );
 
   const renderDirectingCrew = directingCrew.map((director, index, array) => (
-    <Link className="sheetCrew" key={director.id} to={`/actors/${director.id}`}>
+    <Link className="sheetCrew" key={director.id} to={`/person/${director.id}`}>
       {director.name}
       {index < array.length - 1 ? ", " : ""}
     </Link>
@@ -46,7 +47,7 @@ function Sheet() {
   );
 
   const renderEditorCrew = editorCrew.map((editor, index, array) => (
-    <Link className="sheetCrew" key={editor.id} to={`/actors/${editor.id}`}>
+    <Link className="sheetCrew" key={editor.id} to={`/person/${editor.id}`}>
       {editor.name}
       {index < array.length - 1 ? ", " : ""}
     </Link>
@@ -96,11 +97,15 @@ function Sheet() {
       <section className="sheet">
         <div className="head-sheet">
           <Link to={`/movies/${movieDetails.id}`}>
-            <img
-              className="film-img"
-              src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}&language=fr-FR`}
-              alt={`Back to${movieDetails.title}`}
-            />
+            {movieDetails.poster_path ? (
+              <img
+                className="film-img"
+                src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}&language=fr-FR`}
+                alt={`Back to${movieDetails.title}`}
+              />
+            ) : (
+              <img src={camera} className="brokeImg" alt={movieDetails.title} />
+            )}
           </Link>
           <h2>{movieDetails.title}</h2>
         </div>

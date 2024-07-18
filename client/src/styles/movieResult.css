@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+.resultContent > a > img:hover {
+  opacity: 0.4;
+}
+
 .resultContent > ul {
   margin-top: 1rem;
 }
@@ -61,10 +65,13 @@
 
 .buttonTout:active,
 .buttonTout:focus,
+.buttonTout:hover,
 .buttonFilm:active,
 .buttonFilm:focus,
+.buttonFilm:hover,
 .buttonArtiste:active,
-.buttonArtiste:focus {
+.buttonArtiste:focus,
+.buttonArtiste:hover {
   background-color: var(--blue);
   opacity: 100%;
 }

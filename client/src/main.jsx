@@ -79,7 +79,7 @@ const router = createBrowserRouter([
         loader: () => getActorList(),
       },
       {
-        path: "/actors/:id",
+        path: "/person/:id",
         element: <ActorDetails />,
         loader: async ({ params }) => ({
           actorDetails: await getActorsById(params.id),
