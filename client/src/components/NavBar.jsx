@@ -18,6 +18,7 @@ function NavBar() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
   const closeMenu = () => {
     setMenuOpen(false);
   };
@@ -61,9 +62,14 @@ function NavBar() {
                 </Link>
               </li>
               <div className={`navigation ${menuOpen ? "open" : ""}`}>
-                <li>Films</li>
+                <Link to="/movies" onClick={closeMenu}>
+                  <li>Films</li>
+                </Link>
                 <Link to="/actors" onClick={closeMenu}>
                   <li>Acteurs</li>
+                </Link>
+                <Link to="/favoris" onClick={closeMenu}>
+                  <li>Favoris</li>
                 </Link>
               </div>
             </div>

@@ -19,6 +19,9 @@
 /*En-tete avec les informations de l'acteur*/
 .actorName {
   font-size: 1.5rem;
+  display: flex;
+  letter-spacing: 1px;
+  justify-content: flex-start;
 }
 .actorContainer {
   display: flex;
@@ -43,6 +46,7 @@
 .actorContainer .actordetails {
   font-weight: 600;
   margin-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 .actorContainer .actordetails li {
@@ -80,5 +84,9 @@
   .actorContainer .separator,
   .filmography h2 {
     margin-left: 1rem;
+  }
+
+  .actorName {
+    font-size: 2.5rem;
   }
 }
