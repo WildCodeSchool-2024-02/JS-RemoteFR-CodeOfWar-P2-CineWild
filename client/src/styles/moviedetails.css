@@ -31,8 +31,6 @@ button {
   color: var(--blue);
 }
 
-/*  #endregion */
-
 /* #region ----- Movie Card */
 .movieCard {
   width: auto;
@@ -120,8 +118,6 @@ li.date-movie {
   padding-left: 0.5rem;
 }
 
-/*  #endregion */
-
 /* #region ----- Movie Description */
 
 .movieDescription {
@@ -145,7 +141,6 @@ li.date-movie {
   background-color: var(--salmon);
   margin: 1rem;
 }
-/*  #endregion */
 
 /* #region ----- Synopsis */
 
@@ -178,8 +173,6 @@ a:hover {
   padding-top: 1rem;
   font-size: 1.5rem;
 }
-
-/*  #endregion */
 
 /* #region ----- Version Desktop */
 
@@ -263,5 +256,3 @@ a:hover {
     font-size: 2rem;
   }
 }
-
-/*  #endregion */

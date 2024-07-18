@@ -9,8 +9,10 @@ function Favoris() {
       <h1>Mes favoris</h1>
       <div className="myFavoriteMovies">
         {favorite.map((movie, index) => (
-           <MovieThumb tools={{ movie, index, favorite, setFavorite }} key={movie.id}
-         />
+          <MovieThumb
+            tools={{ movie, index, favorite, setFavorite }}
+            key={movie.id}
+          />
         ))}
       </div>
     </>

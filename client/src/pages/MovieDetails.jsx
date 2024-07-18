@@ -132,7 +132,7 @@ function MovieDetails() {
             <span>{cleanString(renderCrew)}</span>
           </li>
           <li>
-            <span className="blue-Font">En salle depuis :</span>
+            <span className="blue-Font">Sortie en salle le :</span>
             <span> {frenchDate(movieDetails.release_date)}</span>
           </li>
 

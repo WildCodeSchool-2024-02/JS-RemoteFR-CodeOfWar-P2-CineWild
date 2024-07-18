@@ -6,12 +6,12 @@ import PopularMovies from "../components/PopularMovies";
 import PlayingMovies from "../components/NowPlaying";
 
 function Home() {
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
-  const { trendingMovies, popularMovies, randomMovie, playingMovies } = useLoaderData();
+
+  const { trendingMovies, popularMovies, randomMovie, playingMovies } =
+    useLoaderData();
 
   return (
     <>
@@ -22,5 +22,4 @@ function Home() {
     </>
   );
 }
-
 export default Home;
