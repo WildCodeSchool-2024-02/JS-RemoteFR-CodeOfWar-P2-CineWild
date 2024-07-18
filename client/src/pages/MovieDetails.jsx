@@ -110,13 +110,13 @@ function MovieDetails() {
         >
           <title>empty</title>
         </div>
-
+        <h1>{movieDetails.title}</h1>
         <ul className="movieCardContent">
           {movieDetails.poster_path ? (
             <img
               className="frontImg"
               src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}&language=fr-FR`}
-              alt={`Back to${movieDetails.title}`}
+              alt={movieDetails.title}
             />
           ) : (
             <img src={camera} alt={movieDetails.title} className="frontImg" />
