@@ -24,7 +24,7 @@ function Sheet() {
     <Link
       className="sheetCrew"
       key={productor.id}
-      to={`/actors/${productor.id}`}
+      to={`/person/${productor.id}`}
     >
       {productor.name}
       {index < array.length - 1 ? ", " : ""}
@@ -36,7 +36,7 @@ function Sheet() {
   );
 
   const renderDirectingCrew = directingCrew.map((director, index, array) => (
-    <Link className="sheetCrew" key={director.id} to={`/actors/${director.id}`}>
+    <Link className="sheetCrew" key={director.id} to={`/person/${director.id}`}>
       {director.name}
       {index < array.length - 1 ? ", " : ""}
     </Link>
@@ -47,7 +47,7 @@ function Sheet() {
   );
 
   const renderEditorCrew = editorCrew.map((editor, index, array) => (
-    <Link className="sheetCrew" key={editor.id} to={`/actors/${editor.id}`}>
+    <Link className="sheetCrew" key={editor.id} to={`/person/${editor.id}`}>
       {editor.name}
       {index < array.length - 1 ? ", " : ""}
     </Link>

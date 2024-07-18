@@ -5,7 +5,7 @@ function ActorCard({ actor }) {
   return (
     <div className="actorCard" key={actor.id}>
       <h2>{actor.name}</h2>
-      <Link to={`/actors/${actor.id}`}>
+      <Link to={`/person/${actor.id}`}>
         <img
           className="actorCardContent"
           src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}&language=fr-FR`}

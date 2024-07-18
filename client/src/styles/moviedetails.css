@@ -56,6 +56,12 @@ button {
   border-radius: 6px;
 }
 
+.brokeImg {
+  width: 5rem;
+  height: 8rem;
+  border-radius: 6px;
+}
+
 .movieCard ul {
   list-style: none;
   display: flex;
@@ -209,6 +215,12 @@ a:hover {
     width: auto;
   }
 
+  .brokeImg {
+    height: 300px;
+    width: auto;
+    border-radius: 6px;
+  }
+
   div.movieDescription {
     margin-top: 10rem;
     padding-bottom: 2rem;
@@ -272,3 +284,21 @@ a:hover {
     font-size: 2rem;
   }
 }
+
+@media screen and (min-width: 536px) and (max-width: 1023px) {
+  main {
+    padding-inline: 14svw;
+  }
+
+  .brokeImg {
+    margin-top: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .brokeImg {
+    margin-top: 1.5rem;
+  }
+}
+
+/*  #endregion */

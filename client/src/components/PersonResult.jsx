@@ -5,7 +5,7 @@ import noAvatar from "../assets/images/no_avatar.jpg";
 export default function PersonResult({ person }) {
   return (
     <div className="resultContent">
-      <Link to={`/actors/${person.id}`}>
+      <Link to={`/person/${person.id}`}>
         {person.profile_path ? (
           <img
             src={`https://image.tmdb.org/t/p/w500/${person.profile_path}&language=fr-FR`}
