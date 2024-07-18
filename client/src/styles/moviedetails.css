@@ -192,7 +192,7 @@ a:hover {
 
 /* #region ----- Version Desktop */
 
-@media screen and (min-width: 536px) {
+@media screen and (min-width: 1024px) {
   main {
     padding-inline: 20svw;
   }
