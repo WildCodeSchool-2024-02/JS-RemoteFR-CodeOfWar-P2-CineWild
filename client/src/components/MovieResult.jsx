@@ -1,12 +1,8 @@
 import PropTypes from "prop-types";
-
 import { Link } from "react-router-dom";
-
 import { yearDate } from "../utils/functions";
 import genres from "../utils/genres";
-
 import camera from "../assets/images/camera.jpg";
-
 import "../styles/movieResult.css";
 
 export default function MovieResult({ movie }) {

@@ -1,12 +1,8 @@
 import { useLoaderData } from "react-router-dom";
-
 import { useState, useEffect } from "react";
-
 import MovieResult from "../components/MovieResult";
 import PersonResult from "../components/PersonResult";
-
 import noResult from "../assets/images/noResult.webp";
-
 import "../styles/result.css";
 
 export default function Result() {

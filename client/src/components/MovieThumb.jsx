@@ -27,7 +27,7 @@ function MovieThumb({ tools }) {
       className={`keen-slider__slide number-slide${index}`}
       id="film"
     >
-       <Link to={`/movies/${movie.id}`}>
+      <Link to={`/movies/${movie.id}`}>
         {movie.poster_path ? (
           <img
             className="posterCarrouselPicture"
@@ -42,15 +42,15 @@ function MovieThumb({ tools }) {
           />
         )}
       </Link>
-      {movie.title} 
+      {movie.title}
       <span className="vote-favorite">
         ⭐
         {movie.vote_average === 0.0
           ? "Non noté"
           : movie.vote_average.toFixed(1)}
-      <button type="button" onClick={addToFavorite}>
-        {isFavorite ? "❤️" : "🤍"}
-      </button>
+        <button type="button" onClick={addToFavorite}>
+          {isFavorite ? "❤️" : "🤍"}
+        </button>
       </span>
     </div>
   );
