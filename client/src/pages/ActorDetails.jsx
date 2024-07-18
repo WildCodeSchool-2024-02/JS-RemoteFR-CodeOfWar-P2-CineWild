@@ -6,13 +6,14 @@ import "../styles/actorDetails.css";
 import MovieThumb from "../components/MovieThumb";
 import { frenchDate } from "../utils/functions";
 import { useFavorites } from "../contexts/FavoritesContext";
+import noAvatar from "../assets/images/no_avatar.jpg";
 
 function ActorDetails() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const { actorDetails, actorMovies } = useLoaderData();
-  const {favorite, setFavorite} = useFavorites();
+  const { favorite, setFavorite } = useFavorites();
 
   // Show age or age when deceased for a person
   function calculateAge(birthdayDate, deathdayDate) {
@@ -83,11 +84,16 @@ function ActorDetails() {
     <div className="actorContainer">
       <h1 className="actorName">{actorDetails.name}</h1>
       <section className="actor">
-        <img
-          className="actor_img"
-          src={`https://image.tmdb.org/t/p/w500/${actorDetails.profile_path}&language=fr-FR`}
-          alt={actorDetails.name}
-        />
+        {actorDetails.profile_path ? (
+          <img
+            className="actor_img"
+            src={`https://image.tmdb.org/t/p/w500/${actorDetails.profile_path}&language=fr-FR`}
+            alt={actorDetails.name}
+          />
+        ) : (
+          <img src={noAvatar} alt={actorDetails.name} />
+        )}
+
         <div className="actordetails">
           <ul>
             <li>
@@ -124,10 +130,10 @@ function ActorDetails() {
         <h2> Filmographie :</h2>
         <div ref={sliderRef} className="keen-slider">
           {actorMovies.map((movie, index) => (
-           <MovieThumb
-           tools={{ movie, index, favorite, setFavorite }}
-           key={movie.id}
-         />
+            <MovieThumb
+              tools={{ movie, index, favorite, setFavorite }}
+              key={movie.id}
+            />
           ))}
         </div>
       </div>
