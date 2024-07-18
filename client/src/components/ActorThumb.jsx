@@ -11,7 +11,7 @@ function ActorThumb({ tools }) {
       className={`keen-slider__slide number-slide${index}`}
       id="film"
     >
-      <Link to={`/actors/${actor.id}`}>
+      <Link to={`/person/${actor.id}`}>
         {actor.profile_path ? (
           <img
             className="posterCarrouselPicture"
