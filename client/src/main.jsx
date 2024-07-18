@@ -20,12 +20,9 @@ import {
 
 import App from "./App";
 import Home from "./pages/Home";
-
-// import Movie from "./pages/Movie";
 import Favoris from "./pages/Favoris";
 import User from "./pages/User";
 import Result from "./pages/Result";
-
 import MovieList from "./pages/MovieList";
 import MovieDetails from "./pages/MovieDetails";
 import ActorList from "./pages/ActorList";

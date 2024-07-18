@@ -1,5 +1,4 @@
 import "../styles/user.css";
-
 import { useEffect } from "react";
 
 function User() {
