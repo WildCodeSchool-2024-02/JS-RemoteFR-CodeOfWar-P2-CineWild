@@ -85,14 +85,14 @@ function MovieDetails() {
     .slice(0, 3);
 
   const renderCrew = filteredCrew.map((director, index, array) => (
-    <Link key={director.id} to={`/actors/${director.id}`}>
+    <Link key={director.id} to={`/person/${director.id}`}>
       {director.name}
       {index < array.length - 1 ? ", " : ""}
     </Link>
   ));
 
   const renderCasting = movieCasting.slice(0, 4).map((cast, index, array) => (
-    <Link key={cast.id} to={`/actors/${cast.id}`}>
+    <Link key={cast.id} to={`/person/${cast.id}`}>
       {cast.name}
       {index < array.length - 1 ? ", " : ""}
     </Link>
