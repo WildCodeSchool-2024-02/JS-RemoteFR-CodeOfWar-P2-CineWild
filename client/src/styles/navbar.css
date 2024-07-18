@@ -226,10 +226,11 @@
   }
 
   .search-content > form > button {
-    margin-left: 30rem;
+    margin-left: 20svw;
   }
   .search-content > form > input {
-    margin-right: 30rem;
+    margin-right: 20svw;
+    min-width: 400px;
   }
 }
 
