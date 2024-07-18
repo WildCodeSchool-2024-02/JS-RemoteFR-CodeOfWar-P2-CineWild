@@ -1,7 +1,5 @@
 import PropTypes from "prop-types";
-
 import { Link } from "react-router-dom";
-
 import noAvatar from "../assets/images/no_avatar.jpg";
 
 export default function PersonResult({ person }) {

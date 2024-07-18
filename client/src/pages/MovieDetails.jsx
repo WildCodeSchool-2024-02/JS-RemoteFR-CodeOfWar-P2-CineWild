@@ -7,12 +7,10 @@ import ExpandableText from "../components/ExpandableText";
 import { yearDate, frenchDate, hourMin, cleanString } from "../utils/functions";
 import ActorThumb from "../components/ActorThumb";
 import camera from "../assets/images/camera.jpg";
+import { useFavorites } from "../contexts/FavoritesContext";
+
 
 function MovieDetails() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
     slides: {
@@ -40,8 +38,36 @@ function MovieDetails() {
     },
   });
 
+  const [isWatchListed, setIsWatchListed] = useState("");
+  const handleClickWatchlist = () => {
+    setIsWatchListed(!isWatchListed);
+  };
+
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
   const movieCasting = moviePeople.cast.slice(0, 6);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const { favorite, setFavorite } = useFavorites();
+
+  if (!Array.isArray(favorite)) {
+    return null;
+  }
+
+  const isFavorite = favorite.some(
+    (favMovie) => favMovie.id === movieDetails.id
+  );
+
+  const addToFavorite = () => {
+    if (isFavorite) {
+      setFavorite((prevFavorites) =>
+        prevFavorites.filter((favMovie) => favMovie.id !== movieDetails.id)
+      );
+    } else {
+      setFavorite((prevFavorites) => [...prevFavorites, movieDetails]);
+    }
+  };
 
   function nativeName() {
     return movieDetails.origin_country
@@ -57,16 +83,6 @@ function MovieDetails() {
   const filteredCrew = moviePeople.crew
     .filter((person) => person.department === "Directing")
     .slice(0, 3);
-
-  const [isFavorite, setIsFavorite] = useState("");
-  const handleClickFavorite = () => {
-    setIsFavorite(!isFavorite);
-  };
-
-  const [isWatchListed, setIsWatchListed] = useState("");
-  const handleClickWatchlist = () => {
-    setIsWatchListed(!isWatchListed);
-  };
 
   const renderCrew = filteredCrew.map((director, index, array) => (
     <Link key={director.id} to={`/actors/${director.id}`}>
@@ -123,8 +139,8 @@ function MovieDetails() {
                   : movieDetails.vote_average.toFixed(1)}
               </li>
               <li>
-                <button onClick={handleClickFavorite} type="button">
-                  {isFavorite ? "❤️" : "🖤"}
+                <button type="button" onClick={addToFavorite}>
+                  {isFavorite ? "❤️" : "🤍"}
                 </button>
               </li>
               <li>
@@ -147,7 +163,7 @@ function MovieDetails() {
             <span className="crew">{renderCrew}</span>
           </li>
           <li>
-            <span className="blue-Font">En salle depuis :</span>
+            <span className="blue-Font">Sortie en salle le :</span>
             <span> {frenchDate(movieDetails.release_date)}</span>
           </li>
 

@@ -3,8 +3,6 @@
   height: 100%;
   background-size: contain;
   background-position: center;
-  /*  opacity:
-  filter: brightness(%)*/
 }
 
 .posterPicture {
@@ -67,7 +65,8 @@
   font-weight: bold;
 }
 .buttonSalmon:hover {
-  color: var(--blue);
+  background-color: var(--blue);
+  opacity: 80%;
 }
 .background-random {
   height: 20rem;
