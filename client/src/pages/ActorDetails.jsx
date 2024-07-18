@@ -91,7 +91,7 @@ function ActorDetails() {
             alt={actorDetails.name}
           />
         ) : (
-          <img src={noAvatar} alt={actorDetails.name} />
+          <img src={noAvatar} alt={actorDetails.name} className="actor_img" />
         )}
 
         <div className="actordetails">

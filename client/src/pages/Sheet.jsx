@@ -77,7 +77,7 @@ function Sheet() {
                 alt={`Back to${movieDetails.title}`}
               />
             ) : (
-              <img src={camera} className="camera" alt={movieDetails.title} />
+              <img src={camera} className="brokeImg" alt={movieDetails.title} />
             )}
           </Link>
           <h2>{movieDetails.title}</h2>
