@@ -188,7 +188,7 @@
         to top,
         var(--blue) 0%,
         var(--blue) 10%,
-        transparent 10.01%
+        transparent 10%
       )
       no-repeat left bottom / 0 100%;
     transition: background-size 0.4s;

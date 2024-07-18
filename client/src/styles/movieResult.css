@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+.resultContent > a > img:hover {
+  opacity: 0.4;
+}
+
 .resultContent > ul {
   margin-top: 1rem;
 }
