@@ -35,15 +35,28 @@
 }
 
 .userInformations {
-  font-weight: bolder;
-  width: 100%;
-  margin-bottom: 1.25em;
-  height: 40px;
+  padding: 11px 10px;
+  border: 1px gray solid;
   border-radius: 5px;
-  border: 1px solid gray;
-  padding: 0.8em;
+  background: var(--black);
+  color: var(--white);
+  font-weight: bolder;
 }
 
 .titleInformations {
-  margin-top: 1rem;
+  font-size: 0.7rem;
+  color: var(--white);
+  font-weight: 700;
+  position: relative;
+  top: 0.8rem;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  background: var(--black);
+  width: fit-content;
+}
+
+@media screen and (min-width: 1024px) {
+  .backgroundUserImg {
+    padding-inline: 20svw;
+  }
 }

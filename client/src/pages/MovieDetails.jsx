@@ -6,12 +6,9 @@ import { useKeenSlider } from "keen-slider/react";
 import ExpandableText from "../components/ExpandableText";
 import { yearDate, frenchDate, hourMin, cleanString } from "../utils/functions";
 import ActorThumb from "../components/ActorThumb";
+import { useFavorites } from "../contexts/FavoritesContext";
 
 function MovieDetails() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
     slides: {
@@ -39,8 +36,36 @@ function MovieDetails() {
     },
   });
 
+  const [isWatchListed, setIsWatchListed] = useState("");
+  const handleClickWatchlist = () => {
+    setIsWatchListed(!isWatchListed);
+  };
+
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
   const movieCasting = moviePeople.cast.slice(0, 6);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const { favorite, setFavorite } = useFavorites();
+
+  if (!Array.isArray(favorite)) {
+    return null;
+  }
+
+  const isFavorite = favorite.some(
+    (favMovie) => favMovie.id === movieDetails.id
+  );
+
+  const addToFavorite = () => {
+    if (isFavorite) {
+      setFavorite((prevFavorites) =>
+        prevFavorites.filter((favMovie) => favMovie.id !== movieDetails.id)
+      );
+    } else {
+      setFavorite((prevFavorites) => [...prevFavorites, movieDetails]);
+    }
+  };
 
   function nativeName() {
     return movieDetails.origin_country
@@ -57,20 +82,20 @@ function MovieDetails() {
     .filter((person) => person.department === "Directing")
     .slice(0, 3);
 
-  const [isFavorite, setIsFavorite] = useState("");
-  const handleClickFavorite = () => {
-    setIsFavorite(!isFavorite);
-  };
+  const renderCrew = filteredCrew.map((director, index, array) => (
+    <Link key={director.id} to={`/actors/${director.id}`}>
+      {director.name}
+      {index < array.length - 1 ? ", " : ""}
+    </Link>
+  ));
 
-  const [isWatchListed, setIsWatchListed] = useState("");
-  const handleClickWatchlist = () => {
-    setIsWatchListed(!isWatchListed);
-  };
+  const renderCasting = movieCasting.slice(0, 4).map((cast, index, array) => (
+    <Link key={cast.id} to={`/actors/${cast.id}`}>
+      {cast.name}
+      {index < array.length - 1 ? ", " : ""}
+    </Link>
+  ));
 
-  const renderCrew = filteredCrew.map((director) => `${director.name}, `);
-  const renderCasting = movieCasting
-    .slice(0, 4)
-    .map((cast) => `${cast.name}, `);
   const renderGenres = movieDetails.genres.map((genre) => `${genre.name}, `);
 
   return (
@@ -108,8 +133,8 @@ function MovieDetails() {
                   : movieDetails.vote_average.toFixed(1)}
               </li>
               <li>
-                <button onClick={handleClickFavorite} type="button">
-                  {isFavorite ? "❤️" : "🖤"}
+                <button type="button" onClick={addToFavorite}>
+                  {isFavorite ? "❤️" : "🤍"}
                 </button>
               </li>
               <li>
@@ -129,7 +154,7 @@ function MovieDetails() {
         <ul>
           <li>
             <span className="blue-Font">Dirigés par : </span>
-            <span>{cleanString(renderCrew)}</span>
+            <span className="crew">{renderCrew}</span>
           </li>
           <li>
             <span className="blue-Font">Sortie en salle le :</span>
@@ -138,7 +163,7 @@ function MovieDetails() {
 
           <li>
             <span className="blue-Font">Casting principal : </span>
-            <span className="casting">{cleanString(renderCasting)}</span>
+            <span className="casting">{renderCasting}</span>
           </li>
           <li>
             <span className="blue-Font">Pays d'origine : </span>

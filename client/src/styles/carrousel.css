@@ -28,6 +28,9 @@
   border-radius: 20px;
   padding-bottom: 0.5rem;
 }
+.posterCarrouselPicture:hover {
+  opacity: 0.4;
+}
 
 /*Parti film + vote favoris*/
 #film {

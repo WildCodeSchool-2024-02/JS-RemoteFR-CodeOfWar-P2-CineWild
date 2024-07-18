@@ -168,6 +168,22 @@ a:hover {
   color: var(--blue);
 }
 
+.crew a {
+  color: var(--white);
+}
+
+.crew a:hover {
+  color: var(--salmon);
+}
+
+.casting a {
+  color: var(--white);
+}
+
+.casting a:hover {
+  color: var(--salmon);
+}
+
 .casting h3 {
   padding-bottom: 1rem;
   padding-top: 1rem;

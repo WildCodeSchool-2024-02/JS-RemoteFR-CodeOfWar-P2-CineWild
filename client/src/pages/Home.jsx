@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import RandomMovie from "../components/RandomMovie";
 import Carrousel from "../components/Carrousel";
 import PopularMovies from "../components/PopularMovies";
-import PlayingMovies from "../components/NowPlaying";
+import PlayingMovies from "../components/PlayingMovies";
 
 function Home() {
   useEffect(() => {

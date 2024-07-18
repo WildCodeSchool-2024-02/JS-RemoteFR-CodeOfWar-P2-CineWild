@@ -5,7 +5,7 @@ import MovieThumb from "../components/MovieThumb";
 function Favoris() {
   const { favorite, setFavorite } = useFavorites();
   return (
-    <>
+    <section className="favorite-page">
       <h1>Mes favoris</h1>
       <div className="myFavoriteMovies">
         {favorite.map((movie, index) => (
@@ -15,7 +15,7 @@ function Favoris() {
           />
         ))}
       </div>
-    </>
+    </section>
   );
 }
 
