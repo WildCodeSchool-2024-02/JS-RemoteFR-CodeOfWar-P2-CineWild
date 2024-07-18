@@ -3,6 +3,14 @@
   flex-direction: column;
 }
 
+.sheetCrew {
+  color: var(--white);
+}
+
+.sheetCrew:hover {
+  color: var(--salmon);
+}
+
 @media screen and (min-width: 1024px) {
   .sheet {
     padding-left: 2rem;
