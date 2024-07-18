@@ -52,6 +52,15 @@
   font-size: 1.25rem;
 }
 
+.titleMovie ul li {
+  display: flex;
+}
+
+.titleMovie ul {
+  display: flex;
+  gap: 1.25rem;
+}
+
 .buttonSalmon {
   all: unset;
   width: 10rem;

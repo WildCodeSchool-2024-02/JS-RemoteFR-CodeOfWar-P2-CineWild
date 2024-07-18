@@ -4,9 +4,11 @@ import "../styles/carrousel.css";
 import PropTypes from "prop-types";
 import MovieThumb from "./MovieThumb";
 import { useFavorites } from "../contexts/FavoritesContext";
+import { useWatchlist } from "../contexts/WatchlistContext";
 
 function PopularMovies({ popularMovies }) {
   const { favorite, setFavorite } = useFavorites();
+  const { listed, setListed } = useWatchlist();
 
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
@@ -40,7 +42,7 @@ function PopularMovies({ popularMovies }) {
       <div ref={sliderRef} className="keen-slider">
         {popularMovies.map((movie, index) => (
           <MovieThumb
-            tools={{ movie, index, favorite, setFavorite }}
+            tools={{ movie, index, favorite, setFavorite, listed, setListed }}
             key={movie.id}
           />
         ))}
