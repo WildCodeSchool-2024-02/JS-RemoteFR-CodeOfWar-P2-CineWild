@@ -6,7 +6,9 @@ import { useKeenSlider } from "keen-slider/react";
 import ExpandableText from "../components/ExpandableText";
 import { yearDate, frenchDate, hourMin, cleanString } from "../utils/functions";
 import ActorThumb from "../components/ActorThumb";
+import camera from "../assets/images/camera.jpg";
 import { useFavorites } from "../contexts/FavoritesContext";
+
 
 function MovieDetails() {
   const [sliderRef] = useKeenSlider({
@@ -111,11 +113,15 @@ function MovieDetails() {
         </div>
         <h1>{movieDetails.title}</h1>
         <ul className="movieCardContent">
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}&language=fr-FR`}
-            alt=""
-            className="frontImg"
-          />
+          {movieDetails.poster_path ? (
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}&language=fr-FR`}
+              alt=""
+              className="frontImg"
+            />
+          ) : (
+            <img src={camera} alt={movieDetails.title} className="brokeImg" />
+          )}
           <div className="movieCardList">
             <li className="title-movie">{movieDetails.original_title}</li>
             <li className="date-movie">
