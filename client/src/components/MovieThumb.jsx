@@ -58,7 +58,8 @@ function MovieThumb({ tools }) {
           />
         )}
       </Link>
-      {movie.title}
+      <p className="thumbtitle">{movie.title}</p>
+
       <span className="vote-favorite">
         ⭐
         {movie.vote_average === 0.0
