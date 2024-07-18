@@ -21,6 +21,11 @@
   height: 26px;
 }
 
+.searchbaricon:hover {
+  filter: invert(29%) sepia(77%) saturate(3366%) hue-rotate(174deg)
+    brightness(93%) contrast(86%);
+}
+
 .navbuttons {
   display: flex;
   justify-content: space-between;
@@ -186,10 +191,10 @@
     font-weight: bold;
     display: flex;
     list-style-type: none;
-    gap: 0.5rem;
+    gap: 2rem;
+    margin-left: 1rem;
     align-items: center;
     max-height: none;
-    gap: 1rem;
   }
 
   .navigation.open {
@@ -204,6 +209,13 @@
     flex-basis: 0;
     justify-content: space-between;
     padding-inline: 18svw;
+  }
+
+  .search-content > form > button {
+    margin-left: 30rem;
+  }
+  .search-content > form > input {
+    margin-right: 30rem;
   }
 }
 

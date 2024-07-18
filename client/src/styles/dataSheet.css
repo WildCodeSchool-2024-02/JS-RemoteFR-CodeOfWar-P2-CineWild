@@ -3,6 +3,14 @@
   flex-direction: column;
 }
 
+.sheetCrew {
+  color: var(--white);
+}
+
+.sheetCrew:hover {
+  color: var(--salmon);
+}
+
 /* Région header*/
 .head-sheet {
   display: flex;
@@ -105,5 +113,31 @@
   .sheet .brokeImg {
     height: 12rem;
     margin-top: 1.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sheet {
+    padding-left: 2rem;
+    margin-right: 6rem;
+  }
+
+  .dataSheet {
+    padding-top: 0rem;
+    margin-left: 1rem;
+  }
+  .sheet .casting {
+    margin-left: 1rem;
+  }
+
+  .sheet .separator-dataHead,
+  .sheet .separator-dataCast-mobile {
+    height: 2px;
+    background-color: var(--salmon);
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+  }
+  .sheet .separator-dataCast {
+    display: none;
   }
 }

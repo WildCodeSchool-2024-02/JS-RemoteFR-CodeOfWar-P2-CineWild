@@ -15,16 +15,43 @@ function Sheet() {
   }, []);
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
   const movieCasting = moviePeople.cast;
-  const productCrew = moviePeople.crew.filter(
-    (person) => person.department === "Production"
-  );
+
+  const productCrew = moviePeople.crew
+    .filter((person) => person.department === "Production")
+    .slice(0, 10);
+
+  const renderProductCrew = productCrew.map((productor, index, array) => (
+    <Link
+      className="sheetCrew"
+      key={productor.id}
+      to={`/actors/${productor.id}`}
+    >
+      {productor.name}
+      {index < array.length - 1 ? ", " : ""}
+    </Link>
+  ));
+
   const directingCrew = moviePeople.crew.filter(
     (person) => person.department === "Directing"
   );
 
-  const editeurCrew = moviePeople.crew.filter(
+  const renderDirectingCrew = directingCrew.map((director, index, array) => (
+    <Link className="sheetCrew" key={director.id} to={`/actors/${director.id}`}>
+      {director.name}
+      {index < array.length - 1 ? ", " : ""}
+    </Link>
+  ));
+
+  const editorCrew = moviePeople.crew.filter(
     (person) => person.department === "Editing"
   );
+
+  const renderEditorCrew = editorCrew.map((editor, index, array) => (
+    <Link className="sheetCrew" key={editor.id} to={`/actors/${editor.id}`}>
+      {editor.name}
+      {index < array.length - 1 ? ", " : ""}
+    </Link>
+  ));
 
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
@@ -119,27 +146,15 @@ function Sheet() {
             </li>
             <li>
               <span className="blue-Font">Directeurs : </span>
-              <span>
-                {cleanString(
-                  directingCrew.map((directeur) => `${directeur.name}, `)
-                )}
-              </span>
+              <span>{renderDirectingCrew}</span>
             </li>
             <li>
               <span className="blue-Font">Editeurs : </span>
-              <span>
-                {cleanString(editeurCrew.map((editeur) => `${editeur.name}, `))}
-              </span>
+              <span>{renderEditorCrew}</span>
             </li>
             <li>
               <span className="blue-Font">Producteurs : </span>
-              <span>
-                <ExpandableText
-                  text={cleanString(
-                    productCrew.map((production) => `${production.name}, `)
-                  )}
-                />
-              </span>
+              <span>{renderProductCrew}</span>
             </li>
             <li>
               <span className="blue-Font">Synopsis : </span>
