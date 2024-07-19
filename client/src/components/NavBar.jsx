@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../styles/navbar.css";
+import logoCw from "../assets/images/logocw.svg";
+import loupe from "../assets/images/loupe.svg";
 
 function NavBar() {
   const [searchbar, setSearchbar] = useState(false);
@@ -55,7 +57,7 @@ function NavBar() {
               <li>
                 <Link to="/">
                   <img
-                    src="../src/assets/images/logocw.svg"
+                    src={logoCw}
                     className="logocw"
                     alt="Logo - Back to home page"
                   />
@@ -82,11 +84,7 @@ function NavBar() {
                 className="btn_search"
                 onClick={toggleSearch}
               >
-                <img
-                  src="../src/assets/images/loupe.svg"
-                  className="searchbaricon"
-                  alt="Loupe"
-                />
+                <img src={loupe} className="searchbaricon" alt="Loupe" />
               </button>
             </li>
           </div>
