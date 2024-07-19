@@ -6,6 +6,7 @@ import "../styles/actorDetails.css";
 import MovieThumb from "../components/MovieThumb";
 import { frenchDate } from "../utils/functions";
 import { useFavorites } from "../contexts/FavoritesContext";
+import { useWatchlist } from "../contexts/WatchlistContext";
 import noAvatar from "../assets/images/no_avatar.jpg";
 
 function ActorDetails() {
@@ -14,6 +15,7 @@ function ActorDetails() {
   }, []);
   const { actorDetails, actorMovies } = useLoaderData();
   const { favorite, setFavorite } = useFavorites();
+  const { listed, setListed } = useWatchlist();
 
   // Show age or age when deceased for a person
   function calculateAge(birthdayDate, deathdayDate) {
@@ -131,7 +133,7 @@ function ActorDetails() {
         <div ref={sliderRef} className="keen-slider">
           {actorMovies.map((movie, index) => (
             <MovieThumb
-              tools={{ movie, index, favorite, setFavorite }}
+              tools={{ movie, index, favorite, setFavorite, listed, setListed }}
               key={movie.id}
             />
           ))}

@@ -3,7 +3,23 @@ import PropTypes from "prop-types";
 import camera from "../assets/images/camera.jpg";
 
 function MovieThumb({ tools }) {
-  const { movie, index, favorite, setFavorite } = tools;
+  const { movie, index, favorite, setFavorite, listed, setListed } = tools;
+
+  if (!Array.isArray(listed)) {
+    return null;
+  }
+
+  const isWatchListed = listed.some((watchMovie) => watchMovie.id === movie.id);
+
+  const addToWatchlist = () => {
+    if (isWatchListed) {
+      setListed((prevListed) =>
+        prevListed.filter((watchMovie) => watchMovie.id !== movie.id)
+      );
+    } else {
+      setListed((prevListed) => [...prevListed, movie]);
+    }
+  };
 
   if (!Array.isArray(favorite)) {
     return null;
@@ -42,7 +58,8 @@ function MovieThumb({ tools }) {
           />
         )}
       </Link>
-      {movie.title}
+      <p className="thumbtitle">{movie.title}</p>
+
       <span className="vote-favorite">
         ⭐
         {movie.vote_average === 0.0
@@ -50,6 +67,13 @@ function MovieThumb({ tools }) {
           : movie.vote_average.toFixed(1)}
         <button type="button" onClick={addToFavorite}>
           {isFavorite ? "❤️" : "🤍"}
+        </button>
+        <button
+          type="button"
+          className="watchlistbutton"
+          onClick={addToWatchlist}
+        >
+          {isWatchListed ? "✔️" : "📌"}
         </button>
       </span>
     </div>

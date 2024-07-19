@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "../styles/moviedetails.css";
 import { useLoaderData, Link } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
@@ -8,6 +8,7 @@ import { yearDate, frenchDate, hourMin, cleanString } from "../utils/functions";
 import ActorThumb from "../components/ActorThumb";
 import camera from "../assets/images/camera.jpg";
 import { useFavorites } from "../contexts/FavoritesContext";
+import { useWatchlist } from "../contexts/WatchlistContext";
 
 function MovieDetails() {
   const [sliderRef] = useKeenSlider({
@@ -37,11 +38,6 @@ function MovieDetails() {
     },
   });
 
-  const [isWatchListed, setIsWatchListed] = useState("");
-  const handleClickWatchlist = () => {
-    setIsWatchListed(!isWatchListed);
-  };
-
   const { moviePeople, movieDetails, movieCountries } = useLoaderData();
   const movieCasting = moviePeople.cast.slice(0, 6);
   useEffect(() => {
@@ -49,6 +45,25 @@ function MovieDetails() {
   }, []);
 
   const { favorite, setFavorite } = useFavorites();
+  const { listed, setListed } = useWatchlist();
+
+  if (!Array.isArray(listed)) {
+    return null;
+  }
+
+  const isWatchListed = listed.some(
+    (watchMovie) => watchMovie.id === movieDetails.id
+  );
+
+  const addToWatchlist = () => {
+    if (isWatchListed) {
+      setListed((prevListed) =>
+        prevListed.filter((watchMovie) => watchMovie.id !== movieDetails.id)
+      );
+    } else {
+      setListed((prevListed) => [...prevListed, movieDetails]);
+    }
+  };
 
   if (!Array.isArray(favorite)) {
     return null;
@@ -144,11 +159,11 @@ function MovieDetails() {
               </li>
               <li>
                 <button
-                  className="watchlistbutton"
-                  onClick={handleClickWatchlist}
                   type="button"
+                  className="watchlistbutton"
+                  onClick={addToWatchlist}
                 >
-                  {isWatchListed ? "Watchlist ✔️ " : "Watchlist 📌"}
+                  {isWatchListed ? "✔️" : "📌"}
                 </button>
               </li>
             </ul>

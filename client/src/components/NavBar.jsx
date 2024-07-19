@@ -71,6 +71,9 @@ function NavBar() {
                 <Link to="/favoris" onClick={closeMenu}>
                   <li>Favoris</li>
                 </Link>
+                <Link to="/watchlist" onClick={closeMenu}>
+                  <li>Watchlist</li>
+                </Link>
               </div>
             </div>
             <li>

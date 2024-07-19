@@ -23,3 +23,8 @@ p {
 main {
   min-height: 80vh;
 }
+
+.thumbtitle {
+  display: flex;
+  text-align: center;
+}

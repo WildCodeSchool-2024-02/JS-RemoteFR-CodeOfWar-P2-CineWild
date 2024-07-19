@@ -105,6 +105,10 @@ li.date-movie {
   justify-content: space-between;
 }
 
+.scoreandbuttons li {
+  font-weight: 600;
+}
+
 .scoreandbuttons button {
   padding: 0;
 }

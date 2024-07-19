@@ -29,6 +29,8 @@ import ActorList from "./pages/ActorList";
 import Sheet from "./pages/Sheet";
 import ActorDetails from "./pages/ActorDetails";
 import FavoritesProvider from "./contexts/FavoritesContext";
+import WatchlistProvider from "./contexts/WatchlistContext";
+import Watchlist from "./pages/Watchlist";
 
 const router = createBrowserRouter([
   {
@@ -89,6 +91,10 @@ const router = createBrowserRouter([
         element: <Favoris />,
       },
       {
+        path: "/watchlist",
+        element: <Watchlist />,
+      },
+      {
         path: "/user",
         element: <User />,
       },
@@ -108,8 +114,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <FavoritesProvider>
-      <RouterProvider router={router} />
-    </FavoritesProvider>
+    <WatchlistProvider>
+      <FavoritesProvider>
+        <RouterProvider router={router} />
+      </FavoritesProvider>
+    </WatchlistProvider>
   </React.StrictMode>
 );
