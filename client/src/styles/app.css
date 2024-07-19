@@ -1,0 +1,30 @@
+@import url("https://fonts.cdnfonts.com/css/league-spartan");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: var(--main-font);
+}
+
+:root {
+  --salmon: #ff7e6b;
+  --black: #0f0f0f;
+  --white: #f5f5f5;
+  --blue: #1282a2;
+  --green: #58b09c;
+  --main-font: "League Spartan", sans-serif;
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+main {
+  min-height: 80vh;
+}
+
+.thumbtitle {
+  display: flex;
+  text-align: center;
+}

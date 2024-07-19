@@ -1,0 +1,308 @@
+:root {
+  --salmon: #ff7e6b;
+  --black: #0f0f0f;
+  --white: #f5f5f5;
+  --blue: #1282a2;
+  --green: #58b09c;
+}
+
+/* #region ----- General */
+
+h1,
+li,
+ul,
+p,
+h3 {
+  color: var(--white);
+}
+
+.blue-Font {
+  color: var(--blue);
+}
+
+main {
+  background-color: var(--black);
+  padding: 1.25rem;
+}
+
+button {
+  all: unset;
+  text-decoration: none;
+  color: var(--blue);
+}
+
+/* #region ----- Movie Card */
+.movieCard {
+  width: auto;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.movieCard h1 {
+  margin-top: 2.5rem;
+  font-size: 1.25rem;
+  padding-bottom: 0.75rem;
+  font-weight: 600;
+  position: relative;
+  text-decoration: none;
+  padding-left: 0.5rem;
+}
+
+.frontImg {
+  width: 5rem;
+  height: 8rem;
+  border-radius: 6px;
+}
+
+.brokeImg {
+  width: 5rem;
+  height: 8rem;
+  border-radius: 6px;
+}
+
+.movieCard ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.movieCard li {
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+.watchlistbutton {
+  color: var(--white);
+}
+
+.movieCardList {
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 20px;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+li.title-movie {
+  font-size: 18px;
+  opacity: 90%;
+}
+
+li.date-movie {
+  font-size: 16px;
+  opacity: 85%;
+}
+
+.genre-movie p {
+  font-size: 17px;
+}
+
+.scoreandbuttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.scoreandbuttons li {
+  font-weight: 600;
+}
+
+.scoreandbuttons button {
+  padding: 0;
+}
+
+.film-background {
+  height: 15rem;
+  width: auto;
+  background-size: cover;
+  background-position: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: -15.5rem;
+  opacity: 0.3;
+}
+.movieCardContent {
+  position: absolute;
+  padding-left: 0.5rem;
+}
+
+/* #region ----- Movie Description */
+
+.movieDescription {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-top: 11rem;
+}
+
+.movieDescription li {
+  list-style: none;
+  line-height: 2rem;
+}
+
+.casting li {
+  display: flex;
+  flex-direction: row;
+}
+
+.separator-movieCard {
+  height: 2px;
+  background-color: var(--salmon);
+  margin: 1rem;
+}
+
+/* #region ----- Synopsis */
+
+.synopsis h3 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.synopsis p {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 26px;
+}
+
+.fullDetails {
+  padding-bottom: 1rem;
+  font-weight: 600;
+}
+a {
+  text-decoration: none;
+  color: var(--salmon);
+}
+a:hover {
+  color: var(--blue);
+}
+
+.crew a {
+  color: var(--white);
+}
+
+.crew a:hover {
+  color: var(--salmon);
+}
+
+.casting a {
+  color: var(--white);
+}
+
+.casting a:hover {
+  color: var(--salmon);
+}
+
+.casting h3 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+}
+
+/* #region ----- Version Desktop */
+
+@media screen and (min-width: 1024px) {
+  main {
+    padding-inline: 20svw;
+  }
+
+  .film-background {
+    height: 40svw;
+    opacity: 0.3;
+    margin-bottom: -22rem;
+    max-height: 400px;
+  }
+
+  img.frontImg {
+    height: 300px;
+    width: auto;
+  }
+
+  .brokeImg {
+    height: 300px;
+    width: auto;
+    border-radius: 6px;
+  }
+
+  div.movieDescription {
+    margin-top: 10rem;
+    padding-bottom: 2rem;
+  }
+
+  .movieDescription li {
+    line-height: 3rem;
+  }
+
+  ul.movieCardContent {
+    padding: 1rem;
+  }
+  .movieCard h1 {
+    font-size: 2rem;
+    padding-inline: 1rem;
+    margin-top: 0;
+  }
+
+  .fullDetails {
+    padding-bottom: 0;
+    font-weight: 600;
+  }
+
+  .synopsis h3 {
+    font-size: 2rem;
+    padding-top: 2rem;
+  }
+
+  .synopsis p {
+    line-height: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .movieCardList {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  li.title-movie {
+    opacity: 80%;
+    font-weight: 600;
+  }
+
+  li.date-movie {
+    opacity: 80%;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .genre-movie p {
+    font-weight: 600;
+    opacity: 80%;
+  }
+
+  ul.scoreandbuttons {
+    font-size: 22px;
+  }
+
+  .casting h3 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 536px) and (max-width: 1023px) {
+  main {
+    padding-inline: 14svw;
+  }
+
+  .brokeImg {
+    margin-top: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .brokeImg {
+    margin-top: 1.5rem;
+  }
+}
+
+/*  #endregion */

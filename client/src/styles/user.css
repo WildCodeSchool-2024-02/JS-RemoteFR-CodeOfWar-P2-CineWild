@@ -1,0 +1,62 @@
+.headerUser {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.backgroundUser {
+  position: absolute;
+  margin-bottom: 6rem;
+}
+
+.backgroundUserImg {
+  width: 100%;
+}
+
+.avatarUser {
+  position: relative;
+}
+
+.avatarUserImg {
+  width: 15rem;
+  border-radius: 50%;
+  border: 8px solid #0f0f0f;
+  background-color: #0f0f0f;
+}
+
+.informationsUser {
+  position: relative;
+}
+
+.titleInformationsUser {
+  color: #f0f0f0;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.userInformations {
+  padding: 11px 10px;
+  border: 1px gray solid;
+  border-radius: 5px;
+  background: var(--black);
+  color: var(--white);
+  font-weight: bolder;
+}
+
+.titleInformations {
+  font-size: 0.7rem;
+  color: var(--white);
+  font-weight: 700;
+  position: relative;
+  top: 0.8rem;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  background: var(--black);
+  width: fit-content;
+}
+
+@media screen and (min-width: 1024px) {
+  .backgroundUserImg {
+    padding-inline: 20svw;
+  }
+}

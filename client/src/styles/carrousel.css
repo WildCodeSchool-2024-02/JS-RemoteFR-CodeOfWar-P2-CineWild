@@ -1,0 +1,46 @@
+.carrousel-title {
+  font-size: var(--main-font);
+  font-size: 2rem;
+  text-decoration: underline;
+  text-decoration-color: var(--salmon);
+  padding: 2rem 0rem 1rem 0rem;
+}
+.carrousel-title:hover {
+  text-decoration-color: var(--blue);
+}
+
+/*Fonctions du carrousel*/
+.carrousel-home {
+  padding-top: 3rem;
+}
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+  align-items: center;
+  color: var(--white);
+  background: var(--black);
+  font-weight: bold;
+}
+
+.posterCarrouselPicture {
+  width: 100%;
+  height: 15.5rem;
+  border-radius: 20px;
+  padding-bottom: 0.5rem;
+}
+.posterCarrouselPicture:hover {
+  opacity: 0.4;
+}
+
+/*Parti film + vote favoris*/
+#film {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+}
+
+.vote-favorite {
+  display: flex;
+  gap: 1.5rem;
+}

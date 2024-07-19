@@ -1,0 +1,38 @@
+.actorPopularList h1 {
+  font-size: 2rem;
+  text-decoration: underline;
+  text-decoration-color: var(--salmon);
+  padding-bottom: 2rem;
+}
+.actorPopularList h1:hover {
+  text-decoration-color: var(--blue);
+}
+/*Zone liste acteur */
+.actorCard > h2 {
+  font-size: var(--main-font);
+  color: var(--white);
+  padding-top: 1rem;
+}
+.actorList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.actorCard {
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+  width: 150px;
+  justify-content: space-between;
+}
+
+.actorCardContent {
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+}
+.actorCardContent:hover {
+  opacity: 0.4;
+}

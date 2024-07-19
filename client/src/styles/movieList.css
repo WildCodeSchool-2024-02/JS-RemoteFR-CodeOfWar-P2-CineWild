@@ -1,0 +1,40 @@
+.list h1 {
+  font-size: 2rem;
+  text-decoration: underline;
+  text-decoration-color: var(--salmon);
+  padding-bottom: 2rem;
+}
+
+.list h1:hover {
+  text-decoration-color: var(--blue);
+}
+
+/*Zone liste film */
+.movieListCard > h2 {
+  font-size: var(--main-font);
+  color: var(--white);
+  padding-top: 1rem;
+}
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.movieListCard {
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+  width: 150px;
+  justify-content: space-between;
+}
+
+.movieListCardContent {
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+}
+.movieListCardContent:hover {
+  opacity: 0.4;
+}

@@ -1,0 +1,27 @@
+* {
+  font-family: var(--main-font);
+}
+.favorite-page h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--salmon);
+}
+.favorite-page h1:hover {
+  text-decoration-color: var(--blue);
+}
+.myFavoriteMovies {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 800px;
+  padding-top: 1rem;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .myFavoriteMovies {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+    max-width: 1500px;
+  }
+}

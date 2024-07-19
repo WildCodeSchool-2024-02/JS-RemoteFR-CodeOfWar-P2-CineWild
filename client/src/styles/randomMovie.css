@@ -1,0 +1,90 @@
+.cardRandom {
+  width: auto;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+}
+
+.posterPicture {
+  border-radius: 1rem;
+  width: auto;
+  height: 15.5rem;
+  margin-right: 1rem;
+}
+@media screen and (max-width: 440px) {
+  .posterPicture {
+    border-radius: 1rem;
+    width: auto;
+    height: 10rem;
+  }
+  .informationsMovie {
+    padding-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 380px) and (max-width: 439px) {
+  .posterPicture {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.informationsMovie {
+  display: flex;
+  align-items: center;
+  margin: 0.25rem;
+  margin-bottom: 0.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.titleMovie {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 0.75rem;
+  gap: 0.5rem;
+}
+
+.titleMovie h1 {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.titleMovie ul li {
+  display: flex;
+  font-weight: 600;
+}
+
+.titleMovie ul {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.buttonSalmon {
+  all: unset;
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: var(--salmon);
+  color: var(--white);
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+}
+.buttonSalmon:hover {
+  background-color: var(--blue);
+  opacity: 80%;
+}
+.background-random {
+  height: 20rem;
+  width: auto;
+  background-size: cover;
+  background-position: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: -14.5rem;
+  opacity: 0.3;
+}
